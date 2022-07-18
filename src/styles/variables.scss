@@ -1,0 +1,10 @@
+$border-style: 1px solid #e7e7e7;
+$white-color: #ffffff;
+$light-gray-color: #fafafa;
+$dark-gray-color: #8e8f8f;
+
+@mixin layout($align: center, $justify: center) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+}
