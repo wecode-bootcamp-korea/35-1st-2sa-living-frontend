@@ -1,0 +1,26 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/common.scss';
+
+.card {
+  margin-bottom: 50px;
+  .card-name {
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 300;
+    color: #666;
+  }
+  .card-price {
+    font-size: 18px;
+    color: #333;
+    line-height: 24px;
+    font-weight: 500;
+  }
+
+  .card-img {
+    margin-bottom: 20px;
+  }
+
+  .card-name {
+    margin-bottom: 20px;
+  }
+}
