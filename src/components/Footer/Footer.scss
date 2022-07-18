@@ -1,0 +1,14 @@
+footer {
+  position: absolute;
+  bottom: 0;
+  padding: 60px 0 20px 0;
+  font-weight: 400;
+  width: 100%;
+  .inner {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 30px;
+    height: 266px;
+    background-color: red;
+  }
+}
