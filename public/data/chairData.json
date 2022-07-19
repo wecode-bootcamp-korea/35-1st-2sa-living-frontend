@@ -1,0 +1,87 @@
+[
+  {
+    "id": 1,
+    "image": "https://www.casa.co.kr/UploadFiles/Production/11/2/16042927592130.jpg_304.jpg",
+    "brandName": "HAY",
+    "productName": "팔리사드 쉐이즈 롱_올리브",
+    "price": 10000
+  },
+
+  {
+    "id": 2,
+    "image": "https://www.casa.co.kr/UploadFiles/Production/11/2/16042927592130.jpg_304.jpg",
+    "brandName": "APPLE",
+    "productName": "팔리사드 쉐이즈 롱_올리브",
+    "price": 10000
+  },
+  {
+    "id": 3,
+    "image": "https://www.casa.co.kr/UploadFiles/Production/11/2/16042927592130.jpg_304.jpg",
+    "brandName": "BANANA",
+    "productName": "팔리사드 쉐이즈 롱_올리브",
+    "price": 10000
+  },
+  {
+    "id": 4,
+    "image": "https://www.casa.co.kr/UploadFiles/Production/11/2/16042927592130.jpg_304.jpg",
+    "brandName": "ORANGE",
+    "productName": "팔리사드 쉐이즈 롱_올리브",
+    "price": 10000
+  },
+  {
+    "id": 5,
+    "image": "https://www.casa.co.kr/UploadFiles/Production/11/2/16042927592130.jpg_304.jpg",
+    "brandName": "LEMON",
+    "productName": "팔리사드 쉐이즈 롱_올리브",
+    "price": 10000
+  },
+  {
+    "id": 6,
+    "image": "https://www.casa.co.kr/UploadFiles/Production/11/2/16042927592130.jpg_304.jpg",
+    "brandName": "MANGO",
+    "productName": "팔리사드 쉐이즈 롱_올리브",
+    "price": 10000
+  },
+  {
+    "id": 7,
+    "image": "https://www.casa.co.kr/UploadFiles/Production/11/2/16042927592130.jpg_304.jpg",
+    "brandName": "KIWI",
+    "productName": "팔리사드 쉐이즈 롱_올리브",
+    "price": 10000
+  },
+  {
+    "id": 8,
+    "image": "https://www.casa.co.kr/UploadFiles/Production/11/2/16042927592130.jpg_304.jpg",
+    "brandName": "PEACH",
+    "productName": "팔리사드 쉐이즈 롱_올리브",
+    "price": 10000
+  },
+  {
+    "id": 9,
+    "image": "https://www.casa.co.kr/UploadFiles/Production/11/2/16042927592130.jpg_304.jpg",
+    "brandName": "TOMATO",
+    "productName": "팔리사드 쉐이즈 롱_올리브",
+    "price": 10000
+  },
+  {
+    "id": 10,
+    "image": "https://www.casa.co.kr/UploadFiles/Production/11/2/16042927592130.jpg_304.jpg",
+    "brandName": "AVOCADO",
+    "productName": "팔리사드 쉐이즈 롱_올리브",
+    "price": 10000
+  },
+  {
+    "id": 11,
+    "image": "https://www.casa.co.kr/UploadFiles/Production/11/2/16042927592130.jpg_304.jpg",
+    "brandName": "COCONUT",
+    "productName": "팔리사드 쉐이즈 롱_올리브",
+    "price": 10000
+  },
+  {
+    "id": 12,
+    "image": "https://www.casa.co.kr/UploadFiles/Production/11/2/16042927592130.jpg_304.jpg",
+    "brandName": "MELON",
+    "productName": "팔리사드 쉐이즈 롱_올리브",
+    "price": 10000
+  }
+]

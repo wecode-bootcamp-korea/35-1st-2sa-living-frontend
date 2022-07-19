@@ -1,0 +1,11 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/common.scss';
+@import '../../../styles/reset.scss';
+
+.card-list {
+  width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}

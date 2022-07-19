@@ -3,8 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
 import Main from './pages/Main/Main';
-import Cards from './pages/Cards/Cards';
-import Card from './pages/Cards/Card/Card';
+import CardsBox from './pages/CardsBox/CardsBox';
 
 function Router() {
   return (
@@ -12,7 +11,7 @@ function Router() {
       <Nav />
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/cards" element={<Cards />} />
+        <Route path="/cardsbox" element={<CardsBox />} />
       </Routes>
       <Footer />
     </BrowserRouter>
