@@ -30,8 +30,17 @@ const Slidebox = () => {
     <>
       <div className="slide-wrap">
         <ul className="slide" style={{ left: copy }}>
-          {item.map((els, idx) => {
-            return <Slideitem els={els} />;
+          {item.map(els => {
+            let { id, userName, imgUrl, content } = els;
+            return (
+              <Slideitem
+                id={id}
+                userName={userName}
+                imgUrl={imgUrl}
+                content={content}
+                key={els.id}
+              />
+            );
           })}
         </ul>
       </div>

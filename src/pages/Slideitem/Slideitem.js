@@ -1,14 +1,14 @@
 import React from 'react';
 
 const Slideitem = props => {
-  let els = props.els;
+  let { imgUrl, userName, content } = props;
   return (
     <li className="item">
       <div className="item-img">
-        <img src={els.imgUrl} />
+        <img src={imgUrl} alt="썸네일" />
       </div>
-      <div className="item-id">{els.userName}</div>
-      <div className="item-txt">{els.content}</div>
+      <div className="item-id">{userName}</div>
+      <div className="item-txt">{content}</div>
     </li>
   );
 };
