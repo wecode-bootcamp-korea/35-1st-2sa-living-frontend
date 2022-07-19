@@ -13,10 +13,21 @@ function Nav() {
           />
         </div>
         <ul className="menu">
-          <li>FURNITURE</li>
-          <li>HOMEWARE</li>
-          <li>LIGHTING</li>
-          <li>LIFE</li>
+          <li>
+            <a>SOFA</a>
+          </li>
+          <li>
+            <a>CHAIR</a>
+          </li>
+          <li>
+            <a>BED</a>
+          </li>
+          <li>
+            <a>TABLE</a>
+          </li>
+          <li>
+            <a>DRAWER</a>
+          </li>
         </ul>
         <div className="icon-box">
           <i class="fa-solid fa-magnifying-glass" />

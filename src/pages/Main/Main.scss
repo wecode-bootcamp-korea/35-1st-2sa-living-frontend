@@ -30,6 +30,7 @@ main {
             padding-top: 60px;
             font-weight: 300;
           }
+
           .txt-bottom {
             font-size: 48px;
             color: #333;
@@ -39,6 +40,22 @@ main {
             letter-spacing: -2.4px;
             text-align: center;
           }
+        }
+        .main-left-txt::after {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 50%;
+          width: 1px;
+          height: 0;
+          background: #b3b3b3;
+          transition: height 0.65s ease-out;
+        }
+      }
+      .main-01-left:hover {
+        .main-left-txt::after {
+          height: 40px;
         }
       }
 
@@ -70,12 +87,30 @@ main {
             background-image: url('https://www.casa.co.kr/UploadFiles/Banner/7/18/16581055756231.jpg');
             background-size: cover;
           }
+
           .right-top-top {
             position: absolute;
             font-size: 20px;
             font-weight: 400;
             line-height: 26px;
             padding: 55px 0 0 38px;
+          }
+
+          .right-top-top::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 0px;
+            height: 1px;
+            background: white;
+            transition: width 0.65s ease-out;
+          }
+        }
+        .right-top:hover {
+          .right-top-top::after {
+            width: 150px;
           }
         }
         .right-bottom {
@@ -95,10 +130,10 @@ main {
             height: auto;
             margin: auto;
             overflow: hidden;
-
             background-image: url('https://www.casa.co.kr/UploadFiles/Banner/7/1/16566353365872.jpg');
             background-size: cover;
           }
+
           .right-top-top {
             position: absolute;
             font-size: 20px;
@@ -106,6 +141,24 @@ main {
             line-height: 26px;
             padding: 55px 0 0 38px;
             color: white;
+          }
+
+          .right-top-top::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: white;
+            transition: width 0.65s ease-out;
+          }
+
+          .right-bottom-child:hover {
+            .right-top-top::after {
+              width: 195px;
+            }
           }
         }
       }
