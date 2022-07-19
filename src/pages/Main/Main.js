@@ -1,4 +1,7 @@
 import React from 'react';
+
+import Slidebox from '../Slidebox/Slidebox';
+
 import './Main.scss';
 
 const Main = () => {
@@ -32,6 +35,27 @@ const Main = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+      <section>
+        <div className="main-02">
+          <h3>
+            <span>CSLV 리뷰클럽</span>
+          </h3>
+          <div className="main-02-contents">
+            <Slidebox />
+          </div>
+        </div>
+      </section>
+      <section>
+        <div className="main-03">
+          <ul className="main-03-list">
+            <li>소파</li>
+            <li>체어</li>
+            <li>침대</li>
+            <li>테이블</li>
+            <li>수납</li>
+          </ul>
         </div>
       </section>
     </main>
