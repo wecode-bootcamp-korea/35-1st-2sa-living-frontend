@@ -3,14 +3,6 @@ import { Link } from 'react-router-dom';
 import './Nav.scss';
 
 function Nav() {
-  let navi = document.querySelector('nav');
-  window.addEventListener('scroll', function () {
-    if (100 <= window.scrollY) {
-      navi.style.borderBottom = '1px solid #d0d0d0';
-    } else {
-      navi.style.borderBottom = 'none';
-    }
-  });
   return (
     <nav>
       <div className="inner">
