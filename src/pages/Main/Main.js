@@ -56,6 +56,7 @@ const Main = () => {
             <li>테이블</li>
             <li>수납</li>
           </ul>
+          <div className="main-03-box" />
         </div>
       </section>
     </main>

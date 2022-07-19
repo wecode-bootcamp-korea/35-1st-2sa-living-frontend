@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import Slideitem from '../Slideitem/Slideitem';
 
 const Slidebox = () => {
-  let [leftValue, setLeftValue] = useState(0);
-  let [slideIdx, setSlideIndex] = useState(0);
-  let [item, setItem] = useState([]);
   useEffect(() => {
     fetch('http://localhost:3000/data/mainMockData.json')
       .then(response => response.json())
       .then(data => setItem(data));
   }, []);
+  let [leftValue, setLeftValue] = useState(0);
+  let [slideIdx, setSlideIndex] = useState(0);
+  let [item, setItem] = useState([]);
   let copy = leftValue + 'px';
 
   let prev = () => {
