@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Nav.scss';
 
 function Nav() {
@@ -14,19 +15,19 @@ function Nav() {
         </div>
         <ul className="menu">
           <li>
-            <a>SOFA</a>
+            <Link to="/">SOFA</Link>
           </li>
           <li>
-            <a>CHAIR</a>
+            <Link to="/">CHAIR</Link>
           </li>
           <li>
-            <a>BED</a>
+            <Link to="/">BED</Link>
           </li>
           <li>
-            <a>TABLE</a>
+            <Link to="/">TABLE</Link>
           </li>
           <li>
-            <a>DRAWER</a>
+            <Link to="/">DRAWER</Link>
           </li>
         </ul>
         <div className="icon-box">
