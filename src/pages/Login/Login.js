@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import facebookIcon from '..//../asset/images/facebook.png';
 import kakaoIcon from '..//../asset/images/kakao.png';
@@ -11,6 +11,30 @@ const Login = () => {
   const goToSignUp = () => {
     navigate('/signup');
   };
+  const goToMain = () => {
+    navigate('/');
+  };
+
+  const [email, setEmail] = useState('');
+  const [pwd, setPwd] = useState('');
+
+  const handleInputEmail = e => {
+    setEmail(e.target.value);
+  };
+
+  const handleInputPwd = e => {
+    setPwd(e.target.value);
+  };
+
+  const test = () => {
+    return email.includes('@') && pwdRegEx.test(pwd);
+  };
+
+  const pwdRegEx =
+    /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,12}$/;
+  /*('^(?=.*[a-z])(?=.*[A-Z]){8,}$');*/
+  const a = pwdRegEx.test(pwd);
+  console.log(a);
 
   return (
     <div>
@@ -20,20 +44,26 @@ const Login = () => {
           <input
             className="id-input"
             type="text"
-            placeholder="아이디를 입력하세요"
+            placeholder="이메일을 입력하세요"
+            onChange={handleInputEmail}
+            value={email}
           />
           <input
             className="pwd-input"
             type="text"
             placeholder="비밀번호를 입력하세요"
+            onChange={handleInputPwd}
+            value={pwd}
           />
-          <button className="login-btn">LOGIN</button>
+          <button className="login-btn" onClick={goToMain} disabled={!a}>
+            LOGIN
+          </button>
           <p class="bottom-check">
             <span className="id-checkbox">
               <input type="checkbox" id="save" />
-              <span className="id-save">아이디 저장</span>
+              <span className="id-save">이메일 저장</span>
             </span>
-            <span className="find-account-link">| 아이디 / 비밀번호 찾기 </span>
+            <span className="find-account-link">| 이메일 / 비밀번호 찾기 </span>
             <span className="register-link" onClick={goToSignUp}>
               | 회원가입
             </span>
