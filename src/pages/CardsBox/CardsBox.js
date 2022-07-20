@@ -30,18 +30,10 @@ function CardsBox() {
       <div className="cards-container">
         <div className="sub-categories">
           <ul>
-            <a href="#">
-              <li>라운지체어</li>
-            </a>
-            <a href="#">
-              <li>바체어</li>
-            </a>
-            <a href="#">
-              <li>스툴/벤치</li>
-            </a>
-            <a href="#">
-              <li>키즈체어</li>
-            </a>
+            <li>라운지체어</li>
+            <li>바체어</li>
+            <li>스툴/벤치</li>
+            <li>키즈체어</li>
           </ul>
         </div>
         <div className="cards">
