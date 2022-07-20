@@ -3,8 +3,7 @@ import './Card.scss';
 import '../../../styles/variables.scss';
 
 function Card({ cardList }) {
-  return (
-    cardList.length > 0 &&
+  return cardList.length > 0 ? (
     cardList.map(card => {
       let { id, image, brandName, productName, price } = card;
       return (
@@ -24,6 +23,8 @@ function Card({ cardList }) {
         </div>
       );
     })
+  ) : (
+    <div className="no-brand-name">검색 결과가 없습니다</div>
   );
 }
 export default Card;
