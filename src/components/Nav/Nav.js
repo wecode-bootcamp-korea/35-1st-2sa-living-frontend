@@ -3,6 +3,12 @@ import { Link } from 'react-router-dom';
 import './Nav.scss';
 
 function Nav() {
+  const moveSide = () => {
+    let bg = document.querySelector('.background');
+    let side = document.querySelector('.quick');
+    bg.style.display = 'block';
+    side.style.right = '0';
+  };
   return (
     <nav>
       <div className="inner">
@@ -21,7 +27,7 @@ function Nav() {
         <div className="icon-box">
           <i className="fa-solid fa-magnifying-glass" />
           <i className="fa-solid fa-user" />
-          <i className="fa-solid fa-basket-shopping" />
+          <i className="fa-solid fa-basket-shopping" onClick={moveSide} />
         </div>
       </div>
     </nav>
