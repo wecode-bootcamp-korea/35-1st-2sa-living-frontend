@@ -19,7 +19,7 @@ const Slidebox = () => {
     }
   };
   let next = () => {
-    let slideChild = document.querySelectorAll('.slide li').length;
+    let slideChild = item.length;
     let slideMax = slideChild - 4;
     if (slideIdx < slideMax) {
       setLeftValue(leftValue - 303);
@@ -31,16 +31,7 @@ const Slidebox = () => {
       <div className="slide-wrap">
         <ul className="slide" style={{ left: copy }}>
           {item.map(els => {
-            let { id, userName, imgUrl, content } = els;
-            return (
-              <Slideitem
-                id={id}
-                userName={userName}
-                imgUrl={imgUrl}
-                content={content}
-                key={els.id}
-              />
-            );
+            return <Slideitem key={els.id} items={els} />;
           })}
         </ul>
       </div>

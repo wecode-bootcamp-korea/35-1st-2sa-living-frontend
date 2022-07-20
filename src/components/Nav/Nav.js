@@ -10,30 +10,24 @@ function Nav() {
           <img src="/images/main/logo.png" alt="logo" width="99" />
         </div>
         <ul className="menu">
-          <li>
-            <Link to="/">SOFA</Link>
-          </li>
-          <li>
-            <Link to="/">CHAIR</Link>
-          </li>
-          <li>
-            <Link to="/">BED</Link>
-          </li>
-          <li>
-            <Link to="/">TABLE</Link>
-          </li>
-          <li>
-            <Link to="/">DRAWER</Link>
-          </li>
+          {LISTDATA.map((els, idx) => {
+            return (
+              <li key={idx}>
+                <Link to="/">{els}</Link>
+              </li>
+            );
+          })}
         </ul>
         <div className="icon-box">
-          <i class="fa-solid fa-magnifying-glass" />
-          <i class="fa-solid fa-user" />
-          <i class="fa-solid fa-basket-shopping" />
+          <i className="fa-solid fa-magnifying-glass" />
+          <i className="fa-solid fa-user" />
+          <i className="fa-solid fa-basket-shopping" />
         </div>
       </div>
     </nav>
   );
 }
+
+const LISTDATA = ['SOFA', 'CHAIR', 'BED', 'TABLE', 'DRAWER'];
 
 export default Nav;

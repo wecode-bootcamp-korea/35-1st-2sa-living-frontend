@@ -1,7 +1,8 @@
 import React from 'react';
 
 const Slideitem = props => {
-  let { imgUrl, userName, content } = props;
+  let { imgUrl, userName, content } = props.items;
+
   return (
     <li className="item">
       <div className="item-img">

@@ -91,13 +91,16 @@ footer {
           line-height: 24px;
           position: relative;
         }
+
         li:not(:nth-child(1)) {
           margin-left: 10px;
         }
+
         li:nth-child(1):after {
           display: none;
           padding-left: 11px;
         }
+
         li:after {
           content: '|';
           display: block;
