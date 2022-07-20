@@ -7,9 +7,7 @@ function CardsBox() {
   const [userInput, setUserInput] = useState('');
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/chairData.json', {
-      method: 'GET',
-    })
+    fetch('http://localhost:3000/data/chairData.json')
       .then(response => response.json())
       .then(data => setCards(data));
   }, []);
@@ -24,16 +22,17 @@ function CardsBox() {
     setUserInput(inputValue);
   };
 
+  const SUBTITLES = ['라운지체어', '바체어', '스툴/벤치', '키즈체어'];
+
   return (
-    <div className="category-container">
+    <div className="CardsBox">
       <h1 className="category-name">CHAIR</h1>
       <div className="cards-container">
         <div className="sub-categories">
           <ul>
-            <li>라운지체어</li>
-            <li>바체어</li>
-            <li>스툴/벤치</li>
-            <li>키즈체어</li>
+            {SUBTITLES.map((subtitle, idx) => {
+              return <li key={idx}>{subtitle}</li>;
+            })}
           </ul>
         </div>
         <div className="cards">

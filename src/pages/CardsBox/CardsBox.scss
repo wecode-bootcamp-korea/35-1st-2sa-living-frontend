@@ -1,8 +1,6 @@
 @import '../../styles/variables.scss';
-@import '../../styles/common.scss';
-@import '../../styles/reset.scss';
 
-.category-container {
+.CardsBox {
   padding: 50px 30px 0 30px;
 
   .cards-container {
@@ -14,18 +12,23 @@
     font-weight: 300;
 
     .sub-categories {
-      width: 100px;
+      width: 200px;
       text-align: left;
     }
 
     .sub-categories li {
-      font-size: 15px;
-      margin-bottom: 10px;
+      font-size: 20px;
+      padding: 15px;
       cursor: pointer;
     }
 
     .sub-categories li:hover {
       font-weight: 500;
+      border: 1px solid #333;
+    }
+
+    .cards {
+      width: 1100px;
     }
   }
 
@@ -40,7 +43,6 @@
   }
 
   .category-amount {
-    margin-left: 10px;
     font-size: 18px;
     color: #333;
     font-weight: 700;
@@ -48,6 +50,7 @@
   }
 
   .cards-sort {
+    // width: 1100px;
     display: flex;
     justify-content: space-between;
 
