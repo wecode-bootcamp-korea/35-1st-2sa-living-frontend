@@ -11,8 +11,26 @@ const Login = () => {
   const goToSignUp = () => {
     navigate('/signup');
   };
+
+  // const goToMain = () => {
+  //   navigate('/main');
+  // };
+
   const goToMain = () => {
-    navigate('/');
+    fetch('http://10.58.6.107:8000/users/login', {
+      method: 'post',
+      body: JSON.stringify({
+        email: 'jhlee7069@naver.com',
+        password: 'abcd1234!',
+      }),
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.USER_NAME) {
+          localStorage.setItem('jwt', res.TOKEN);
+          navigate('/main');
+        }
+      });
   };
 
   const [email, setEmail] = useState('');
@@ -32,7 +50,7 @@ const Login = () => {
 
   const pwdRegEx =
     /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,12}$/;
-  /*('^(?=.*[a-z])(?=.*[A-Z]){8,}$');*/
+
   const a = pwdRegEx.test(pwd);
   console.log(a);
 
