@@ -119,8 +119,6 @@ main {
           height: 50%;
 
           .right-bottom-child {
-            margin-top: 10px !important;
-            margin-right: -160px !important;
             position: absolute;
             top: 0;
             left: 0;
@@ -128,7 +126,8 @@ main {
             bottom: 0;
             width: auto;
             height: auto;
-            margin: auto;
+            margin-top: 10px;
+            margin-right: -160px;
             overflow: hidden;
             background-image: url('https://www.casa.co.kr/UploadFiles/Banner/7/1/16566353365872.jpg');
             background-size: cover;
