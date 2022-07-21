@@ -1,5 +1,6 @@
 footer {
   position: relative;
+
   padding: 60px 0 30px 0 !important;
   font-weight: 400;
   width: 100%;
@@ -21,7 +22,6 @@ footer {
           color: #333;
           font-weight: 700;
         }
-
         ul {
           width: 295px;
           z-index: 10;
@@ -52,14 +52,12 @@ footer {
           color: #333;
           font-weight: 700;
         }
-
         .cs-tel {
           font-size: 38px;
           color: #333;
           font-weight: bold;
         }
       }
-
       ul {
         li {
           margin-top: 5px;
@@ -75,7 +73,6 @@ footer {
         }
       }
     }
-
     .footer-bottom {
       float: left;
       width: 100%;
@@ -132,7 +129,6 @@ footer {
           float: left;
           font-size: 28px;
         }
-
         i:not(:nth-child(1)) {
           margin-left: 14px;
         }

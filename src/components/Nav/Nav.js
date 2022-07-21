@@ -1,7 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Nav.scss';
 
 function Nav() {
+  const moveSide = () => {
+    let bg = document.querySelector('.background');
+    let side = document.querySelector('.quick');
+    bg.style.display = 'block';
+    side.style.right = '0';
+  };
   return (
     <nav>
       <div className="inner">
@@ -26,5 +33,7 @@ function Nav() {
     </nav>
   );
 }
+
+const LISTDATA = ['SOFA', 'CHAIR', 'BED', 'TABLE', 'DRAWER'];
 
 export default Nav;
