@@ -19,9 +19,9 @@ function Nav() {
           <li>LIFE</li>
         </ul>
         <div className="icon-box">
-          <i class="fa-solid fa-magnifying-glass" />
-          <i class="fa-solid fa-user" />
-          <i class="fa-solid fa-basket-shopping" />
+          <i className="fa-solid fa-magnifying-glass" />
+          <i className="fa-solid fa-user" />
+          <i className="fa-solid fa-basket-shopping" />
         </div>
       </div>
     </nav>
