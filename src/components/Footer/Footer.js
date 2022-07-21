@@ -48,9 +48,9 @@ function Footer() {
             </p>
           </address>
           <div className="footer-bottom-icon">
-            <i class="fa-brands fa-instagram-square" />
-            <i class="fa-brands fa-facebook-square" />
-            <i class="fa-brands fa-youtube" />
+            <i className="fa-brands fa-instagram-square" />
+            <i className="fa-brands fa-facebook-square" />
+            <i className="fa-brands fa-youtube" />
           </div>
         </div>
       </div>

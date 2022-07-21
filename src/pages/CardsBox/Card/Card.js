@@ -1,19 +1,20 @@
 import React from 'react';
 import './Card.scss';
 import '../../../styles/variables.scss';
+import Heart from '../../../components/Heart/Heart';
 
-function Card({ cardList }) {
-  return cardList.length > 0 ? (
-    cardList.map(card => {
-      let { id, image, brandName, productName, price } = card;
-      return (
+const Card = ({ cardList }) => {
+  return (
+    <>
+      {cardList.map(({ id, image, brandName, productName, price }) => (
         <div className="card" key={id}>
           <div className="img-container">
             <img className="card-img" src={image} alt="product" />
             <div className="img-hover">
               <div className="hover-items">
                 <i className="fas fa-shopping-cart" />
-                <i className="far fa-heart" />
+                {/* <i className="far fa-heart" /> */}
+                <Heart />
               </div>
             </div>
           </div>
@@ -21,10 +22,35 @@ function Card({ cardList }) {
           <p className="card-name">{productName}</p>
           <p className="card-price">{price}</p>
         </div>
-      );
-    })
-  ) : (
-    <div className="no-brand-name">검색 결과가 없습니다</div>
+      ))}
+    </>
   );
-}
+};
+
+// function Card({ cardList }) {
+//   return cardList.length > 0 ? (
+//     cardList.map(card => {
+//       let { id, image, brandName, productName, price } = card;
+//       return (
+//         <div className="card" key={id}>
+//           <div className="img-container">
+//             <img className="card-img" src={image} alt="product" />
+//             <div className="img-hover">
+//               <div className="hover-items">
+//                 <i className="fas fa-shopping-cart" />
+//                 {/* <i className="far fa-heart" /> */}
+//                 <Heart />
+//               </div>
+//             </div>
+//           </div>
+//           <span className="brand-name">{brandName}</span>
+//           <p className="card-name">{productName}</p>
+//           <p className="card-price">{price}</p>
+//         </div>
+//       );
+//     })
+//   ) : (
+//     <div className="no-brand-name">검색 결과가 없습니다</div>
+//   );
+
 export default Card;

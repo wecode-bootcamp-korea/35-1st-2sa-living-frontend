@@ -1,19 +1,18 @@
-@import '../../../styles/variables.scss';
-@import '../../../styles/common.scss';
-@import '../../../styles/reset.scss';
+@import '../../../components/Heart/Heart.scss';
 
 .card {
   margin: 0 14px 50px 0;
 
   .card-name {
+    color: #666;
     font-size: 15px;
     line-height: 18px;
     font-weight: 300;
-    color: #666;
   }
+
   .card-price {
-    font-size: 18px;
     color: #333;
+    font-size: 18px;
     line-height: 24px;
     font-weight: 500;
   }
@@ -22,8 +21,8 @@
     position: relative;
     width: 261px;
     height: 261px;
-    overflow: hidden;
     margin-bottom: 20px;
+    overflow: hidden;
 
     .card-img {
       display: block;
@@ -34,37 +33,36 @@
     }
 
     .img-hover {
+      position: absolute;
       top: 0;
       left: 0;
-      position: absolute;
       width: 261px;
       height: 261px;
       background-color: rgba(0, 0, 0, 0);
-      position: absolute;
       opacity: 0;
 
       .hover-items {
-        height: 100%;
         position: relative;
-        font-size: 20px;
+        height: 100%;
         padding: 10px;
+        font-size: 20px;
         color: white;
         transition: ease-in-out;
       }
 
       .hover-items .fa-shopping-cart {
         position: absolute;
-        padding: 10px;
         bottom: 30%;
         left: 35%;
+        padding: 10px;
       }
 
-      .hover-items .fa-heart {
-        position: absolute;
-        padding: 10px;
-        bottom: 30%;
-        left: 50%;
-      }
+      // .hover-items .fa-heart {
+      //   position: absolute;
+      //   padding: 10px;
+      //   bottom: 30%;
+      //   left: 50%;
+      // }
     }
 
     .img-container:hover .img-hover {
@@ -85,10 +83,10 @@
     transition: 0.5s;
   }
 
-  .img-container:hover .hover-items i .fa-heart {
-    bottom: 40%;
-    transition: 0.8s;
-  }
+  // .img-container:hover .hover-items i .fa-heart {
+  //   bottom: 40%;
+  //   transition: 0.8s;
+  // }
   .img-container:hover .img-hover {
     background-color: rgba(0, 0, 0, 0.6);
     transition: background-color ease-in 0.9s;
@@ -100,16 +98,16 @@
     transition: 0.5s;
   }
 
-  .img-container:hover .fa-heart {
-    bottom: 40% !important;
-    transition: 0.8s;
-  }
+  // .img-container:hover .fa-heart {
+  //   bottom: 40% !important;
+  //   transition: 0.8s;
+  // }
 
   .brand-name {
     display: inline-block;
-    border: 1px solid #d0d0d0;
     padding: 5px 10px;
     margin-bottom: 15px;
+    border: 1px solid #d0d0d0;
   }
 
   .card-name {
@@ -118,9 +116,9 @@
 }
 
 .no-brand-name {
-  font-size: 20px;
-  color: black;
   width: 100%;
-  text-align: center;
   margin: 50px;
+  color: black;
+  font-size: 20px;
+  text-align: center;
 }

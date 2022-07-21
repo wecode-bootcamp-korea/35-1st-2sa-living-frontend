@@ -6,23 +6,21 @@ function Nav() {
     <nav>
       <div className="inner">
         <div className="logo">
-          <img
-            src="https://www.casa.co.kr/images/common/logo_new.gif"
-            alt="logo"
-            width="99"
-          />
+          <img src="/images/main/logo.png" alt="logo" width="99" />
         </div>
         <ul className="menu">
-          <li>SOFA</li>
-          <li>CHAIR</li>
-          <li>BED</li>
-          <li>TABEL</li>
-          <li>DRAWER</li>
+          {LISTDATA.map((els, idx) => {
+            return (
+              <li key={idx}>
+                <Link to="/">{els}</Link>
+              </li>
+            );
+          })}
         </ul>
         <div className="icon-box">
-          <i class="fa-solid fa-magnifying-glass" />
-          <i class="fa-solid fa-user" />
-          <i class="fa-solid fa-basket-shopping" />
+          <i className="fa-solid fa-magnifying-glass" />
+          <i className="fa-solid fa-user" />
+          <i className="fa-solid fa-basket-shopping" onClick={moveSide} />
         </div>
       </div>
     </nav>

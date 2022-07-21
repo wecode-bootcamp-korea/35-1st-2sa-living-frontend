@@ -8,12 +8,12 @@ import CardsBox from './pages/CardsBox/CardsBox';
 function Router() {
   return (
     <BrowserRouter>
-      <Nav />
+      {/* <Nav /> */}
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/cardsbox" element={<CardsBox />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </BrowserRouter>
   );
 }
