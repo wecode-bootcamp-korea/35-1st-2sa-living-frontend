@@ -17,7 +17,7 @@ const Login = () => {
   // };
 
   const goToMain = () => {
-    fetch('http://10.58.6.107:8000/users/login', {
+    fetch('http://10.58.1.63:8000/users/login', {
       method: 'post',
       body: JSON.stringify({
         email: 'jhlee7069@naver.com',
@@ -28,7 +28,7 @@ const Login = () => {
       .then(res => {
         if (res.USER_NAME) {
           localStorage.setItem('jwt', res.TOKEN);
-          navigate('/main');
+          console.log(res);
         }
       });
   };
@@ -44,15 +44,21 @@ const Login = () => {
     setPwd(e.target.value);
   };
 
+  // const handleLogin = () => {
+  //   if (id === "" || password === "") {
+  //       window.alert("아이디 혹은 비밀번호가 공란입니다.")
+  //       return;
+  //   }
+
   const test = () => {
-    return email.includes('@') && pwdRegEx.test(pwd);
+    return email.includes('@') && pwdRegEx.test(pwd); //test 함수는 정규식에 불린 값을 얻는다 https://grownfresh.tistory.com/112
   };
 
   const pwdRegEx =
     /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,12}$/;
 
   const a = pwdRegEx.test(pwd);
-  console.log(a);
+  //console.log(a);
 
   return (
     <div>

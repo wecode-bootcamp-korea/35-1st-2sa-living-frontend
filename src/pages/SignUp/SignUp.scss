@@ -3,6 +3,9 @@
   margin: 0%;
   padding: 0%;
 }
+.b {
+  font-weight: 700;
+}
 .container {
   position: relative;
   max-width: 1600px;
@@ -46,10 +49,12 @@
         }
         .terms {
           vertical-align: middle;
+          margin-right: 10px;
         }
         label {
           vertical-align: middle;
           font-size: 14px;
+          color: #9c9e9c;
         }
         &:last-child {
           border-top: 1px solid #c9c9c9;
@@ -71,34 +76,68 @@
         margin-bottom: 10px;
       }
     }
+    .firstname-alert {
+      text-align: center;
+      margin-left: 182px;
+      vertical-align: center;
+      color: #ff8400;
+    }
+    .lastname-alert {
+      text-align: center;
+      margin-left: 182px;
+      vertical-align: center;
+      color: #ff8400;
+    }
+    .email-alert {
+      text-align: center;
+      margin-left: 182px;
+      vertical-align: center;
+      color: #ff8400;
+    }
+    .password-alert {
+      text-align: center;
+      margin-left: 182px;
+      vertical-align: center;
+      color: #ff8400;
+    }
+    .phonenumber-alert {
+      text-align: center;
+      margin-left: 182px;
+      vertical-align: center;
+      color: #ff8400;
+    }
   }
 }
 
 .input-container {
-  margin-bottom: 10px;
+  /*margin-bottom: 10px;*/
   display: flex;
+  position: relative;
+  margin-top: 10px;
   .firstname {
     padding-left: 20px;
     float: left;
     line-height: 50px;
-    color: #827f7f;
+    color: #9c9e9c;
   }
-  .firstname-input-wrapper {
-    width: 64%;
-  }
+  // .firstname-input-wrapper {
+  // }
   .firstname-input {
-    width: 100%;
+    width: 64%;
     height: 40px;
     margin-left: 167px;
     padding: 10px 15px;
     background-color: #efefef;
     border: none;
+    color: #9c9e9c;
+    /*margin-bottom: 50px;*/
   }
+
   .lastname {
     padding-left: 20px;
     float: left;
     line-height: 50px;
-    color: #827f7f;
+    color: #9c9e9c;
   }
   .lastname-input-wrapper {
     width: 64%;
@@ -119,7 +158,7 @@
     width: 75px;
     float: left;
     line-height: 50px;
-    color: #827f7f;
+    color: #9c9e9c;
     display: flex;
   }
   .signup-email-input-wrapper {
@@ -167,7 +206,7 @@
     padding-left: 20px;
     float: left;
     line-height: 50px;
-    color: #827f7f;
+    color: #9c9e9c;
     display: flex;
   }
   .signup-pwd-input {
@@ -185,7 +224,7 @@
   width: 75px;
   float: left;
   line-height: 50px;
-  color: #827f7f;
+  color: #9c9e9c;
   display: flex;
 }
 .phone-number-input-wrapper {
@@ -222,7 +261,7 @@
   width: 90px;
   float: left;
   line-height: 50px;
-  color: #827f7f;
+  color: #9c9e9c;
   display: flex;
 }
 .date-input-wrapper {
