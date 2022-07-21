@@ -6,8 +6,8 @@ function Nav() {
   const moveSide = () => {
     let bg = document.querySelector('.background');
     let side = document.querySelector('.quick');
-    bg.style.display = 'block';
-    side.style.right = '0';
+    bg.classList.toggle('on');
+    side.classList.toggle('on');
   };
   return (
     <nav>

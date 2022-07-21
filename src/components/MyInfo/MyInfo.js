@@ -1,12 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import ShoppingBag from '../ShoppingBag/ShoppingBag';
 import './MyInfo.scss';
 
 const MyInfo = () => {
+  let [item, setItem] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3000/data/sideMenuMockData.json')
+      .then(response => response.json())
+      .then(data => setItem(data));
+  }, []);
+
+  const filterBag = item.filter(els => {
+    return els.category.includes('chair');
+  });
+  let bagItemCount = filterBag.length;
+
   const removeSide = () => {
     let bg = document.querySelector('.background');
     let side = document.querySelector('.quick');
-    bg.style.display = 'none';
-    side.style.right = '-472px';
+    bg.classList.toggle('on');
+    side.classList.toggle('on');
   };
   return (
     <>
@@ -17,16 +31,18 @@ const MyInfo = () => {
             <img src="/images/MyInfo/profile-user.png" alt="회원정보" />
             환영합니다 <span>홍길동 고객님</span>
           </p>
-          <div class="close" onClick={removeSide}>
+          <div className="close" onClick={removeSide}>
             <img src="/images/MyInfo/close.png" alt="close" />
           </div>
         </div>
         <div className="my-shopping">
           <h3>
-            장바구니<em id="count">3</em>
+            장바구니<em id="count">{bagItemCount}</em>
           </h3>
           <div className="my-shopping-list">
-            <p> 장바구니에 담긴 상품이 없습니다.</p>
+            {filterBag.map(els => {
+              return <ShoppingBag itemBag={els} key={els.id} />;
+            })}
           </div>
           <div className="my-shopping-btn">
             <div className="viewbtn">장바구니보기</div>
