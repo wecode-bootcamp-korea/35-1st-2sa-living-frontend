@@ -84,10 +84,11 @@ const SignUp = () => {
   const lastNameRegEx = /^[가-힣]{1,6}$/;
   const emailRegEx = /^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
   const passwordRegEx =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}/;
-  const phoneNumberRegEx = /(^02.{0}|^01.{1}|[0-9]{3})([0-9]+)([0-9]{4})/;
-  const birthDateRegEx =
-    /^([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))$/;
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{6,12}/;
+  const phoneNumberRegEx = /^\d{3}-\d{3,4}-\d{4}$/;
+  const birthDateRegEx = /^(19|20)\d\d([- /.])(0[1-9]|1[012])\2(0[1-9]|3[01])$/;
+  // /^20((09-01-(([0-1][0-9])))|(22-12-(([0-1][0-9])|([2][0-9]))))$/;
+  //const birthDateLimit = '2008-01-01';
 
   const isInputFirstnameValid = firstNameRegEx.test(firstName);
   const isInputLastnameValid = lastNameRegEx.test(lastName);
@@ -245,10 +246,15 @@ const SignUp = () => {
                     name="birthDate"
                   />
                   {/*{!isInputBirthDateValid && birthDate ? (
-                    <div className='birthDate-alert'>
-
-                      </div>
-                  )}*/}
+                    <div className="birthDate-alert">
+                      2008년생부터 가입 가능합니다
+                    </div>
+                  ) : null}*/}
+                  {/*{birthDate === birthDateLimit ? (
+                    <div className="birthDate-alert">
+                      2008년생부터 가입 가능합니다
+                    </div>
+                  ) : null}*/}
                   <p className="radio">
                     <input type="radio" className="solar-date" />
                     <label className="is-solar">양력</label>

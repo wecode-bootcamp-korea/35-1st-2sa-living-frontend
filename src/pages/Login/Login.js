@@ -12,11 +12,8 @@ const Login = () => {
     navigate('/signup');
   };
 
-  // const goToMain = () => {
-  //   navigate('/main');
-  // };
-
-  const goToMain = () => {
+  {
+    /*const goToMain = () => {
     fetch('http://10.58.1.63:8000/users/login', {
       method: 'post',
       body: JSON.stringify({
@@ -31,10 +28,11 @@ const Login = () => {
           console.log(res);
         }
       });
-  };
+  };*/
+  }
 
   const [email, setEmail] = useState('');
-  const [pwd, setPwd] = useState('');
+  const [password, setPwd] = useState('');
 
   const handleInputEmail = e => {
     setEmail(e.target.value);
@@ -44,22 +42,29 @@ const Login = () => {
     setPwd(e.target.value);
   };
 
-  // const handleLogin = () => {
-  //   if (id === "" || password === "") {
-  //       window.alert("아이디 혹은 비밀번호가 공란입니다.")
-  //       return;
-  //   }
-
   const test = () => {
-    return email.includes('@') && pwdRegEx.test(pwd); //test 함수는 정규식에 불린 값을 얻는다 https://grownfresh.tistory.com/112
+    return email.includes('@') && pwdRegEx.test(password); //test 함수는 정규식에 불린 값을 얻는다 https://grownfresh.tistory.com/112
   };
 
   const pwdRegEx =
     /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,12}$/;
 
-  const a = pwdRegEx.test(pwd);
-  //console.log(a);
+  const a = pwdRegEx.test(password);
 
+  const loginConfirm = e => {
+    e.preventDefault();
+    console.log('a', a);
+    if (email.length === 0) {
+      window.alert('아이디가 공백입니다');
+    } else if (password.length === 0) {
+      window.alert('비밀번호가 공백입니다');
+    } else if (a === true) {
+      navigate('/');
+    } else if (a !== true) {
+      window.alert('아이디나 비밀번호 양식이 맞지 않습니다.');
+    }
+  };
+  //console.log(a);
   return (
     <div>
       <section className="Login-container">
@@ -74,12 +79,12 @@ const Login = () => {
           />
           <input
             className="pwd-input"
-            type="text"
+            type="password"
             placeholder="비밀번호를 입력하세요"
             onChange={handleInputPwd}
-            value={pwd}
+            value={password}
           />
-          <button className="login-btn" onClick={goToMain} disabled={!a}>
+          <button className="login-btn" onClick={loginConfirm}>
             LOGIN
           </button>
           <p class="bottom-check">
