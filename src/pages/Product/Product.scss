@@ -61,28 +61,34 @@ a {
 }
 
 .ProductData {
+  display: flex;
+  flex-direction: column;
   float: right;
   text-align: end;
   padding: 10px;
+  position: absolute;
+  right: 0;
+  bottom: 70px;
+  p {
+  }
+  .ProductNameEn {
+    font-size: x-large;
+    font-weight: bold;
+    padding: 10px;
+    float: right;
+  }
+  .ProductNameKo {
+    font-size: large;
+    padding: 10px;
+    float: right;
+  }
 }
 
-.ProductNameEn {
-  font-size: x-large;
-  font-weight: bold;
-  padding: 10px;
-  float: right;
-}
 .ProductPrice {
   font-size: x-large;
   font-weight: bold;
   padding: 10px;
   float: right;
-}
-
-.ProductData {
-  position: absolute;
-  right: 0;
-  bottom: 70px;
 }
 
 .Options {
@@ -132,53 +138,93 @@ a {
     justify-content: center;
     align-items: center;
     border-right: none;
-  }
-  .Amount {
-    width: 20%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-right: none;
-    color: #333;
-    img {
-      width: 15px;
-      height: 15px;
-      border: solid;
-      border-width: thin;
-      color: #333;
+    .ColorInfo {
+      position: relative;
+      border-radius: 4px;
+      width: 180px;
+      border: 0px solid;
+      .SelectOption {
+        width: inherit;
+        height: inherit;
+        background: transparent;
+        border: 0 none;
+        outline: 0 none;
+        padding: 0 5px;
+        position: relative;
+        z-index: 3;
+        option {
+          padding: 3px 0;
+          font-size: 16px;
+        }
+      }
     }
-    p {
-      padding: 0 10px 0 10px;
-    }
   }
-  .buyWrap {
-    width: 18%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-right: none;
+}
 
-    background-color: rgb(222, 222, 222);
+.ColorInfo .icoArrow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  width: 35px;
+  height: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 50%;
+    transition: 0.3s;
   }
-  .cart {
-    width: 18%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(222, 222, 222);
-    a {
-      color: #333;
-    }
+  .ColorInfo:focus + .icoArrow img {
+    transform: rotate(180deg);
   }
-  .buy {
-    width: 23%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-    a {
-      color: white;
-    }
+}
+
+.Amount {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: none;
+  color: #333;
+  img {
+    width: 15px;
+    height: 15px;
+    border: solid;
+    border-width: thin;
+    color: #333;
+  }
+  p {
+    padding: 0 10px 0 10px;
+  }
+}
+.buyWrap {
+  width: 18%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: none;
+
+  background-color: rgb(222, 222, 222);
+}
+.cart {
+  width: 18%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(222, 222, 222);
+  a {
+    color: #333;
+  }
+}
+.buy {
+  width: 23%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  a {
+    color: white;
   }
 }
 
@@ -283,15 +329,12 @@ a {
   }
 }
 
-.scroll_up {
-  display: block;
-  float: right;
-  position: sticky;
-  top: 36;
-  height: 500px;
+.test {
+  position: fixed;
+  height: 300px;
   z-index: 10;
-  img {
-    width: 30px;
-    height: 30px;
-  }
+  width: 40px;
+  height: 40px;
+  right: 0;
+  margin-top: 700px;
 }

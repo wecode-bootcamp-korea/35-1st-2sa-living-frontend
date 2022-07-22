@@ -21,13 +21,17 @@ const Product = () => {
     setLikeIt(e.target.value);
     setLikeIt(likeIt + 1);
   };
-
   const moveTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
-
   return (
     <section className="container">
+      <img
+        className="test"
+        onClick={moveTop}
+        src="/images/Product/down-arrow.png"
+        alt="icon"
+      />
       <div className="inner">
         <div className="SubMenu">
           <div className="category">
@@ -65,18 +69,16 @@ const Product = () => {
                   Black Frame
                 </span>
               </p>
+              <p>
+                <span className="ProductNameKo">
+                  리절트 체어_포레스트 그린 / 블랙 프레임
+                </span>
+              </p>
               <div className="ProductPrice">
                 <p>
                   <span>480,000</span>
                 </p>
               </div>
-            </div>
-            <div className="scroll_up">
-              <img
-                onClick={moveTop}
-                src="/images/Product/down-arrow.png"
-                alt="icon"
-              />
             </div>
           </div>
         </div>
@@ -90,15 +92,14 @@ const Product = () => {
         <div className="BuyDataWrap">
           <div className="BrandInfo">
             <span className="BrandName">HAY</span>
-            <span className="BrandText">
-              헤이 | 트렌디한 북유럽 라이프 스타일
-            </span>
           </div>
 
           <div className="ColorWrap">
             <div className="ColorInfo">
               <select className="SelectOption">
-                <option value="색상 선택">색상 선택</option>
+                <option disabled selected>
+                  색상 선택
+                </option>
                 <option value="Black">Black(0원)</option>
                 <option value="White">White(550,000원)</option>
                 <option value="Oatmeal">Oatmeal(600,000원)</option>
@@ -113,7 +114,7 @@ const Product = () => {
             <p>{amount}</p>
             <img
               src="/images/Product/right-arrow.png"
-              onClick={handleAmountMinus}
+              onClick={handleAmountPlus}
             />
           </div>
           <div className="buyWrap">
@@ -166,12 +167,11 @@ const Product = () => {
         </div>
       </div>
       <div className="detail_tab">
-        <div>상품설명</div>
+        <div className="introduce">상품설명</div>
         <div>관련상품</div>
-        <div>리뷰/상품문의</div>
-        <div>배송/반품/AS안내</div>
+        <div className="review_question">리뷰/상품문의</div>
+        <div className="delivery_return">배송/반품/AS안내</div>
       </div>
-
       <div className="img_section">
         <img
           className="ProductImage"
@@ -208,7 +208,6 @@ const Product = () => {
       <div className="announcement">
         <h3>배송/반품/AS안내</h3>
       </div>
-
       <div className="img_section">
         <img src="/images/Product/delivery2.png" alt="icon" />
       </div>
