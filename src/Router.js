@@ -6,10 +6,12 @@ import Main from './pages/Main/Main';
 import Login from './pages/Login/Login';
 import SignUp from './pages/SignUp/SignUp';
 
+import MyInfo from './components/MyInfo/MyInfo';
 function Router() {
   return (
     <BrowserRouter>
       <Nav />
+      <MyInfo />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />

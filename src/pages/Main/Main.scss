@@ -1,0 +1,302 @@
+main {
+  section {
+    position: relative;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px 30px 0 30px;
+
+    .main-01 {
+      position: relative;
+      margin-top: 16px;
+
+      .main-01-left {
+        position: relative;
+        width: 74.5%;
+        height: 600px;
+        background-image: url('https://www.casa.co.kr/UploadFiles/Banner/7/18/16581057109770.jpg');
+        background-size: cover;
+
+        .main-left-txt {
+          position: absolute;
+          top: 20%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 100%;
+
+          .txt-top {
+            text-align: center;
+            font-size: 20px;
+            color: black;
+            padding-top: 60px;
+            font-weight: 300;
+          }
+
+          .txt-bottom {
+            font-size: 48px;
+            color: #333;
+            font-weight: 100;
+            line-height: 60px;
+            margin-top: 38px;
+            letter-spacing: -2.4px;
+            text-align: center;
+          }
+        }
+        .main-left-txt::after {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 50%;
+          width: 1px;
+          height: 0;
+          background: #b3b3b3;
+          transition: height 0.65s ease-out;
+        }
+      }
+      .main-01-left:hover {
+        .main-left-txt::after {
+          height: 40px;
+        }
+      }
+
+      .main-01-right {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 25.5%;
+        height: 100%;
+        box-sizing: border-box;
+        padding-left: 20px;
+
+        .right-top {
+          position: relative;
+          width: 100%;
+          height: 50%;
+
+          .right-top-child {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: auto;
+            height: auto;
+            margin: auto;
+            overflow: hidden;
+            margin-bottom: 10px;
+            background-image: url('https://www.casa.co.kr/UploadFiles/Banner/7/18/16581055756231.jpg');
+            background-size: cover;
+          }
+
+          .right-top-top {
+            position: absolute;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 26px;
+            padding: 55px 0 0 38px;
+          }
+
+          .right-top-top::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 0px;
+            height: 1px;
+            background: white;
+            transition: width 0.65s ease-out;
+          }
+        }
+        .right-top:hover {
+          .right-top-top::after {
+            width: 150px;
+          }
+        }
+        .right-bottom {
+          position: relative;
+          width: 100%;
+          height: 50%;
+
+          .right-bottom-child {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: auto;
+            height: auto;
+            margin-top: 10px;
+            margin-right: -160px;
+            overflow: hidden;
+            background-image: url('https://www.casa.co.kr/UploadFiles/Banner/7/1/16566353365872.jpg');
+            background-size: cover;
+          }
+
+          .right-top-top {
+            position: absolute;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 26px;
+            padding: 55px 0 0 38px;
+            color: white;
+          }
+
+          .right-top-top::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: white;
+            transition: width 0.65s ease-out;
+          }
+
+          .right-bottom-child:hover {
+            .right-top-top::after {
+              width: 195px;
+            }
+          }
+        }
+      }
+    }
+    .main-02 {
+      max-width: none !important;
+      padding: 70px 0 80px;
+      background: #f2f2f2;
+
+      h3 {
+        text-align: center;
+        margin-bottom: 50px;
+
+        span {
+          padding-top: 10px;
+          color: #333;
+          font-size: 20px;
+          font-weight: 400;
+          border-top: solid 2px #333;
+        }
+      }
+      .main-02-contents {
+        position: relative;
+        padding: 0 115px;
+
+        .slide-wrap {
+          position: relative;
+          width: 100%;
+          margin: 0 auto;
+          height: 403px;
+          max-width: 1220px;
+
+          overflow: hidden;
+
+          .slide {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2137px;
+            transition: 0.5s;
+            li {
+              width: 277px;
+              height: 403px;
+              float: left;
+              padding: 23px;
+              background-color: white;
+              display: flex;
+              justify-content: center;
+              flex-direction: column;
+              align-items: center;
+
+              .item-img {
+                width: 231px;
+                height: 231px;
+                background-color: red;
+
+                img {
+                  width: 100%;
+                  height: 100%;
+                }
+              }
+              .item-id {
+                display: inline-block;
+                margin: 20px 0;
+                padding-left: 16px;
+                color: #1b1b1b;
+                font-weight: 600;
+                line-height: 1;
+                background: url('https://www.casa.co.kr/images/icon/main_insta.gif')
+                  no-repeat left 1px;
+              }
+              .item-txt {
+                height: 32px;
+                color: #858585;
+                font-size: 12px;
+                line-height: 16px;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+              }
+            }
+
+            li:not(:last-child) {
+              margin-right: 33px;
+            }
+          }
+        }
+
+        .prev {
+          position: absolute;
+          left: 50px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 21px;
+          height: 21px;
+          background-image: url('/asset/images/prev.png');
+          background-size: contain;
+          background-repeat: no-repeat;
+          cursor: pointer;
+        }
+        .next {
+          position: absolute;
+          right: 50px;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          width: 21px;
+          height: 41px;
+          width: 21px;
+          height: 21px;
+          background-image: url('/asset/images/next.png');
+          background-size: contain;
+          background-repeat: no-repeat;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .main-03 {
+      max-width: none !important;
+      padding: 70px 0 80px;
+      background: #f2f2f2;
+      text-align: center;
+
+      .main-03-list {
+        display: inline-block;
+        margin-bottom: 25px;
+        li {
+          float: left;
+          margin: 0 20px;
+        }
+      }
+
+      .main-03-box {
+        width: 100%;
+        height: 500px;
+        background-color: red;
+      }
+    }
+  }
+}
