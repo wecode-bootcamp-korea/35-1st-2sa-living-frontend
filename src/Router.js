@@ -14,7 +14,7 @@ function Router() {
         <Route path="/" element={<Main />} />
         <Route path="/cardsbox" element={<CardsBox />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </BrowserRouter>
   );
 }

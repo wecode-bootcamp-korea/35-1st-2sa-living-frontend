@@ -56,13 +56,6 @@
         left: 35%;
         padding: 10px;
       }
-
-      // .hover-items .fa-heart {
-      //   position: absolute;
-      //   padding: 10px;
-      //   bottom: 30%;
-      //   left: 50%;
-      // }
     }
 
     .img-container:hover .img-hover {
@@ -83,10 +76,6 @@
     transition: 0.5s;
   }
 
-  // .img-container:hover .hover-items i .fa-heart {
-  //   bottom: 40%;
-  //   transition: 0.8s;
-  // }
   .img-container:hover .img-hover {
     background-color: rgba(0, 0, 0, 0.6);
     transition: background-color ease-in 0.9s;
@@ -97,11 +86,6 @@
     bottom: 40% !important;
     transition: 0.5s;
   }
-
-  // .img-container:hover .fa-heart {
-  //   bottom: 40% !important;
-  //   transition: 0.8s;
-  // }
 
   .brand-name {
     display: inline-block;

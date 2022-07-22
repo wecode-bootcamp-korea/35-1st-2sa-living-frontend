@@ -1,7 +1,8 @@
 @import '../../styles/variables.scss';
 
 .CardsBox {
-  padding: 50px 30px 0 30px;
+  max-width: 1600px;
+  padding: 50px 30px 0;
 
   .cards-container {
     display: flex;
@@ -29,6 +30,8 @@
 
     .cards {
       width: 1100px;
+      border-top: solid 1px #333;
+      padding-top: 20px;
     }
   }
 
@@ -37,7 +40,7 @@
     color: #333;
     font-weight: 700;
     line-height: 80px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     text-align: left;
     letter-spacing: 4px;
   }
@@ -50,7 +53,6 @@
   }
 
   .cards-sort {
-    // width: 1100px;
     display: flex;
     justify-content: space-between;
 
