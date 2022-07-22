@@ -91,25 +91,13 @@ footer {
           line-height: 24px;
           position: relative;
         }
-<<<<<<< HEAD
         li:not(:nth-child(1)) {
           margin-left: 10px;
         }
-=======
-
-        li:not(:nth-child(1)) {
-          margin-left: 10px;
-        }
-
->>>>>>> b4db441610680b4ea8539a22bf1fe8d1851e8e38
         li:nth-child(1):after {
           display: none;
           padding-left: 11px;
         }
-<<<<<<< HEAD
-=======
-
->>>>>>> b4db441610680b4ea8539a22bf1fe8d1851e8e38
         li:after {
           content: '|';
           display: block;
