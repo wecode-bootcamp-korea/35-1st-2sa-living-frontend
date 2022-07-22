@@ -30,6 +30,58 @@ nav {
       line-height: 41px;
       font-weight: 700;
       letter-spacing: 1.3px;
+
+      a {
+        position: relative;
+        display: block;
+        font-size: 26px;
+        color: #333;
+        line-height: 41px;
+        font-weight: 700;
+        letter-spacing: 1.3px;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      a:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: auto;
+        right: 0;
+        width: 0;
+        height: 3px;
+        background: #333;
+        transition: width 0.5s ease;
+      }
+      a:before {
+        content: '';
+        position: absolute;
+        bottom: 100%;
+        left: 6px;
+        width: 3px;
+        height: 0;
+        margin-bottom: -3px;
+        border-bottom: 3px solid #fff;
+        background: #333;
+        transition: height 0.55s 0s ease;
+        z-index: 1;
+      }
+      a:hover {
+        color: #ff5000;
+      }
+      a:hover:after {
+        width: 100%;
+        right: auto;
+        left: 0;
+      }
+      a:hover:before {
+        height: 6px;
+        background: #ff5000;
+        transition-delay: 0.5s;
+      }
+      a:hover:after {
+        background: #ff5000;
+      }
     }
   }
   .icon-box {

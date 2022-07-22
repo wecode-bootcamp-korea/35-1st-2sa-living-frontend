@@ -9,9 +9,11 @@ footer {
     margin: 0 auto;
     padding: 0 30px;
     height: 266px;
+
     .footer-top {
       .footer-top-notice {
         float: left;
+
         .notice-txt {
           margin-bottom: 10px;
           font-size: 15px;
@@ -36,9 +38,11 @@ footer {
           }
         }
       }
+
       .footer-top-cs {
         float: right;
         text-align: right;
+
         .cs-txt {
           margin-bottom: 10px;
           font-size: 15px;
@@ -72,18 +76,22 @@ footer {
       margin-top: 25px;
       padding-top: 25px;
       border-top: solid 2px #666;
+
       .footer-bottom-menu {
         margin-bottom: 10px;
         height: 30px;
+
         li {
           float: left;
           font-size: 15px;
           line-height: 24px;
           position: relative;
         }
+
         li:not(:nth-child(1)) {
           margin-left: 10px;
         }
+
         li:nth-child(1):after {
           display: none;
           padding-left: 11px;

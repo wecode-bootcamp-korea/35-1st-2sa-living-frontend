@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "userName": "wecode",
+    "imgUrl": "/images/main/0001.png",
+    "content": "asdasd"
+  },
+  {
+    "id": 2,
+    "userName": "wecode",
+    "imgUrl": "/images/main/0002.png",
+    "content": "세계적인 디자인 거장 알레산드로 멘디니가"
+  },
+  {
+    "id": 3,
+    "userName": "uroi.home",
+    "imgUrl": "/images/main/0003.png",
+    "content": " 예술적인 조명 브랜드예요."
+  },
+  {
+    "id": 4,
+    "userName": "out_living",
+    "imgUrl": "/images/main/0004.png",
+    "content": "지금은 애스타그램이 되었지만 여전히 조명과 인테리어 소품에 관심 많은 #집스타그래머"
+  },
+  {
+    "id": 5,
+    "userName": "happygarden",
+    "imgUrl": "/images/main/0005.png",
+    "content": "라문은 세계적인 디자인 거장 알레산드로 멘디니가"
+  },
+  {
+    "id": 6,
+    "userName": "myHouse",
+    "imgUrl": "/images/main/0006.png",
+    "content": "디자인 거장  알레산드로 멘디니가 사랑하는 손자의 눈 건강과 행운을 기원하며 만든 예술적인 조명 브랜드예요."
+  },
+  {
+    "id": 7,
+    "userName": "wecode",
+    "imgUrl": "/images/main/0007.png",
+    "content": "온리를 위해 구매했던 라문 아물레또 이번엔 저를 위한 조명인듯한 라문 벨라"
+  }
+]
