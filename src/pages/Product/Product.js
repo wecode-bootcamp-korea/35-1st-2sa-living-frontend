@@ -37,13 +37,21 @@ const Product = () => {
           <div className="category">
             <li>
               <span>
-                <img className="icon" src="images/Product/right.png" />
+                <img
+                  alt="icon"
+                  className="icon"
+                  src="images/Product/right.png"
+                />
                 체어
               </span>
             </li>
             <li>
               <span>
-                <img className="icon" src="images/Product/right.png" />
+                <img
+                  alt="icon"
+                  className="icon"
+                  src="images/Product/right.png"
+                />
                 체어
               </span>
             </li>
@@ -108,11 +116,13 @@ const Product = () => {
           </div>
           <div className="Amount">
             <img
+              alt="icon"
               src="/images/Product/left-arrow.png"
               onClick={handleAmountMinus}
             />
             <p>{amount}</p>
             <img
+              alt="icon"
               src="/images/Product/right-arrow.png"
               onClick={handleAmountPlus}
             />
@@ -154,15 +164,15 @@ const Product = () => {
         <div className="benefitWrap">
           <div className="benefit_child">
             착불배송
-            <img className="icon" src="images/Product/down.png" />
+            <img alt="icon" className="icon" src="images/Product/down.png" />
           </div>
           <div className="benefit_child">
             쿠폰혜택안내
-            <img className="icon" src="images/Product/down.png" />
+            <img alt="icon" className="icon" src="images/Product/down.png" />
           </div>
           <div className="benefit_child">
             카트혜택안내
-            <img className="icon" src="images/Product/down.png" />
+            <img alt="icon" className="icon" src="images/Product/down.png" />
           </div>
         </div>
       </div>
