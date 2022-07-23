@@ -8,6 +8,7 @@
   border-top: 1px solid #e0e0e0;
 
   .item-img {
+    position: relative;
     width: 100px;
     height: 100px;
     float: left;
@@ -15,6 +16,17 @@
 
     img {
       width: 100%;
+    }
+
+    .close-box {
+      position: absolute;
+      right: 0;
+      top: 0;
+      i {
+        border: 1px solid #d0d0d0;
+        padding: 0px 3px;
+        background-color: white;
+      }
     }
   }
   .item-txt {
@@ -72,6 +84,9 @@
       em {
         color: #333;
         font-weight: 500;
+      }
+      span {
+        margin-left: 20px;
       }
     }
   }

@@ -38,7 +38,9 @@ const MyInfo = ({ sideOn, setSideOn }) => {
           </h3>
           <div className="my-shopping-list">
             {filterBag.map(els => {
-              return <ShoppingBag itemBag={els} key={els.id} />;
+              return (
+                <ShoppingBag itemBag={els} key={els.id} setItem={setItem} />
+              );
             })}
           </div>
           <div className="my-shopping-btn">
