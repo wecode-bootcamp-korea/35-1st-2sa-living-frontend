@@ -2,12 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Nav.scss';
 
-function Nav() {
+function Nav({ sideOn, setSideOn }) {
   const moveSide = () => {
-    let bg = document.querySelector('.background');
-    let side = document.querySelector('.quick');
-    bg.classList.toggle('on');
-    side.classList.toggle('on');
+    setSideOn('on');
   };
   return (
     <nav>

@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import ShoppingBag from '../ShoppingBag/ShoppingBag';
 import './MyInfo.scss';
 
-const MyInfo = () => {
+const MyInfo = ({ sideOn, setSideOn }) => {
   let [item, setItem] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/sideMenuMockData.json')
+    fetch('/data/sideMenuMockData.json')
       .then(response => response.json())
       .then(data => setItem(data));
   }, []);
@@ -17,15 +17,12 @@ const MyInfo = () => {
   let bagItemCount = filterBag.length;
 
   const removeSide = () => {
-    let bg = document.querySelector('.background');
-    let side = document.querySelector('.quick');
-    bg.classList.toggle('on');
-    side.classList.toggle('on');
+    setSideOn('');
   };
   return (
     <>
-      <div className="background" />
-      <aside className="quick">
+      <div className={`background ${sideOn}`} />
+      <aside className={`quick ${sideOn}`}>
         <div className="my-name">
           <p className="name">
             <img src="/images/MyInfo/profile-user.png" alt="회원정보" />
