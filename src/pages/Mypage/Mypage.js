@@ -3,24 +3,30 @@ import MypageComponents from '../../components/MypageComponents/MypageComponents
 import './Mypage.scss';
 
 const Mypage = () => {
-  let [member, setMember] = useState([]);
+  let [clickBtn, setClickBtn] = useState(0);
   let [buying, setBuying] = useState([]);
-
   useEffect(() => {
     fetch('/data/testMock.json')
       .then(response => response.json())
       .then(data => setBuying(data));
   }, []);
 
-  const bed = buying.filter(els => {
-    return els.category.includes('bed');
-  });
-  const sofa = buying.filter(els => {
-    return els.category.includes('sofa');
-  });
-  const table = buying.filter(els => {
-    return els.category.includes('table');
-  });
+  const changeList = num => {
+    if (num === 0) {
+      return buying.filter(els => {
+        return els.category.includes('sofa');
+      });
+    } else if (num === 1) {
+      return buying.filter(els => {
+        return els.category.includes('bed');
+      });
+    } else if (num === 2) {
+      return buying.filter(els => {
+        return els.category.includes('table');
+      });
+    }
+  };
+  let forYouItem = changeList(clickBtn);
 
   return (
     <div className="mypage">
@@ -68,15 +74,41 @@ const Mypage = () => {
       </div>
       <div className="foryou">
         <h1 className="foryou-title"> 나를 위한 추천 상품</h1>
-        <ul className="foryou-menu">
-          <li>SOFA</li>
-          <li>BED</li>
-          <li>Table</li>
-        </ul>
+
         <div className="foryou-list">
-          {/* {buyBag.map(els => {
-            return <MypageComponents items={els} key={els.id} />; 
-          })}*/}
+          <div className="foryou-menu">
+            <ul>
+              <li
+                className={`foryou-menu-list ${clickBtn === 0 ? 'on' : ''}`}
+                onClick={() => {
+                  setClickBtn(0);
+                }}
+              >
+                SOFA
+              </li>
+              <li
+                className={`foryou-menu-list ${clickBtn === 1 ? 'on' : ''}`}
+                onClick={() => {
+                  setClickBtn(1);
+                }}
+              >
+                BED
+              </li>
+              <li
+                className={`foryou-menu-list ${clickBtn === 2 ? 'on' : ''}`}
+                onClick={() => {
+                  setClickBtn(2);
+                }}
+              >
+                TABlE
+              </li>
+            </ul>
+          </div>
+          <div className="foryou-list-items">
+            {forYouItem.map(els => {
+              return <MypageComponents items={els} key={els.id} />;
+            })}
+          </div>
         </div>
       </div>
     </div>

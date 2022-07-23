@@ -163,13 +163,35 @@
       text-align: center;
       margin-bottom: 30px;
     }
+
     .foryou-list {
       border-top: 3px solid #333;
       border-bottom: 1px solid #333;
-      padding: 30px 0px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-start;
+      padding: 0px 0px 30px 0px;
+      .foryou-menu {
+        margin: 40px 0 25px;
+        text-align: center;
+
+        ul {
+          display: inline-block;
+
+          .foryou-menu-list {
+            float: left;
+            margin: 0 20px;
+            font-size: 18px;
+            font-weight: 300;
+            cursor: pointer;
+          }
+          .on {
+            font-weight: 800;
+          }
+        }
+      }
+      .foryou-list-items {
+        display: flex;
+        flex-wrap: wrap;
+        transition: 0.5s;
+      }
     }
   }
 }
