@@ -3,16 +3,23 @@ import MypageComponents from '../../components/MypageComponents/MypageComponents
 import './Mypage.scss';
 
 const Mypage = () => {
+  let [member, setMember] = useState([]);
   let [buying, setBuying] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/sideMenuMockData.json')
+    fetch('/data/testMock.json')
       .then(response => response.json())
       .then(data => setBuying(data));
   }, []);
 
-  const buyBag = buying.filter(els => {
+  const bed = buying.filter(els => {
     return els.category.includes('bed');
+  });
+  const sofa = buying.filter(els => {
+    return els.category.includes('sofa');
+  });
+  const table = buying.filter(els => {
+    return els.category.includes('table');
   });
 
   return (
@@ -52,11 +59,7 @@ const Mypage = () => {
       </div>
       <div className="oders">
         <h1 className="oders-title"> 현재 진행중 주문</h1>
-        <div className="oders-list">
-          {buyBag.map(els => {
-            return <MypageComponents items={els} key={els.id} />;
-          })}
-        </div>
+        <div className="oders-list" />
       </div>
 
       <div className="likeits">
@@ -65,7 +68,16 @@ const Mypage = () => {
       </div>
       <div className="foryou">
         <h1 className="foryou-title"> 나를 위한 추천 상품</h1>
-        <div className="foryou-list" />
+        <ul className="foryou-menu">
+          <li>SOFA</li>
+          <li>BED</li>
+          <li>Table</li>
+        </ul>
+        <div className="foryou-list">
+          {/* {buyBag.map(els => {
+            return <MypageComponents items={els} key={els.id} />; 
+          })}*/}
+        </div>
       </div>
     </div>
   );
