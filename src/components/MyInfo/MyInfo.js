@@ -6,19 +6,23 @@ const MyInfo = ({ sideOn, setSideOn }) => {
   let [item, setItem] = useState([]);
 
   useEffect(() => {
-    fetch('/data/sideMenuMockData.json')
-      .then(response => response.json())
-      .then(data => setItem(data));
-  }, []);
+    localStorage.setItem(
+      'jwt',
+      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.TbUpMPmn-RdsST-uVWs8gGmIGv9rT0-jycK1rwVYY3s'
+    );
 
-  const filterBag = item.filter(els => {
-    return els.category.includes('chair');
-  });
-  let bagItemCount = filterBag.length;
+    fetch('http://10.58.7.133:8000/carts/cart', {
+      method: 'GET',
+      headers: { Authorization: localStorage.getItem('jwt') },
+    })
+      .then(response => response.json())
+      .then(data => setItem(data.carts));
+  }, []);
 
   const removeSide = () => {
     setSideOn('');
   };
+
   return (
     <>
       <div className={`background ${sideOn}`} />
@@ -34,10 +38,10 @@ const MyInfo = ({ sideOn, setSideOn }) => {
         </div>
         <div className="my-shopping">
           <h3>
-            장바구니<em id="count">{bagItemCount}</em>
+            장바구니<em id="count">{item.length}</em>
           </h3>
           <div className="my-shopping-list">
-            {filterBag.map(els => {
+            {item.map(els => {
               return (
                 <ShoppingBag itemBag={els} key={els.id} setItem={setItem} />
               );

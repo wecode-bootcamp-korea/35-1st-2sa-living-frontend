@@ -2,35 +2,41 @@ import React from 'react';
 
 import './ShoppingBag.scss';
 
-const ShoppingBag = ({ itemBag, setItems }) => {
+const ShoppingBag = ({ itemBag, setItem }) => {
   const removeBag = id => {
-    fetch(`http://10.58.2.81:8000/carts/${id}`, {
+    fetch(`http://10.58.7.133:8000/carts/cart/${cart_id}`, {
       method: 'DELETE',
       headers: { Authorization: localStorage.getItem('jwt') },
     })
       .then(response => response.json())
-      .then(data => setItems(data.carts));
+      .then(data => setItem(data.carts));
   };
 
   let {
-    thumbnail_image_url,
-    brand_name,
+    cart_image,
+    furniture_brand,
     furniture_korean_name,
     price,
     quantity,
-    cartid,
+    cart_id,
   } = itemBag;
+
   return (
-    <div className="bag-item" onClick={removeBag(cartid)}>
+    <div className="bag-item" style={{ cursor: 'pointer' }}>
       <div className="item-img">
-        <img src={thumbnail_image_url} alt="썸네일" />
-        <p className="close-box">
+        <img src={cart_image} alt="썸네일" />
+        <p
+          className="close-box"
+          onClick={() => {
+            removeBag(cart_id);
+          }}
+        >
           <i class="fa-solid fa-xmark" />
         </p>
       </div>
       <div className="item-txt">
         <p className="txt-brand">
-          <span>{brand_name}</span>
+          <span>{furniture_brand}</span>
         </p>
         <p className="txt-name">{furniture_korean_name}</p>
         <p className="txt-price">
