@@ -142,6 +142,11 @@
         tr {
           line-height: 45px;
           border-bottom: 2px solid rgb(204, 202, 202);
+          cursor: pointer;
+        }
+        tr:hover {
+          background-color: rgb(223, 221, 221);
+          transition: 0.2s;
         }
         tr:last-child {
           border: none;
