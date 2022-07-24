@@ -8,10 +8,10 @@ const MyInfo = ({ sideOn, setSideOn }) => {
   useEffect(() => {
     localStorage.setItem(
       'jwt',
-      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.TbUpMPmn-RdsST-uVWs8gGmIGv9rT0-jycK1rwVYY3s'
+      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6Mn0.oI3Z-gSIJ80CQdiV1noi9dmAQm_3sPdLfmJsR12ZT3A'
     );
 
-    fetch('http://10.58.7.133:8000/carts/cart', {
+    fetch('http://10.58.0.74:8000/carts/cart', {
       method: 'GET',
       headers: { Authorization: localStorage.getItem('jwt') },
     })
@@ -21,6 +21,17 @@ const MyInfo = ({ sideOn, setSideOn }) => {
 
   const removeSide = () => {
     setSideOn('');
+  };
+
+  const letOrder = () => {
+    fetch(`http://10.58.0.74:8000/orders/order`, {
+      method: 'POST',
+      headers: { Authorization: localStorage.getItem('jwt') },
+    })
+      .then(response => response.json())
+      .then(() => {
+        setItem([]);
+      });
   };
 
   return (
@@ -49,7 +60,14 @@ const MyInfo = ({ sideOn, setSideOn }) => {
           </div>
           <div className="my-shopping-btn">
             <div className="viewbtn">장바구니보기</div>
-            <div className="buybtn">바로구매</div>
+            <div
+              className="buybtn"
+              onClick={() => {
+                letOrder();
+              }}
+            >
+              바로구매
+            </div>
           </div>
         </div>
 
