@@ -8,10 +8,10 @@ const MyInfo = ({ sideOn, setSideOn }) => {
   useEffect(() => {
     localStorage.setItem(
       'jwt',
-      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6Mn0.oI3Z-gSIJ80CQdiV1noi9dmAQm_3sPdLfmJsR12ZT3A'
+      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.TbUpMPmn-RdsST-uVWs8gGmIGv9rT0-jycK1rwVYY3s'
     );
 
-    fetch('http://10.58.0.74:8000/carts/cart', {
+    fetch('http://10.58.0.74:8000/orders/order', {
       method: 'GET',
       headers: { Authorization: localStorage.getItem('jwt') },
     })
