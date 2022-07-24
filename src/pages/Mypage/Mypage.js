@@ -29,13 +29,7 @@ const Mypage = () => {
   let forYouItem = changeList(clickBtn);
 
   let Orders = () => {
-    return (
-      <tr>
-        <td>주문번호 : 546545646-10214</td>
-        <td>총금액 : 5000,000원</td>
-        <td>진행 상태 : 주문완료</td>
-      </tr>
-    );
+    return <p>ss</p>;
   };
 
   return (
@@ -73,13 +67,14 @@ const Mypage = () => {
           </ul>
         </div>
       </div>
-      <div className="order">
-        <h1 className="order-title"> 현재 진행중 주문</h1>
-        <div className="order-list">
-          <table className="order-table">
-            <Orders />
-            <Orders />
-            <Orders />
+      <div className="oders">
+        <h1 className="oders-title"> 현재 진행중 주문</h1>
+        <div className="oders-list">
+          <table>
+            <tr>
+              <td>주문번호 : 546545646-10214</td>
+              <td>진행 상태 : 주문완료</td>
+            </tr>
           </table>
         </div>
       </div>
