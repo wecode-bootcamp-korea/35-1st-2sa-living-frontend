@@ -26,12 +26,17 @@ const Mypage = () => {
       });
     }
   };
-  let forYouItem = changeList(clickBtn);
 
   let Orders = () => {
-    return <p>ss</p>;
+    return (
+      <tr>
+        <td>주문번호 : 546545646-10214</td>
+        <td>총 : 50000원</td>
+        <td>진행 상태 : 주문완료</td>
+      </tr>
+    );
   };
-
+  let forYouItem = changeList(clickBtn);
   return (
     <div className="mypage">
       <h1 className="title"> MYPAGE</h1>
@@ -67,14 +72,13 @@ const Mypage = () => {
           </ul>
         </div>
       </div>
-      <div className="oders">
-        <h1 className="oders-title"> 현재 진행중 주문</h1>
-        <div className="oders-list">
+      <div className="order">
+        <h1 className="order-title"> 현재 진행중 주문</h1>
+        <div className="order-list">
           <table>
-            <tr>
-              <td>주문번호 : 546545646-10214</td>
-              <td>진행 상태 : 주문완료</td>
-            </tr>
+            <Orders />
+            <Orders />
+            <Orders />
           </table>
         </div>
       </div>
