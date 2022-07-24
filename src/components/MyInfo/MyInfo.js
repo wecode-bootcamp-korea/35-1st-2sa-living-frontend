@@ -11,7 +11,7 @@ const MyInfo = ({ sideOn, setSideOn }) => {
       'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.TbUpMPmn-RdsST-uVWs8gGmIGv9rT0-jycK1rwVYY3s'
     );
 
-    fetch('http://10.58.0.74:8000/orders/order', {
+    fetch('http://10.58.0.74:8000/carts/cart', {
       method: 'GET',
       headers: { Authorization: localStorage.getItem('jwt') },
     })
