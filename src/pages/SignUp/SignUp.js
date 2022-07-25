@@ -150,7 +150,7 @@ const SignUp = () => {
     }
   };
   const isValid = agreementCheck && privacyCheck;
-  console.log('sefef', disable);
+
   return (
     <div>
       <div className="container">
