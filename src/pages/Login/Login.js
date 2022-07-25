@@ -49,7 +49,7 @@ const Login = () => {
 
   const loginConfirm = e => {
     e.preventDefault();
-    console.log('a', a);
+
     if (email.length === 0) {
       window.alert('아이디가 공백입니다');
     } else if (password.length === 0) {
@@ -58,6 +58,8 @@ const Login = () => {
       navigate('/');
     } else if (a !== true) {
       window.alert('아이디나 비밀번호 양식이 맞지 않습니다.');
+    } else {
+      navigate('/');
     }
   };
 
@@ -80,7 +82,7 @@ const Login = () => {
             onChange={handleInputPwd}
             value={password}
           />
-          <button className="login-btn" onClick={goToMain}>
+          <button className="login-btn" onClick={loginConfirm}>
             LOGIN
           </button>
           <p class="bottom-check">

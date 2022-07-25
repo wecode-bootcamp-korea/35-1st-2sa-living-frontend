@@ -9,8 +9,11 @@ const SignUp = () => {
   const goToMain = () => {
     navigate('/');
   };
-
   const goToLogin = () => {
+    navigate('/login');
+  };
+
+  /*const goToLogin = () => {
     fetch('http://10.58.0.190:8000/users/signup', {
       method: 'post',
       body: JSON.stringify({
@@ -26,7 +29,7 @@ const SignUp = () => {
       .then(res => {
         console.log(res);
       });
-  };
+  };*/
 
   const [inputValues, setInputValues] = useState({
     firstName: '',
@@ -152,7 +155,7 @@ const SignUp = () => {
   const isValid = agreementCheck && privacyCheck;
 
   return (
-    <div>
+    <div className="Login">
       <div className="container">
         <h2>SIGN UP</h2>
         <div className="wrapper">

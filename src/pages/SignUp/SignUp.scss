@@ -114,7 +114,6 @@
 }
 
 .input-container {
-  /*margin-bottom: 10px;*/
   display: flex;
   position: relative;
   margin-top: 10px;
@@ -124,8 +123,7 @@
     line-height: 50px;
     color: #9c9e9c;
   }
-  // .firstname-input-wrapper {
-  // }
+
   .firstname-input {
     width: 64%;
     height: 40px;
@@ -134,7 +132,6 @@
     background-color: #efefef;
     border: none;
     color: #9c9e9c;
-    /*margin-bottom: 50px;*/
   }
 
   .lastname {
@@ -155,9 +152,7 @@
     color: #9c9e9c;
     border: none;
   }
-  /*.email-inputcell {
-    display: flex;
-  }*/
+
   .signup-email {
     padding-left: 20px;
     width: 75px;
@@ -199,14 +194,7 @@
       }
     }
   }
-  /*.signup-email-input {
-    width: 10%;
-    height: 40px;
-    margin-left: 135px;
-    padding: 10px 10px;
-    background-color: #efefef;
-    border: none;
-  }*/
+
   .signup-pwd {
     padding-left: 20px;
     float: left;
@@ -246,22 +234,6 @@
     color: #9c9e9c;
     border: none;
   }
-  /*.slash {
-    display: flex;
-    line-height: 40px;
-  }
-  .phone-number-input2 {
-    width: 30%;
-    padding: 10px 15px;
-    background-color: #efefef;
-    border: none;
-  }
-  .phone-number-input3 {
-    width: 30%;
-    padding: 10px 15px;
-    background-color: #efefef;
-    border: none;
-  }*/
 }
 .date {
   padding-left: 20px;
@@ -275,7 +247,6 @@
   width: 64%;
   height: 40px;
   margin-left: 18%;
-  /*background-color: #efefef;*/
   display: flex;
 }
 .date-input {
@@ -304,11 +275,13 @@
     background-color: black;
     color: #fff;
     font-size: 17px;
+    cursor: pointer;
   }
   .delete-button {
     width: 30%;
     height: 50px;
     background-color: #fff;
     font-size: 17px;
+    cursor: pointer;
   }
 }

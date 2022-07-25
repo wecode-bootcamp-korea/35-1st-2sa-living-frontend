@@ -46,43 +46,29 @@
   font-size: 24px;
   color: #fff;
   background-color: #333;
-  &:hover {
-    cursor: pointer;
-  }
+  cursor: pointer;
 }
 .bottom-check {
-  // display: flex;
-  // justify-content: space-evenly;
   margin-top: 30px;
-  // margin-right: 35px;
   text-align: center;
   font-size: 16px;
 }
 #save {
   margin-right: 9px;
 }
-.id-save {
+.email-save {
   margin-right: 5px;
-  &:hover {
-    cursor: pointer;
-  }
+  cursor: pointer;
 }
 .find-account-link {
   position: relative;
   margin-right: 5px;
-  // padding-left: 11px;
   margin-left: 4px;
-  &:hover {
-    cursor: pointer;
-  }
+  cursor: pointer;
 }
 .register-link {
   position: relative;
-  // padding-left: 11px;
-  // margin-left: 10px;
-  &:hover {
-    cursor: pointer;
-  }
+  cursor: pointer;
 }
 
 .sns-login {
