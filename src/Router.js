@@ -8,6 +8,8 @@ import SignUp from './pages/SignUp/SignUp';
 import Modal from './pages/Login/Modal';
 
 import MyInfo from './components/MyInfo/MyInfo';
+
+import CardsBox from './pages/CardsBox/CardsBox';
 function Router() {
   return (
     <BrowserRouter>
@@ -18,6 +20,7 @@ function Router() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/nonmemberModal" element={<Modal />} />
+        <Route path="/cardsbox" element={<CardsBox />} />
       </Routes>
       <Footer />
     </BrowserRouter>

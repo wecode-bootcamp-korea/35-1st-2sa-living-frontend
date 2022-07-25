@@ -1,0 +1,63 @@
+@import '../../styles/variables.scss';
+
+.CardsBox {
+  max-width: 1600px;
+  padding: 50px 30px 0;
+
+  .cards-container {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #333;
+    line-height: 20px;
+    font-weight: 300;
+
+    .sub-categories {
+      width: 200px;
+      text-align: left;
+    }
+
+    .sub-categories li {
+      font-size: 20px;
+      padding: 15px;
+      cursor: pointer;
+    }
+
+    .sub-categories li:hover {
+      font-weight: 500;
+      border: 1px solid #333;
+    }
+
+    .cards {
+      width: 1100px;
+      border-top: solid 1px #333;
+      padding-top: 20px;
+    }
+  }
+
+  .category-name {
+    font-size: 80px;
+    color: #333;
+    font-weight: 700;
+    line-height: 80px;
+    margin-bottom: 40px;
+    text-align: left;
+    letter-spacing: 4px;
+  }
+
+  .category-amount {
+    font-size: 18px;
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+
+  .cards-sort {
+    display: flex;
+    justify-content: space-between;
+
+    .cards-search input {
+      margin-right: 10px;
+    }
+  }
+}
