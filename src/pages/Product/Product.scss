@@ -1,0 +1,352 @@
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  margin: 0;
+  .inner {
+    position: relative;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 30px;
+  }
+}
+
+.SubMenu {
+  margin-top: 30px;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  display: flex;
+  li {
+    padding-right: 20px;
+    .arrow {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      display: block;
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.share_icon {
+  top: 63px;
+  right: 30px;
+}
+
+.ShareIcon {
+  height: 30px;
+  width: 30px;
+  border-radius: 30px black;
+}
+
+.ProductDetail {
+  align-items: center;
+}
+
+.Detail {
+  justify-content: center;
+  position: relative;
+}
+
+.ProductImage {
+  margin: 100px;
+}
+
+.ProductData {
+  display: flex;
+  flex-direction: column;
+  float: right;
+  text-align: end;
+  padding: 10px;
+  position: absolute;
+  right: 0;
+  bottom: 70px;
+  .ProductNameEn {
+    font-size: x-large;
+    font-weight: bold;
+    padding: 10px;
+    float: right;
+  }
+  .ProductNameKo {
+    font-size: large;
+    padding: 10px;
+    float: right;
+  }
+}
+
+.ProductPrice {
+  font-size: x-large;
+  font-weight: bold;
+  padding: 10px;
+  float: right;
+}
+
+.Options {
+  display: flex;
+  border: black;
+}
+
+.LikeIt {
+  width: 30px;
+  height: 30px;
+  background-color: rgb(222, 222, 222);
+}
+
+.BuyDataWrap {
+  margin-top: 30px;
+  height: 70px;
+  display: flex;
+  div {
+    border: 1px solid black;
+    select {
+      border: 0;
+      outline: 0;
+      background-color: transparent;
+    }
+  }
+  .BrandInfo {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+    padding-left: 30px;
+    border-right: none;
+  }
+  .BrandName {
+    font-weight: bold;
+    font-size: x-large;
+  }
+  .BrandText {
+    font-size: smaller;
+    color: #333;
+    margin-top: 5px;
+  }
+  .ColorWrap {
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: none;
+    .ColorInfo {
+      position: relative;
+      border-radius: 4px;
+      width: 180px;
+      border: 0px solid;
+      select::-ms-expand {
+        display: none;
+      } //선택버튼 삭제, 보더 삭제
+      .SelectOption {
+        -o-appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width: inherit;
+        height: inherit;
+        background: url('../../../public/images/Product/down.png')
+          calc(100% - 5px) center no-repeat;
+        background-size: 15px;
+        border: 0 none;
+        outline: 0 none;
+        padding: 0 5px;
+        position: relative;
+        z-index: 3;
+        option {
+          padding: 3px 0;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
+// .icoArrow {
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+//   z-index: 1;
+//   width: 35px;
+//   height: inherit;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   img {
+//     width: 50%;
+//     transition: 3s;
+//     transform: rotate(180deg);
+//   }
+//   //   transform: rotate(180deg);
+//   // }
+// }
+
+.Amount {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: none;
+  color: #333;
+  .ammount_arrow {
+    width: 15px;
+    height: 15px;
+    border: solid;
+    border-width: thin;
+    color: #333;
+  }
+  p {
+    padding: 0 10px 0 10px;
+  }
+}
+.buyWrap {
+  width: 18%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: none;
+  background-color: rgb(222, 222, 222);
+}
+
+.cart {
+  width: 18%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(222, 222, 222);
+  a {
+    color: #333;
+  }
+}
+
+.buy {
+  width: 23%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  a {
+    color: white;
+  }
+}
+
+.benefitWrap {
+  display: flex;
+  justify-content: end;
+  padding-top: 30px;
+  .benefit_child {
+    padding-left: 26px;
+    display: flex;
+    div {
+      color: #333;
+    }
+  }
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  margin-left: 5px;
+  align-items: center;
+  border: solid;
+  border-width: thin;
+  border-radius: 50px;
+  opacity: 0.3;
+}
+
+.detail_tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 100px;
+  padding-bottom: 160px;
+  div {
+    padding-left: 26px;
+    color: #333;
+  }
+}
+
+.img_section {
+  display: flex;
+  flex-direction: column;
+  max-width: 1600px;
+  padding: 0 30px;
+  margin: 0 auto;
+}
+
+.review {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 150px;
+  position: relative;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+.product_review {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50%;
+  padding-bottom: 20px;
+  box-sizing: border-box;
+  margin-right: 30px;
+  .review_top {
+    border-bottom: solid;
+    padding-bottom: 20px;
+    span {
+      margin-right: 573px;
+    }
+    button {
+      margin-right: 5px;
+      background-color: white;
+      border-radius: 3px;
+      border: 1px solid black;
+      padding: 5px;
+      color: #333;
+      cursor: pointer;
+    }
+    button:nth-child(3) {
+      background-color: black;
+      color: white;
+    }
+  }
+}
+
+.review_wrap {
+  margin-top: 20px;
+  padding: 200px 0;
+  border-bottom: 1px solid #333;
+  text-align: center;
+  font-size: 16px;
+  color: #666;
+}
+
+.announcement {
+  position: relative;
+  max-width: 1600px;
+  margin: 100px auto 20px;
+  border-bottom: solid;
+  h3 {
+    padding-bottom: 20px;
+  }
+}
+
+.test {
+  position: fixed;
+  height: 300px;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  right: 0;
+  margin-top: 700px;
+}
