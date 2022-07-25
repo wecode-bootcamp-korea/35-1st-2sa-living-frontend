@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import { useNavigate } from 'react-router-dom';
 import facebookIcon from '..//../asset/images/facebook.png';
 import kakaoIcon from '..//../asset/images/kakao.png';
@@ -12,24 +13,19 @@ const Login = () => {
     navigate('/signup');
   };
 
-  {
-    /*const goToMain = () => {
-    fetch('http://10.58.1.63:8000/users/login', {
+  const goToMain = () => {
+    fetch('http://10.58.0.190:8000/users/login', {
       method: 'post',
       body: JSON.stringify({
         email: 'jhlee7069@naver.com',
-        password: 'abcd1234!',
+        password: 'Abcd1234!',
       }),
     })
       .then(res => res.json())
       .then(res => {
-        if (res.USER_NAME) {
-          localStorage.setItem('jwt', res.TOKEN);
-          console.log(res);
-        }
+        console.log(res);
       });
-  };*/
-  }
+  };
 
   const [email, setEmail] = useState('');
   const [password, setPwd] = useState('');
@@ -43,7 +39,7 @@ const Login = () => {
   };
 
   const test = () => {
-    return email.includes('@') && pwdRegEx.test(password); //test 함수는 정규식에 불린 값을 얻는다 https://grownfresh.tistory.com/112
+    return email.includes('@') && pwdRegEx.test(password); //test 함수는 정규식에 불린 값을 얻는다
   };
 
   const pwdRegEx =
@@ -67,7 +63,7 @@ const Login = () => {
   //console.log(a);
   return (
     <div>
-      <section className="Login-container">
+      <div className="Login-container">
         <h2 className="Login-title">LOGIN</h2>
         <div className="login-input">
           <input
@@ -84,7 +80,7 @@ const Login = () => {
             onChange={handleInputPwd}
             value={password}
           />
-          <button className="login-btn" onClick={loginConfirm}>
+          <button className="login-btn" onClick={goToMain}>
             LOGIN
           </button>
           <p class="bottom-check">
@@ -123,7 +119,7 @@ const Login = () => {
             </p>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 };

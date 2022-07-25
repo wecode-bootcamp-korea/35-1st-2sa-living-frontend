@@ -5,6 +5,7 @@ import Footer from './components/Footer/Footer';
 import Main from './pages/Main/Main';
 import Login from './pages/Login/Login';
 import SignUp from './pages/SignUp/SignUp';
+import Modal from './pages/Login/Modal';
 
 import MyInfo from './components/MyInfo/MyInfo';
 function Router() {
@@ -16,6 +17,7 @@ function Router() {
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/nonmemberModal" element={<Modal />} />
       </Routes>
       <Footer />
     </BrowserRouter>
