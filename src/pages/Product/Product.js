@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 import Modal from './Modal';
 import Modal2 from './Modal2';
@@ -10,21 +11,16 @@ import './Product.scss';
 const Product = () => {
   const [amount, setAmount] = useState(1);
   const [modal, setModal] = useState(false);
+  const params = useParams();
   const [reviewlist, setReviewlist] = useState([]);
 
   useEffect(() => {
-    localStorage.setItem(
-      'jwt',
-      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.TbUpMPmn-RdsST-uVWs8gGmIGv9rT0-jycK1rwVYY3s'
-    );
-
-    fetch('/data/data.json')
+    fetch(`http://10.58.1.126:8000/products/${params.id}`)
       .then(response => response.json())
-      .then(data => setReviewlist(data[0]));
+      .then(data => setReviewlist(data.result[0]));
   }, []);
-  let { furniture_korean_name, price, furniture_english_name } = reviewlist;
+  let { english_name, korean_name } = reviewlist;
   // let [price] = reviewlist[0];
-  // console.log(price);
 
   const moveTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -71,14 +67,14 @@ const Product = () => {
 
             <div className="ProductData">
               <p>
-                <span className="ProductNameEn">{furniture_english_name}</span>
+                <span className="ProductNameEn">{english_name}</span>
               </p>
               <p>
-                <span className="ProductNameKo">{furniture_korean_name}</span>
+                <span className="ProductNameKo">{korean_name}</span>
               </p>
               <div className="ProductPrice">
                 <p>
-                  <span>{price * amount}</span>
+                  <span>{241 * amount}</span>
                 </p>
               </div>
             </div>

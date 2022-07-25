@@ -10,12 +10,8 @@ import '../../styles/common.scss';
 const Login = () => {
   const navigate = useNavigate();
 
-  const goToSignUp = () => {
-    navigate('/signup');
-  };
-
-  /*const goToMain = () => {
-    fetch('http://10.58.0.190:8000/users/login', {
+  const goToMain = () => {
+    fetch('http://10.58.1.126:8000/users/login', {
       method: 'post',
       body: JSON.stringify({
         email: 'jhlee7069@naver.com',
@@ -23,8 +19,13 @@ const Login = () => {
       }),
     })
       .then(res => res.json())
-      .then(res => {});
-  };*/
+      .then(res => {
+        if (res.USER_NAME) {
+          localStorage.setItem('jwt', res.TOKEN);
+          navigate('/');
+        }
+      });
+  };
 
   const [loiginInputValue, setLoginInputValue] = useState({
     email: '',
@@ -62,7 +63,7 @@ const Login = () => {
 
   return (
     <div>
-      <form className="login-container">
+      <div className="login-container">
         <h2 className="login-title">LOGIN</h2>
         <div className="login-input">
           <input
@@ -81,7 +82,7 @@ const Login = () => {
             name="password"
             value={password}
           />
-          <button className="login-btn" onClick={loginConfirm}>
+          <button className="login-btn" onClick={goToMain}>
             LOGIN
           </button>
           <p className="bottom-check">
@@ -90,9 +91,7 @@ const Login = () => {
               <span className="email-save">이메일 저장</span>
             </span>
             <span className="find-account-link">| 이메일 / 비밀번호 찾기 </span>
-            <span className="register-link" onClick={goToSignUp}>
-              | 회원가입
-            </span>
+            <span className="register-link">| 회원가입</span>
           </p>
           <div className="sns-login">
             <h3>SNS 로그인</h3>
@@ -112,7 +111,7 @@ const Login = () => {
             </p>
           </div>
         </div>
-      </form>
+      </div>
     </div>
   );
 };

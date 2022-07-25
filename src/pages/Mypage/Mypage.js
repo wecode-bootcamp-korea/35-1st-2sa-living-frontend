@@ -5,7 +5,15 @@ import './Mypage.scss';
 const Mypage = () => {
   let [clickBtn, setClickBtn] = useState(0);
   let [buying, setBuying] = useState([]);
+  let [orderList, setOrderList] = useState([]);
   useEffect(() => {
+    fetch('http://10.58.1.126:8000/orders/order', {
+      method: 'GET',
+      headers: { Authorization: localStorage.getItem('jwt') },
+    })
+      .then(response => response.json())
+      .then(data => console.log(data));
+
     fetch('/data/testMock.json')
       .then(response => response.json())
       .then(data => setBuying(data));

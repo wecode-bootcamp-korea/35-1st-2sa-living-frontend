@@ -9,11 +9,13 @@ function CardsBox() {
   const [userInput, setUserInput] = useState('');
 
   useEffect(() => {
-    fetch('/data/chairData.json')
+    fetch(
+      'http://10.58.1.126:8000/products?category_id=1&sub_category_id=1&page=1'
+    )
       .then(res => res.json())
-      .then(res => setCards(res));
+      .then(res => setCards(res.product_list));
   }, []);
-
+  console.log(cards);
   const cardList = cards.filter(card => {
     const lowerCase = card.brandName.toLowerCase();
     return lowerCase.includes(userInput);
