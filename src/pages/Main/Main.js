@@ -1,10 +1,45 @@
-import React from 'react';
+import { React, useEffect, useState } from 'react';
 
 import Slidebox from '../Slidebox/Slidebox';
+import Card from '../CardsBox/Card/Card';
 
 import './Main.scss';
 
 const Main = () => {
+  let [itemList, setItemList] = useState([]);
+  let [clickBtn, setClickBtn] = useState(0);
+  useEffect(() => {
+    fetch('/data/mainTestData.json')
+      .then(response => response.json())
+      .then(data => setItemList(data));
+  }, []);
+
+  const changeList = num => {
+    if (num === 0) {
+      return itemList.filter(els => {
+        return els.category.includes('sofa');
+      });
+    } else if (num === 1) {
+      return itemList.filter(els => {
+        return els.category.includes('chair');
+      });
+    } else if (num === 2) {
+      return itemList.filter(els => {
+        return els.category.includes('bed');
+      });
+    } else if (num === 3) {
+      return itemList.filter(els => {
+        return els.category.includes('table');
+      });
+    } else if (num === 4) {
+      return itemList.filter(els => {
+        return els.category.includes('closet');
+      });
+    }
+  };
+  let forYouItem = changeList(clickBtn);
+  console.log(forYouItem);
+
   return (
     <main>
       <section>
@@ -50,13 +85,50 @@ const Main = () => {
       <section>
         <div className="main-03">
           <ul className="main-03-list">
-            <li>소파</li>
-            <li>체어</li>
-            <li>침대</li>
-            <li>테이블</li>
-            <li>수납</li>
+            <li
+              className={clickBtn === 0 ? 'on' : ''}
+              onClick={() => {
+                setClickBtn(0);
+              }}
+            >
+              소파
+            </li>
+            <li
+              className={clickBtn === 1 ? 'on' : ''}
+              onClick={() => {
+                setClickBtn(1);
+              }}
+            >
+              체어
+            </li>
+            <li
+              className={clickBtn === 2 ? 'on' : ''}
+              onClick={() => {
+                setClickBtn(2);
+              }}
+            >
+              침대
+            </li>
+            <li
+              className={clickBtn === 3 ? 'on' : ''}
+              onClick={() => {
+                setClickBtn(3);
+              }}
+            >
+              테이블
+            </li>
+            <li
+              className={clickBtn === 4 ? 'on' : ''}
+              onClick={() => {
+                setClickBtn(4);
+              }}
+            >
+              수납
+            </li>
           </ul>
-          <div className="main-03-box" />
+          <div className="main-03-box">
+            <Card cardList={forYouItem} />
+          </div>
         </div>
       </section>
     </main>
