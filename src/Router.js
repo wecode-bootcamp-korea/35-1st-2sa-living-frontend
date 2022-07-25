@@ -4,6 +4,7 @@ import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
 import Main from './pages/Main/Main';
 import MyInfo from './components/MyInfo/MyInfo';
+import CardsBox from './pages/CardsBox/CardsBox';
 function Router() {
   return (
     <BrowserRouter>
@@ -11,6 +12,7 @@ function Router() {
       <MyInfo />
       <Routes>
         <Route path="/" element={<Main />} />
+        <Route path="/cardsbox" element={<CardsBox />} />
       </Routes>
       <Footer />
     </BrowserRouter>
