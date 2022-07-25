@@ -38,7 +38,6 @@ const Main = () => {
     }
   };
   let forYouItem = changeList(clickBtn);
-  console.log(forYouItem);
 
   return (
     <main>
