@@ -44,7 +44,6 @@ const SignUp = () => {
 
     const { name, value } = e.target;
     setInputValues({ ...inputValues, [name]: value });
-    console.log(e.target.lastName);
   };
 
   const firstNameRegEx = /^[가-힣]{1,4}$/;
@@ -87,7 +86,6 @@ const SignUp = () => {
       setEmailCheck(false);
     }
   };
-  console.log(agreementCheck);
 
   const agreementBtnEvent = () => {
     if (agreementCheck === false) {
