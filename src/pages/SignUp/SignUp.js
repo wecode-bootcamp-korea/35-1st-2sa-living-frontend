@@ -251,7 +251,6 @@ const SignUp = () => {
                   onChange={handleInput}
                   onClick={agreement}
                   name="firstName"
-                  disabled={disable}
                 />
               </div>
               {!isInputFirstnameValid && firstName ? (

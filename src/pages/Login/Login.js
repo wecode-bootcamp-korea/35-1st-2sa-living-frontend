@@ -5,6 +5,7 @@ import facebookIcon from '..//../asset/images/facebook.png';
 import kakaoIcon from '..//../asset/images/kakao.png';
 import naverIcon from '..//../asset/images/naver.png';
 import './Login.scss';
+import '../../styles/common.scss';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -22,9 +23,7 @@ const Login = () => {
       }),
     })
       .then(res => res.json())
-      .then(res => {
-        console.log(res);
-      });
+      .then(res => {});
   };
 
   const [email, setEmail] = useState('');
@@ -65,8 +64,8 @@ const Login = () => {
 
   return (
     <div>
-      <div className="Login-container">
-        <h2 className="Login-title">LOGIN</h2>
+      <div className="login-container">
+        <h2 className="login-title">LOGIN</h2>
         <div className="login-input">
           <input
             className="id-input"
@@ -85,10 +84,10 @@ const Login = () => {
           <button className="login-btn" onClick={loginConfirm}>
             LOGIN
           </button>
-          <p class="bottom-check">
+          <p className="bottom-check">
             <span className="id-checkbox">
               <input type="checkbox" id="save" />
-              <span className="id-save">이메일 저장</span>
+              <span className="email-save">이메일 저장</span>
             </span>
             <span className="find-account-link">| 이메일 / 비밀번호 찾기 </span>
             <span className="register-link" onClick={goToSignUp}>
