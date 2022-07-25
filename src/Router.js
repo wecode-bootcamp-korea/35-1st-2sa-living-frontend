@@ -5,6 +5,8 @@ import Footer from './components/Footer/Footer';
 import Main from './pages/Main/Main';
 import MyInfo from './components/MyInfo/MyInfo';
 import Orders from './pages/Orders/Orders';
+import CardsBox from './pages/CardsBox/CardsBox';
+
 function Router() {
   return (
     <BrowserRouter>
@@ -13,6 +15,7 @@ function Router() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/orders" element={<Orders />} />
+        <Route path="/cardsbox" element={<CardsBox />} />
       </Routes>
       <Footer />
     </BrowserRouter>
