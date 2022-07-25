@@ -1,0 +1,108 @@
+@import '../../../components/Heart/Heart.scss';
+
+.card {
+  margin: 0 14px 50px 0;
+
+  .card-name {
+    color: #666;
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 300;
+  }
+
+  .card-price {
+    color: #333;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 500;
+  }
+
+  .img-container {
+    position: relative;
+    width: 261px;
+    height: 261px;
+    margin-bottom: 20px;
+    overflow: hidden;
+
+    .card-img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+      backface-visibility: hidden;
+    }
+
+    .img-hover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 261px;
+      height: 261px;
+      background-color: rgba(0, 0, 0, 0);
+      opacity: 0;
+
+      .hover-items {
+        position: relative;
+        height: 100%;
+        padding: 10px;
+        font-size: 20px;
+        color: white;
+        transition: ease-in-out;
+      }
+
+      .hover-items .fa-shopping-cart {
+        position: absolute;
+        bottom: 30%;
+        left: 35%;
+        padding: 10px;
+      }
+    }
+
+    .img-container:hover .img-hover {
+      background-color: rgba(0, 0, 0, 0.6);
+      transition: background-color ease-in 0.9s;
+      opacity: 1;
+    }
+  }
+
+  .img-container:hover .card-img {
+    transform: scale(1.1);
+    transition: 0.5s;
+    opacity: 0.3;
+  }
+
+  .img-container:hover .hover-items i .fa-shopping-cart {
+    bottom: 40%;
+    transition: 0.5s;
+  }
+
+  .img-container:hover .img-hover {
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: background-color ease-in 0.9s;
+    opacity: 1;
+  }
+
+  .img-container:hover .fa-shopping-cart {
+    bottom: 40% !important;
+    transition: 0.5s;
+  }
+
+  .brand-name {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-bottom: 15px;
+    border: 1px solid #d0d0d0;
+  }
+
+  .card-name {
+    margin-bottom: 20px;
+  }
+}
+
+.no-brand-name {
+  width: 100%;
+  margin: 50px;
+  color: black;
+  font-size: 20px;
+  text-align: center;
+}
