@@ -8,6 +8,7 @@ const Orders = () => {
       .then(response => response.json())
       .then(data => setOrders(data[0].order_items));
   }, []);
+
   let Items = ({ items }) => {
     let {
       product_image,
@@ -73,11 +74,37 @@ const Orders = () => {
 
             <tr className="">
               <td>최종 결제 금액</td>
-              <td>
-                <p className="total-price">200,000,000 원</p>
-              </td>
+              <td className="total-price">200,000,000 원</td>
             </tr>
           </table>
+          <form className="agree">
+            <p class="agree-top">
+              <input type="checkbox" />
+              <label>전체 동의합니다.</label>
+            </p>
+            <p class="agree-middle">
+              <input type="checkbox" className="check-box01" />
+              <label>
+                주문 상품정보에 동의 (필수)
+                <br />
+                상품명,가격,상품상세내용,배송정보,할인내역을 확인함
+                <br />
+                (전자상거래법 제 8조 2항)
+              </label>
+            </p>
+            <p className="agree-bottom">
+              <input type="checkbox" className="check-box02" />
+              <label>
+                개인정보 수집 및 위탁 동의 (필수)
+                <br />
+                상품 배송 및 결제대행 서비스 이용을 위하여 고객정보를 수집함
+              </label>
+            </p>
+          </form>
+
+          <p className="btn-box">
+            <button>결제하기</button>
+          </p>
         </div>
       </div>
     </>
