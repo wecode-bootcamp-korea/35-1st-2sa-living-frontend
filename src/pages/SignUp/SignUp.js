@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './SignUp.scss';
 import '../../styles/common.scss';
@@ -101,7 +101,6 @@ const SignUp = () => {
   ];
   // 체크된 아이템을 담을 배열
   const [checkItems, setCheckItems] = useState([]);
-  const [disable, setDisable] = useState(false);
 
   // 체크박스 단일 선택
   const handleSingleCheck = (checked, id) => {
@@ -113,9 +112,6 @@ const SignUp = () => {
       setCheckItems(checkItems.filter(el => el !== id));
     }
   };
-
-  console.log(checkItems);
-
   // 체크박스 전체 선택
   const handleAllCheck = checked => {
     if (checked) {
@@ -131,7 +127,6 @@ const SignUp = () => {
 
   const agreement = () => {
     const isValid = checkItems.filter(data => data === 1 || data === 2);
-    console.log('isValid', isValid);
     if (isValid.length === 0) {
       alert('필수사항을 확인해주세요');
     } else {
@@ -149,7 +144,7 @@ const SignUp = () => {
               <h3>약관동의</h3>
               <ul>
                 <li>
-                  {checkBoxDatas?.map((checkBoxDatas, key) => (
+                  {checkBoxDatas?.map(checkBoxDatas => (
                     <div>
                       <input
                         type="checkbox"

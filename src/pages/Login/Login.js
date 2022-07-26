@@ -77,6 +77,11 @@ const Login = () => {
     }
   };
 
+  const logout = () => {
+    localStorage.removeItem('jwt');
+    alert('로그아웃 되었습니다!');
+    navigate('/');
+  };
   return (
     <div>
       <form className="login-container">
@@ -127,6 +132,7 @@ const Login = () => {
             <p className="non-members">
               <span>비회원 주문배송 조회</span>
             </p>
+            <span onClick={logout}>로그아웃</span>
           </div>
         </div>
       </form>
