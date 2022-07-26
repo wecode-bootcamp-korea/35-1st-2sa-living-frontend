@@ -1,3 +1,5 @@
+@import '/src/styles/variables.scss';
+
 .mypage {
   position: relative;
   max-width: 1600px;
@@ -8,7 +10,7 @@
     font-family: 'Barlow', 'Noto Sans', sans-serif;
     text-align: center;
     font-size: 60px;
-    color: #333;
+    color: $txt-color-01;
     font-weight: 700;
   }
   .mypage-infobox {
@@ -16,7 +18,7 @@
     max-width: 800px;
     margin: 45px auto 80px;
     color: #999;
-    background-color: #333;
+    background-color: $txt-color-01;
     display: flex;
 
     .infobox-mymenu {
@@ -103,7 +105,7 @@
               width: 22px;
               height: 22px;
               margin-right: 10px;
-              color: #333;
+              color: $txt-color-01;
               text-align: center;
               font-weight: 500;
               background-color: #fff;
@@ -120,20 +122,19 @@
 
   .order {
     margin-bottom: 100px;
+
     .order-title {
       font-size: 24px;
-      color: #333;
+      color: $txt-color-01;
       text-align: center;
       margin-bottom: 30px;
     }
     .order-list {
-      border-top: 3px solid #333;
-      border-bottom: 1px solid #333;
+      border-top: 3px solid $txt-color-01;
+      border-bottom: 1px solid $txt-color-01;
       padding: 30px 0px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-start;
 
+      @include flex-wrap-start;
       table {
         width: 100%;
         margin: 0px 20px;
@@ -141,7 +142,7 @@
 
         tr {
           line-height: 45px;
-          border-bottom: 2px solid rgb(204, 202, 202);
+          border-bottom: 2px solid $table-border-color;
           cursor: pointer;
         }
         tr:hover {
@@ -159,34 +160,33 @@
   }
   .likeits {
     margin-bottom: 30px;
+
     .likeits-title {
       font-size: 24px;
-      color: #333;
+      color: $txt-color-01;
       text-align: center;
       margin-bottom: 30px;
     }
     .likeits-list {
-      border-top: 3px solid #333;
-      border-bottom: 1px solid #333;
+      border-top: 3px solid $txt-color-01;
+      border-bottom: 1px solid $txt-color-01;
       padding: 30px 0px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-start;
     }
   }
   .foryou {
     margin-bottom: 30px;
     .foryou-title {
       font-size: 24px;
-      color: #333;
+      color: $txt-color-01;
       text-align: center;
       margin-bottom: 30px;
     }
 
     .foryou-list {
-      border-top: 3px solid #333;
-      border-bottom: 1px solid #333;
+      border-top: 3px solid $txt-color-01;
+      border-bottom: 1px solid $txt-color-01;
       padding: 0px 0px 30px 0px;
+
       .foryou-menu {
         margin: 40px 0 25px;
         text-align: center;
@@ -201,6 +201,7 @@
             font-weight: 300;
             cursor: pointer;
           }
+
           .on {
             font-weight: 800;
           }
