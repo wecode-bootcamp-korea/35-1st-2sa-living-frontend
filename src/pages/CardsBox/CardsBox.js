@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import CardList from './CardList/CardList';
 import SubCategories from './SubCategories/SubCategories';
 import './CardsBox.scss';
