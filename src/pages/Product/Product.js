@@ -19,9 +19,9 @@ const Product = () => {
       .then(response => response.json())
       .then(data => setReviewlist(data.result[0]));
   }, []);
-  let { english_name, korean_name } = reviewlist;
-  // let [price] = reviewlist[0];
 
+  let { english_name, korean_name, main_image, related_products_list } =
+    reviewlist;
   const moveTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -33,7 +33,7 @@ const Product = () => {
   const closeModal = () => {
     setModal(false);
   };
-
+  console.log('das', reviewlist);
   return (
     <section className="container">
       <div className="drop" />
@@ -62,7 +62,7 @@ const Product = () => {
 
           <div className="Detail">
             <div className="share_icon">
-              <img src="/images/Product/green_chair.jpg" alt="icon" />
+              <img src={main_image} alt="icon" />
             </div>
 
             <div className="ProductData">
@@ -80,7 +80,7 @@ const Product = () => {
             </div>
           </div>
         </div>
-        <BuyWrap />
+        <BuyWrap items={related_products_list} a={reviewlist} />
         <div className="benefitWrap">
           <div className="benefit_child">
             착불배송

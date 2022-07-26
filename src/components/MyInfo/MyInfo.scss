@@ -7,12 +7,11 @@
   background: #000;
   opacity: 0.8;
   z-index: 99;
-  display: none;
 }
 aside.quick {
   position: fixed;
   top: 0;
-  right: -472px;
+
   width: 472px;
   height: 100%;
   background: #fff;
@@ -139,11 +138,4 @@ aside.quick {
       }
     }
   }
-}
-
-aside.on {
-  right: 0;
-}
-.background.on {
-  display: block;
 }

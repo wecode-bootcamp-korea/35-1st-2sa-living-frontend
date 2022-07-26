@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const BuyWrap = () => {
+const BuyWrap = ({ items, a }) => {
   const [amount, setAmount] = useState(1);
   const [select, setSelect] = useState('');
   const [likeIt, setLikeIt] = useState(0);
@@ -39,9 +39,13 @@ const BuyWrap = () => {
               <option disabled selected>
                 색상 선택
               </option>
-              <option value="480,000">Black</option>
-              <option value="550,000">White</option>
-              <option value="600,000">Oatmeal</option>
+              {a.length === 0 ? (
+                <option>1</option>
+              ) : (
+                items.map(els => {
+                  return <option>{els.color}</option>;
+                })
+              )}
             </select>
           </div>
         </div>

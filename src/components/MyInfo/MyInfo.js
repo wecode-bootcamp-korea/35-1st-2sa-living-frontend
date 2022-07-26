@@ -1,21 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import ShoppingBag from '../ShoppingBag/ShoppingBag';
 import './MyInfo.scss';
 
-const MyInfo = ({ sideOn, setSideOn }) => {
-  let [item, setItem] = useState([]);
-
-  useEffect(() => {
-    fetch('http://10.58.1.126:8000/carts/cart', {
-      method: 'GET',
-      headers: { Authorization: localStorage.getItem('jwt') },
-    })
-      .then(response => response.json())
-      .then(data => setItem(data.carts));
-  }, []);
-
+const MyInfo = ({ slideOn, setSlideOn, item, setItem }) => {
   const removeSide = () => {
-    setSideOn('');
+    setSlideOn(!slideOn > slideOn);
   };
 
   const letOrder = () => {
@@ -31,8 +20,11 @@ const MyInfo = ({ sideOn, setSideOn }) => {
 
   return (
     <>
-      <div className={`background ${sideOn}`} />
-      <aside className={`quick ${sideOn}`}>
+      <div
+        className="background"
+        style={{ display: slideOn ? 'block' : 'none' }}
+      />
+      <aside className="quick" style={{ right: slideOn ? '0px' : '-472px' }}>
         <div className="my-name">
           <p className="name">
             <img src="/images/MyInfo/profile-user.png" alt="회원정보" />
