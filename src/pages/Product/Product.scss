@@ -44,11 +44,11 @@ a {
     padding-right: 20px;
     .arrow {
       position: absolute;
-      top: 50%;
-      left: 0;
       display: block;
       width: 20px;
       height: 20px;
+      top: 50%;
+      left: 0;
     }
     .share_icon {
       position: absolute;
@@ -68,8 +68,8 @@ a {
 }
 
 .Detail {
-  justify-content: center;
   position: relative;
+  justify-content: center;
   .share_icon {
     text-align: center;
     img {
@@ -83,32 +83,33 @@ a {
 }
 
 .ProductData {
+  position: absolute;
   display: flex;
   flex-direction: column;
   float: right;
-  text-align: end;
   padding: 10px;
-  position: absolute;
   right: 0;
   bottom: 70px;
+  text-align: end;
+
   .ProductNameEn {
+    float: right;
+    padding: 10px;
     font-size: x-large;
     font-weight: bold;
-    padding: 10px;
-    float: right;
   }
   .ProductNameKo {
-    font-size: large;
-    padding: 10px;
     float: right;
+    padding: 10px;
+    font-size: large;
   }
 }
 
 .ProductPrice {
+  float: right;
+  padding: 10px;
   font-size: x-large;
   font-weight: bold;
-  padding: 10px;
-  float: right;
 }
 
 .Options {
@@ -123,9 +124,9 @@ a {
 }
 
 .BuyDataWrap {
+  display: flex;
   margin-top: 30px;
   height: 70px;
-  display: flex;
   div {
     border: 1px solid black;
     select {
@@ -135,13 +136,13 @@ a {
     }
   }
   .BrandInfo {
-    width: 50%;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    text-align: left;
+    width: 50%;
     padding-left: 30px;
     border-right: none;
+    text-align: left;
   }
   .BrandName {
     font-weight: bold;
@@ -153,10 +154,10 @@ a {
     margin-top: 5px;
   }
   .ColorWrap {
-    width: 35%;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 35%;
     border-right: none;
     .ColorInfo {
       position: relative;
@@ -191,10 +192,10 @@ a {
 }
 
 .amount {
-  width: 20%;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 20%;
   border-right: none;
   color: #333;
   .amount_arrow {
@@ -209,28 +210,28 @@ a {
   }
 }
 .buyWrap {
-  width: 18%;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 18%;
   border-right: none;
   background-color: rgb(222, 222, 222);
 }
 
 .cart {
-  width: 18%;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 18%;
   background-color: rgb(222, 222, 222);
   color: #333;
 }
 
 .buy {
-  width: 23%;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 23%;
   background-color: black;
   a {
     color: white;
@@ -305,11 +306,11 @@ a {
   }
 
   .review_top {
-    border-bottom: solid;
-    padding-bottom: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-bottom: solid;
+    padding-bottom: 20px;
   }
 
   .handle-review {

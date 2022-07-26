@@ -59,7 +59,7 @@ const BuyWrap = ({ amount, setAmount, colors, list, brand }) => {
         <p>{amount}</p>
         <img
           alt="icon"
-          className="ammount_arrow"
+          className="amount_arrow"
           src="/images/Product/right-arrow.png"
           onClick={handleAmountPlus}
         />
