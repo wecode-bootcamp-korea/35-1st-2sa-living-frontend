@@ -1,10 +1,13 @@
+html {
+  scroll-behavior: smooth;
+}
+
 a {
   text-decoration: none;
 }
 
 .container {
   margin: 0;
-  // padding: 30px 30px 100px;
   .inner {
     position: relative;
     max-width: 1600px;
@@ -14,36 +17,49 @@ a {
 }
 
 .SubMenu {
-  margin-top: 30px;
   position: relative;
   width: 100%;
-  float: left;
+  height: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   list-style: none;
+
   .category {
-    display: flex;
-    li {
-      padding-right: 20px;
-      span {
-        display: flex;
-        img {
-          margin-right: 10px;
-        }
-      }
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+  }
+
+  .share_icon {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  li {
+    padding-right: 20px;
+    .arrow {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      display: block;
+      width: 20px;
+      height: 20px;
+    }
+    .share_icon {
+      position: absolute;
+      right: 0;
     }
   }
 }
 
-.share_icon {
-  top: 63px;
-  right: 30px;
-}
-
 .ShareIcon {
-  height: 30px;
-  width: 30px;
+  height: 25px;
+  width: 25px;
   border-radius: 30px black;
 }
 
@@ -54,6 +70,12 @@ a {
 .Detail {
   justify-content: center;
   position: relative;
+  .share_icon {
+    text-align: center;
+    img {
+      width: 30%;
+    }
+  }
 }
 
 .ProductImage {
@@ -69,8 +91,6 @@ a {
   position: absolute;
   right: 0;
   bottom: 70px;
-  p {
-  }
   .ProductNameEn {
     font-size: x-large;
     font-weight: bold;
@@ -143,10 +163,19 @@ a {
       border-radius: 4px;
       width: 180px;
       border: 0px solid;
+      select::-ms-expand {
+        display: none;
+      } //선택버튼 삭제, 보더 삭제
       .SelectOption {
+        -o-appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
         width: inherit;
         height: inherit;
-        background: transparent;
+        background: url('../../../public/images/Product/down.png')
+          calc(100% - 5px) center no-repeat;
+        background-size: 15px;
         border: 0 none;
         outline: 0 none;
         padding: 0 5px;
@@ -161,25 +190,6 @@ a {
   }
 }
 
-.ColorInfo .icoArrow {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 1;
-  width: 35px;
-  height: inherit;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  img {
-    width: 50%;
-    transition: 0.3s;
-  }
-  .ColorInfo:focus + .icoArrow img {
-    transform: rotate(180deg);
-  }
-}
-
 .Amount {
   width: 20%;
   display: flex;
@@ -187,7 +197,7 @@ a {
   align-items: center;
   border-right: none;
   color: #333;
-  img {
+  .ammount_arrow {
     width: 15px;
     height: 15px;
     border: solid;
@@ -204,19 +214,18 @@ a {
   justify-content: center;
   align-items: center;
   border-right: none;
-
   background-color: rgb(222, 222, 222);
 }
+
 .cart {
   width: 18%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgb(222, 222, 222);
-  a {
-    color: #333;
-  }
+  color: #333;
 }
+
 .buy {
   width: 23%;
   display: flex;
@@ -279,6 +288,7 @@ a {
   position: relative;
   max-width: 1600px;
   margin: 0 auto;
+  padding: 0 30px;
 }
 
 .product_review {
@@ -289,30 +299,42 @@ a {
   padding-bottom: 20px;
   box-sizing: border-box;
   margin-right: 30px;
+
+  .review-header {
+    font-size: x-large;
+  }
+
   .review_top {
     border-bottom: solid;
     padding-bottom: 20px;
-    span {
-      margin-right: 573px;
-    }
-    button {
-      margin-right: 5px;
-      background-color: white;
-      border-radius: 3px;
-      border: 1px solid black;
-      padding: 5px;
-      color: #333;
-    }
-    button:nth-child(3) {
-      background-color: black;
-      color: white;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .handle-review {
+    margin-right: 5px;
+    background-color: white;
+    border-radius: 3px;
+    border: 1px solid black;
+    padding: 5px;
+    color: #333;
+    cursor: pointer;
+  }
+  .more-review {
+    background-color: black;
+    color: white;
+    margin-right: 5px;
+    border-radius: 3px;
+    border: 1px solid black;
+    padding: 5px;
+    cursor: pointer;
   }
 }
 
 .review_wrap {
   margin-top: 20px;
-  padding: 100px 0;
+  padding: 200px 0;
   border-bottom: 1px solid #333;
   text-align: center;
   font-size: 16px;
@@ -322,11 +344,8 @@ a {
 .announcement {
   position: relative;
   max-width: 1600px;
-  margin: 100px auto 20px;
-  border-bottom: solid;
-  h3 {
-    padding-bottom: 20px;
-  }
+  margin: 100px 75px 20px;
+  font-size: x-large;
 }
 
 .test {

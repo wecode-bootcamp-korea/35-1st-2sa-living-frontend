@@ -12,7 +12,7 @@ function Router() {
       <MyInfo />
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/product" element={<Product />} />
+        <Route path="/products/:id" element={<Product />} />
       </Routes>
       <Footer />
     </BrowserRouter>

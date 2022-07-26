@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "category": "chair",
+    "sub_category": "바 체어",
+    "brand_name": "&Tradition",
+    "furniture_korean_name": "리볼버 바스툴_H65, Red",
+    "furniture_english_name": "Revolver Bar Stool H65, Red",
+    "color_korean_name": "검정",
+    "color_english_name": "black",
+    "price": 120000,
+    "thumbnail_image_url": "/images/productimg/s001.png",
+    "main_image_url": "/images/productimg/001.png",
+    "detail_image_url": "/images/productimg/001.png"
+  }
+]
