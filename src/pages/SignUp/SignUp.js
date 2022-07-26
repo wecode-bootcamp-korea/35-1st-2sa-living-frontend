@@ -59,95 +59,95 @@ const SignUp = () => {
   const isInputPasswordValid = passwordRegEx.test(password);
   const isInputPhoneNumberValid = phoneNumberRegEx.test(phoneNumber);
 
-  // const [agreementCheck, setAgreementCheck] = useState(false);
-  // const [privacyCheck, setPrivacyCheck] = useState(false);
-  // const [ageCheck, setAgeCheck] = useState(false);
-  // const [messageCheck, setMessageCheck] = useState(false);
-  // const [emailCheck, setEmailCheck] = useState(false);
-  // const [allCheck, setAllCheck] = useState(false);
-  // const [disable, setDisable] = useState(false);
+  const [agreementCheck, setAgreementCheck] = useState(false);
+  const [privacyCheck, setPrivacyCheck] = useState(false);
+  const [ageCheck, setAgeCheck] = useState(false);
+  const [messageCheck, setMessageCheck] = useState(false);
+  const [emailCheck, setEmailCheck] = useState(false);
+  const [allCheck, setAllCheck] = useState(false);
+  const [disable, setDisable] = useState(false);
 
-  // const allBtnEvent = () => {
-  //   if (allCheck === false) {
-  //     setAllCheck(true);
-  //     setAgreementCheck(true);
-  //     setPrivacyCheck(true);
-  //     setAgeCheck(true);
-  //     setMessageCheck(true);
-  //     setEmailCheck(true);
-  //   } else {
-  //     setAllCheck(false);
-  //     setAgreementCheck(false);
-  //     setPrivacyCheck(false);
-  //     setAgeCheck(false);
-  //     setMessageCheck(false);
-  //     setEmailCheck(false);
-  //   }
-  // };
+  const allBtnEvent = () => {
+    if (allCheck === false) {
+      setAllCheck(true);
+      setAgreementCheck(true);
+      setPrivacyCheck(true);
+      setAgeCheck(true);
+      setMessageCheck(true);
+      setEmailCheck(true);
+    } else {
+      setAllCheck(false);
+      setAgreementCheck(false);
+      setPrivacyCheck(false);
+      setAgeCheck(false);
+      setMessageCheck(false);
+      setEmailCheck(false);
+    }
+  };
 
-  // const agreementBtnEvent = () => {
-  //   if (agreementCheck === false) {
-  //     setAgreementCheck(true);
-  //   } else {
-  //     setAgreementCheck(false);
-  //   }
-  // };
+  const agreementBtnEvent = () => {
+    if (agreementCheck === false) {
+      setAgreementCheck(true);
+    } else {
+      setAgreementCheck(false);
+    }
+  };
 
-  // const privacyBtnEvent = () => {
-  //   if (privacyCheck === false) {
-  //     setPrivacyCheck(true);
-  //   } else {
-  //     setPrivacyCheck(false);
-  //   }
-  // };
+  const privacyBtnEvent = () => {
+    if (privacyCheck === false) {
+      setPrivacyCheck(true);
+    } else {
+      setPrivacyCheck(false);
+    }
+  };
 
-  // const ageCheckBtnEvent = () => {
-  //   if (ageCheck === false) {
-  //     setAgeCheck(true);
-  //   } else {
-  //     setAgeCheck(false);
-  //   }
-  // };
+  const ageCheckBtnEvent = () => {
+    if (ageCheck === false) {
+      setAgeCheck(true);
+    } else {
+      setAgeCheck(false);
+    }
+  };
 
-  // const messageCheckBtnEvent = () => {
-  //   if (messageCheck === false) {
-  //     setMessageCheck(true);
-  //   } else {
-  //     setMessageCheck(false);
-  //   }
-  // };
+  const messageCheckBtnEvent = () => {
+    if (messageCheck === false) {
+      setMessageCheck(true);
+    } else {
+      setMessageCheck(false);
+    }
+  };
 
-  // const emailCheckBtnEvent = () => {
-  //   if (emailCheck === false) {
-  //     setEmailCheck(true);
-  //   } else {
-  //     setEmailCheck(false);
-  //   }
-  // };
+  const emailCheckBtnEvent = () => {
+    if (emailCheck === false) {
+      setEmailCheck(true);
+    } else {
+      setEmailCheck(false);
+    }
+  };
 
-  // useEffect(() => {
-  //   if (
-  //     agreementCheck === true &&
-  //     privacyCheck === true &&
-  //     ageCheck === true &&
-  //     messageCheck === true &&
-  //     emailCheck === true
-  //   ) {
-  //     setAllCheck(true);
-  //   } else {
-  //     setAllCheck(false);
-  //   }
-  // }, [agreementCheck, privacyCheck, ageCheck, messageCheck, emailCheck]);
+  useEffect(() => {
+    if (
+      agreementCheck === true &&
+      privacyCheck === true &&
+      ageCheck === true &&
+      messageCheck === true &&
+      emailCheck === true
+    ) {
+      setAllCheck(true);
+    } else {
+      setAllCheck(false);
+    }
+  }, [agreementCheck, privacyCheck, ageCheck, messageCheck, emailCheck]);
 
-  // const agreement = () => {
-  //   if (!isValid) {
-  //     window.alert('필수 약관에 동의하셔야 합니다');
-  //     setDisable(true);
-  //   } else {
-  //     setDisable(false);
-  //   }
-  // };
-  // const isValid = agreementCheck && privacyCheck;
+  const agreement = () => {
+    if (!isValid) {
+      window.alert('필수 약관에 동의하셔야 합니다');
+      setDisable(true);
+    } else {
+      setDisable(false);
+    }
+  };
+  const isValid = agreementCheck && privacyCheck;
 
   return (
     <div className="Login">
@@ -159,7 +159,12 @@ const SignUp = () => {
               <h3>약관동의</h3>
               <ul>
                 <li>
-                  <input type="checkbox" className="terms" checked="true" />
+                  <input
+                    type="checkbox"
+                    className="terms"
+                    checked={agreementCheck}
+                    onChange={agreementBtnEvent}
+                  />
                   <label for="agreement">
                     이용약관에 동의합니다
                     <span className="essential">[필수]</span>
@@ -171,7 +176,12 @@ const SignUp = () => {
                   </a>
                 </li>
                 <li>
-                  <input type="checkbox" className="terms" checked="true" />
+                  <input
+                    type="checkbox"
+                    className="terms"
+                    checked={privacyCheck}
+                    onChange={privacyBtnEvent}
+                  />
                   <label for="agreement">
                     개인정보 취급 방침에 동의합니다.
                     <span className="essential">[필수]</span>
@@ -182,19 +192,39 @@ const SignUp = () => {
                   </a>
                 </li>
                 <li>
-                  <input type="checkbox" className="terms" checked="true" />
+                  <input
+                    type="checkbox"
+                    className="terms"
+                    checked={ageCheck}
+                    onChange={ageCheckBtnEvent}
+                  />
                   <label for="agreement">본인은 만 14세 이상입니다.</label>
                 </li>
                 <li>
-                  <input type="checkbox" className="terms" checked="true" />
+                  <input
+                    type="checkbox"
+                    className="terms"
+                    checked={messageCheck}
+                    onChange={messageCheckBtnEvent}
+                  />
                   <label for="agreement">문자 수신에 동의합니다.</label>
                 </li>
                 <li>
-                  <input type="checkbox" className="terms" checked="true" />
+                  <input
+                    type="checkbox"
+                    className="terms"
+                    checked={emailCheck}
+                    onChange={emailCheckBtnEvent}
+                  />
                   <label for="agreement">이메일 수신에 동의합니다.</label>
                 </li>
                 <li>
-                  <input type="checkbox" className="terms" checked="true" />
+                  <input
+                    type="checkbox"
+                    className="terms"
+                    checked={allCheck}
+                    onChange={allBtnEvent}
+                  />
                   <label for="agreement">
                     이용 약관, 개인정보취급방침, 문자, 이메일 수신에 모두
                     동의합니다.
@@ -202,7 +232,7 @@ const SignUp = () => {
                 </li>
               </ul>
             </div>
-            <div className="info-container">
+            <form className="info-container">
               <h3>회원 정보 입력</h3>
               <div className="input-wrapper" />
 
@@ -214,6 +244,7 @@ const SignUp = () => {
                   type="text"
                   placeholder="성을 입력해주세요"
                   onChange={handleInput}
+                  onClick={agreement}
                   name="firstName"
                 />
               </div>
@@ -231,6 +262,7 @@ const SignUp = () => {
                     type="text"
                     placeholder="이름을 입력해주세요"
                     onChange={handleInput}
+                    onClick={agreement}
                     name="lastName"
                   />
                 </div>
@@ -249,6 +281,7 @@ const SignUp = () => {
                       className="email-input1"
                       placeholder="@을 포함해서 입력해주세요"
                       onChange={handleInput}
+                      onClick={agreement}
                       name="email"
                     />
                   </p>
@@ -266,6 +299,7 @@ const SignUp = () => {
                   type="password"
                   placeholder="대소문자 영문,숫자,특수문자 포함 필수 6~12자"
                   onChange={handleInput}
+                  onClick={agreement}
                   name="password"
                 />
               </div>
@@ -282,6 +316,7 @@ const SignUp = () => {
                     className="phone-number-input1"
                     placeholder="- 을 포함해서 입력해주세요"
                     onChange={handleInput}
+                    onClick={agreement}
                     name="phoneNumber"
                   />
                 </div>
@@ -298,7 +333,9 @@ const SignUp = () => {
                     type="date"
                     className="date-input"
                     onChange={handleInput}
+                    onClick={agreement}
                     name="birthDate"
+                    disabled={disable ? true : false}
                   />
                   <p className="radio">
                     <input type="radio" className="solar-date" />
@@ -311,14 +348,23 @@ const SignUp = () => {
                 </div>
               </div>
               <div className="button-wrapper">
-                <button className="submit-button" onClick={goToLogin}>
+                <button
+                  className="submit-button"
+                  type="button"
+                  onClick={goToLogin}
+                  disabled={!isInputFirstnameValid}
+                >
                   회원가입 완료
                 </button>
-                <button className="delete-button" onClick={goToMain}>
+                <button
+                  className="delete-button"
+                  type="button"
+                  onClick={goToMain}
+                >
                   취소
                 </button>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>
