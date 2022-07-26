@@ -2,29 +2,13 @@ import React, { useEffect, useState } from 'react';
 import ShoppingBag from '../ShoppingBag/ShoppingBag';
 import './MyInfo.scss';
 
-const MyInfo = ({ sideOn, setSideOn }) => {
-  let [item, setItem] = useState([]);
-
-  useEffect(() => {
-    localStorage.setItem(
-      'jwt',
-      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.TbUpMPmn-RdsST-uVWs8gGmIGv9rT0-jycK1rwVYY3s'
-    );
-
-    fetch('http://10.58.0.74:8000/carts/cart', {
-      method: 'GET',
-      headers: { Authorization: localStorage.getItem('jwt') },
-    })
-      .then(response => response.json())
-      .then(data => setItem(data.carts));
-  }, []);
-
+const MyInfo = ({ slideOn, setSlideOn, item, setItem }) => {
   const removeSide = () => {
-    setSideOn('');
+    setSlideOn(!slideOn > slideOn);
   };
 
   const letOrder = () => {
-    fetch(`http://10.58.0.74:8000/orders/order`, {
+    fetch(`http://10.58.1.126:8000/orders/order`, {
       method: 'POST',
       headers: { Authorization: localStorage.getItem('jwt') },
     })
@@ -36,8 +20,11 @@ const MyInfo = ({ sideOn, setSideOn }) => {
 
   return (
     <>
-      <div className={`background ${sideOn}`} />
-      <aside className={`quick ${sideOn}`}>
+      <div
+        className="background"
+        style={{ display: slideOn ? 'block' : 'none' }}
+      />
+      <aside className="quick" style={{ right: slideOn ? '0px' : '-472px' }}>
         <div className="my-name">
           <p className="name">
             <img src="/images/MyInfo/profile-user.png" alt="회원정보" />
