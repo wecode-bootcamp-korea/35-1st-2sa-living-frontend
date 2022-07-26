@@ -129,9 +129,7 @@ const Login = () => {
                 </div>
               </li>
             </ul>
-            <p className="non-members">
-              <p>비회원 주문배송 조회</p>
-            </p>
+            <p className="non-members">비회원 주문배송 조회</p>
             <span onClick={logout}>로그아웃</span>
           </div>
         </div>

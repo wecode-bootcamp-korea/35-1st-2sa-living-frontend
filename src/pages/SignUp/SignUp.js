@@ -144,8 +144,8 @@ const SignUp = () => {
               <h3>약관동의</h3>
               <ul>
                 <li>
-                  {checkBoxDatas?.map(checkBoxDatas => (
-                    <div>
+                  {checkBoxDatas?.map((checkBoxDatas, index) => (
+                    <div key={index}>
                       <input
                         type="checkbox"
                         className="terms"
