@@ -14,7 +14,7 @@ const SignUp = () => {
   };
 
   /*const goToLogin = () => {
-    fetch('http://10.58.1.126:8000/users/signup', {
+    fetch('http://10.58.0.190:8000/users/signup', {
       method: 'post',
       body: JSON.stringify({
         first_name: '혜진',
@@ -28,7 +28,6 @@ const SignUp = () => {
       .then(res => res.json())
       .then(res => {
         console.log(res);
-        navigate('/login');
       });
   };*/
 
@@ -353,17 +352,12 @@ const SignUp = () => {
               <div className="button-wrapper">
                 <button
                   className="submit-button"
-                  type="button"
                   onClick={goToLogin}
                   disabled={!isInputFirstnameValid}
                 >
                   회원가입 완료
                 </button>
-                <button
-                  className="delete-button"
-                  type="button"
-                  onClick={goToMain}
-                >
+                <button className="delete-button" onClick={goToMain}>
                   취소
                 </button>
               </div>

@@ -13,6 +13,7 @@ const Login = () => {
   const goToSignUp = () => {
     navigate('/signup');
   };
+
   /*const goToMain = () => {
     fetch('http://10.58.0.190:8000/users/login', {
       method: 'post',
@@ -22,12 +23,7 @@ const Login = () => {
       }),
     })
       .then(res => res.json())
-      .then(res => {
-        if(res.USER_NAME){
-          localStorage.setItem('jwt', res.TOKEN);
-          navigate('/');
-        }
-      });
+      .then(res => {});
   };*/
 
   const [loiginInputValue, setLoginInputValue] = useState({
@@ -48,7 +44,7 @@ const Login = () => {
 
   const regEx = pwdRegEx.test(password);
 
-  const loginFunction = e => {
+  const loginConfirm = e => {
     e.preventDefault();
 
     if (email.length === 0) {
@@ -60,20 +56,7 @@ const Login = () => {
     } else if (regEx !== true) {
       window.alert('비밀번호 양식이 맞지 않습니다.');
     } else {
-      fetch('http://10.58.0.190:8000/users/login', {
-        method: 'post',
-        body: JSON.stringify({
-          email: 'jhlee7069@naver.com',
-          password: 'Abcd1234!',
-        }),
-      })
-        .then(res => res.json())
-        .then(res => {
-          if (res.USER_NAME) {
-            localStorage.setItem('jwt', res.TOKEN);
-            navigate('/');
-          }
-        });
+      navigate('/');
     }
   };
 
@@ -98,7 +81,7 @@ const Login = () => {
             name="password"
             value={password}
           />
-          <button className="login-btn" onClick={loginFunction} type="button">
+          <button className="login-btn" onClick={loginConfirm}>
             LOGIN
           </button>
           <p className="bottom-check">
