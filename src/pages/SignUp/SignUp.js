@@ -62,95 +62,82 @@ const SignUp = () => {
   const isInputPasswordValid = passwordRegEx.test(password);
   const isInputPhoneNumberValid = phoneNumberRegEx.test(phoneNumber);
 
-  const [agreementCheck, setAgreementCheck] = useState(false);
-  const [privacyCheck, setPrivacyCheck] = useState(false);
-  const [ageCheck, setAgeCheck] = useState(false);
-  const [messageCheck, setMessageCheck] = useState(false);
-  const [emailCheck, setEmailCheck] = useState(false);
-  const [allCheck, setAllCheck] = useState(false);
+  const checkBoxDatas = [
+    {
+      id: 1,
+      content: '이용약관에 동의합니다',
+      must: '[필수]',
+      viewAll: (
+        <a href="https://www.casa.co.kr/member/terms.aspx">
+          <img src={arrow} alt="arrow" />
+          전체 보기
+        </a>
+      ),
+    },
+    {
+      id: 2,
+      content: '개인정보 취급 방침에 동의합니다.',
+      must: '[필수]',
+      viewAll: (
+        <a href="https://www.casa.co.kr/member/terms.aspx">
+          <img src={arrow} alt="arrow" />
+          전체 보기
+        </a>
+      ),
+    },
+    {
+      id: 3,
+      content: '본인은 만 14세 이상입니다.',
+      must: false,
+      viewAll: false,
+    },
+    { id: 4, content: '문자 수신에 동의합니다.', must: false, viewAll: false },
+    {
+      id: 5,
+      content: '이메일 수신에 동의합니다.',
+      must: false,
+      viewAll: false,
+    },
+  ];
+  // 체크된 아이템을 담을 배열
+  const [checkItems, setCheckItems] = useState([]);
   const [disable, setDisable] = useState(false);
 
-  const allBtnEvent = () => {
-    if (allCheck === false) {
-      setAllCheck(true);
-      setAgreementCheck(true);
-      setPrivacyCheck(true);
-      setAgeCheck(true);
-      setMessageCheck(true);
-      setEmailCheck(true);
+  // 체크박스 단일 선택
+  const handleSingleCheck = (checked, id) => {
+    if (checked) {
+      // 단일 선택 시 체크된 아이템을 배열에 추가
+      setCheckItems(prev => [...prev, id]);
     } else {
-      setAllCheck(false);
-      setAgreementCheck(false);
-      setPrivacyCheck(false);
-      setAgeCheck(false);
-      setMessageCheck(false);
-      setEmailCheck(false);
+      // 단일 선택 해제 시 체크된 아이템을 제외한 배열 (필터)
+      setCheckItems(checkItems.filter(el => el !== id));
     }
   };
 
-  const agreementBtnEvent = () => {
-    if (agreementCheck === false) {
-      setAgreementCheck(true);
+  console.log(checkItems);
+
+  // 체크박스 전체 선택
+  const handleAllCheck = checked => {
+    if (checked) {
+      // 전체 선택 클릭 시 데이터의 모든 아이템(id)를 담은 배열로 checkItems 상태 업데이트
+      const idArray = [];
+      checkBoxDatas.forEach(el => idArray.push(el.id));
+      setCheckItems(idArray);
     } else {
-      setAgreementCheck(false);
+      // 전체 선택 해제 시 checkItems 를 빈 배열로 상태 업데이트
+      setCheckItems([]);
     }
   };
-
-  const privacyBtnEvent = () => {
-    if (privacyCheck === false) {
-      setPrivacyCheck(true);
-    } else {
-      setPrivacyCheck(false);
-    }
-  };
-
-  const ageCheckBtnEvent = () => {
-    if (ageCheck === false) {
-      setAgeCheck(true);
-    } else {
-      setAgeCheck(false);
-    }
-  };
-
-  const messageCheckBtnEvent = () => {
-    if (messageCheck === false) {
-      setMessageCheck(true);
-    } else {
-      setMessageCheck(false);
-    }
-  };
-
-  const emailCheckBtnEvent = () => {
-    if (emailCheck === false) {
-      setEmailCheck(true);
-    } else {
-      setEmailCheck(false);
-    }
-  };
-
-  useEffect(() => {
-    if (
-      agreementCheck === true &&
-      privacyCheck === true &&
-      ageCheck === true &&
-      messageCheck === true &&
-      emailCheck === true
-    ) {
-      setAllCheck(true);
-    } else {
-      setAllCheck(false);
-    }
-  }, [agreementCheck, privacyCheck, ageCheck, messageCheck, emailCheck]);
 
   const agreement = () => {
-    if (!isValid) {
-      window.alert('필수 약관에 동의하셔야 합니다');
-      setDisable(true);
+    const isValid = checkItems.filter(data => data === 1 || data === 2);
+    console.log('isValid', isValid);
+    if (isValid.length === 0) {
+      alert('필수사항을 확인해주세요');
     } else {
-      setDisable(false);
+      alert('통과');
     }
   };
-  const isValid = agreementCheck && privacyCheck;
 
   return (
     <div className="Login">
@@ -162,71 +149,34 @@ const SignUp = () => {
               <h3>약관동의</h3>
               <ul>
                 <li>
-                  <input
-                    type="checkbox"
-                    className="terms"
-                    checked={agreementCheck}
-                    onChange={agreementBtnEvent}
-                  />
-                  <label for="agreement">
-                    이용약관에 동의합니다
-                    <span className="essential">[필수]</span>
-                  </label>
-
-                  <img src={arrow} alt="arrow" />
-                  <a href="https://www.casa.co.kr/member/terms.aspx">
-                    전체 보기
-                  </a>
+                  {checkBoxDatas?.map((checkBoxDatas, key) => (
+                    <div>
+                      <input
+                        type="checkbox"
+                        className="terms"
+                        name={`select-${checkBoxDatas.id}`}
+                        onChange={e =>
+                          handleSingleCheck(e.target.checked, checkBoxDatas.id)
+                        }
+                        checked={
+                          checkItems.includes(checkBoxDatas.id) ? true : false
+                        }
+                      />
+                      <span className="content">{checkBoxDatas.content}</span>
+                      <span className="essential">{checkBoxDatas.must}</span>
+                      {checkBoxDatas.viewAll}
+                    </div>
+                  ))}
                 </li>
                 <li>
                   <input
                     type="checkbox"
                     className="terms"
-                    checked={privacyCheck}
-                    onChange={privacyBtnEvent}
-                  />
-                  <label for="agreement">
-                    개인정보 취급 방침에 동의합니다.
-                    <span className="essential">[필수]</span>
-                  </label>
-                  <img src={arrow} alt="arrow" />
-                  <a href="https://www.casa.co.kr/member/terms.aspx">
-                    전체 보기
-                  </a>
-                </li>
-                <li>
-                  <input
-                    type="checkbox"
-                    className="terms"
-                    checked={ageCheck}
-                    onChange={ageCheckBtnEvent}
-                  />
-                  <label for="agreement">본인은 만 14세 이상입니다.</label>
-                </li>
-                <li>
-                  <input
-                    type="checkbox"
-                    className="terms"
-                    checked={messageCheck}
-                    onChange={messageCheckBtnEvent}
-                  />
-                  <label for="agreement">문자 수신에 동의합니다.</label>
-                </li>
-                <li>
-                  <input
-                    type="checkbox"
-                    className="terms"
-                    checked={emailCheck}
-                    onChange={emailCheckBtnEvent}
-                  />
-                  <label for="agreement">이메일 수신에 동의합니다.</label>
-                </li>
-                <li>
-                  <input
-                    type="checkbox"
-                    className="terms"
-                    checked={allCheck}
-                    onChange={allBtnEvent}
+                    name="select-all"
+                    onChange={e => handleAllCheck(e.target.checked)}
+                    checked={
+                      checkItems.length === checkBoxDatas.length ? true : false
+                    }
                   />
                   <label for="agreement">
                     이용 약관, 개인정보취급방침, 문자, 이메일 수신에 모두
@@ -265,7 +215,6 @@ const SignUp = () => {
                     type="text"
                     placeholder="이름을 입력해주세요"
                     onChange={handleInput}
-                    onClick={agreement}
                     name="lastName"
                   />
                 </div>
@@ -284,7 +233,6 @@ const SignUp = () => {
                       className="email-input1"
                       placeholder="@을 포함해서 입력해주세요"
                       onChange={handleInput}
-                      onClick={agreement}
                       name="email"
                     />
                   </p>
@@ -302,7 +250,6 @@ const SignUp = () => {
                   type="password"
                   placeholder="대소문자 영문,숫자,특수문자 포함 필수 6~12자"
                   onChange={handleInput}
-                  onClick={agreement}
                   name="password"
                 />
               </div>
@@ -319,7 +266,6 @@ const SignUp = () => {
                     className="phone-number-input1"
                     placeholder="- 을 포함해서 입력해주세요"
                     onChange={handleInput}
-                    onClick={agreement}
                     name="phoneNumber"
                   />
                 </div>
@@ -336,9 +282,7 @@ const SignUp = () => {
                     type="date"
                     className="date-input"
                     onChange={handleInput}
-                    onClick={agreement}
                     name="birthDate"
-                    disabled={disable ? true : false}
                   />
                   <p className="radio">
                     <input type="radio" className="solar-date" />
