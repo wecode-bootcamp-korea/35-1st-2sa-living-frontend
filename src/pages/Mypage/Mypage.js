@@ -12,11 +12,7 @@ const Mypage = () => {
       headers: { Authorization: localStorage.getItem('jwt') },
     })
       .then(response => response.json())
-      .then(data => console.log(data));
-
-    fetch('/data/testMock.json')
-      .then(response => response.json())
-      .then(data => setBuying(data));
+      .then(data => setOrderList(data.result));
   }, []);
 
   const changeList = num => {
@@ -35,12 +31,13 @@ const Mypage = () => {
     }
   };
 
-  let Orders = () => {
+  let Orders = ({ orders }) => {
+    let { order_number, order_status, total_price } = orders;
     return (
       <tr>
-        <td>주문번호 : 546545646-10214</td>
-        <td>총 : 50000원</td>
-        <td>진행 상태 : 주문완료</td>
+        <td>주문번호 : {order_number}</td>
+        <td>총 : {total_price}</td>
+        <td>진행 상태 : {order_status}</td>
       </tr>
     );
   };
@@ -84,9 +81,9 @@ const Mypage = () => {
         <h1 className="order-title"> 현재 진행중 주문</h1>
         <div className="order-list">
           <table>
-            <Orders />
-            <Orders />
-            <Orders />
+            {orderList.map((els, idx) => {
+              return <Orders orders={els} />;
+            })}
           </table>
         </div>
       </div>

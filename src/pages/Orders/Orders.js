@@ -4,9 +4,13 @@ const Orders = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    fetch('/data/orderTestData.json')
+    fetch('http://10.58.1.126:8000/carts', {
+      headers: {
+        Authorization: localStorage.getItem('jwt'),
+      },
+    })
       .then(response => response.json())
-      .then(data => setOrders(data[0].order_items));
+      .then(data => console.log(data));
   }, []);
 
   let Items = ({ items }) => {
@@ -40,7 +44,7 @@ const Orders = () => {
 
   return (
     <>
-      <h2 className="title">ORDERS</h2>
+      <h2 className="title">CARTS</h2>
       <div className="orders-wrap">
         <div className="orders-detail-left">
           <table>
