@@ -95,9 +95,10 @@
     }
     .non-members {
       margin-top: 50px;
-      a {
+      span {
         text-decoration: none;
         color: grey;
+        cursor: pointer;
       }
     }
   }

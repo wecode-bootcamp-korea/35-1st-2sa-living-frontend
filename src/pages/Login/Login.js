@@ -125,7 +125,7 @@ const Login = () => {
               </li>
             </ul>
             <p className="non-members">
-              <a href="">비회원 주문배송 조회</a>
+              <span>비회원 주문배송 조회</span>
             </p>
           </div>
         </div>

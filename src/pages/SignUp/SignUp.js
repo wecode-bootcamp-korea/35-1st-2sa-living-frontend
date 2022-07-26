@@ -51,7 +51,7 @@ const SignUp = () => {
 
   const firstNameRegEx = /^[가-힣]{1,4}$/;
   const lastNameRegEx = /^[가-힣]{1,6}$/;
-  const emailRegEx = /^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+  const emailRegEx = /^[a-zA-Z0-9+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
   const passwordRegEx =
     /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,12}$/;
   const phoneNumberRegEx = /^\d{3}-\d{3,4}-\d{4}$/;
