@@ -20,7 +20,6 @@ const Modal2 = props => {
                 - 문의글에 대한 답변 등록시 SMS로 알람이 제공되며,
                 마이페이지에서 해당 내용을 확인하실 수 있습니다.
               </p>
-              {props.children}
               <div className="input_title">
                 <p>상품명</p>
                 <select />

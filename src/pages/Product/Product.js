@@ -11,6 +11,7 @@ import './Product.scss';
 const Product = () => {
   const [amount, setAmount] = useState(1);
   const [modal, setModal] = useState(false);
+  const [modal2, setModal2] = useState(false);
   const [reviewlist, setReviewlist] = useState([]);
   const params = useParams();
 
@@ -39,6 +40,14 @@ const Product = () => {
 
   const closeModal = () => {
     setModal(false);
+  };
+
+  const openModal2 = () => {
+    setModal2(true);
+  };
+
+  const closeModal2 = () => {
+    setModal2(false);
   };
 
   return (
@@ -122,12 +131,13 @@ const Product = () => {
         </a>
       </div>
       <div className="img_section">
-        <a name="target" />
-        <img
-          className="ProductImage"
-          src="/images/Product/green_chair.jpg"
-          alt="icon"
-        />
+        <a name="target">
+          <img
+            className="ProductImage"
+            src="/images/Product/green_chair.jpg"
+            alt="icon"
+          />
+        </a>
         <img
           className="ProductImage"
           src="/images/Product/detail.png"
@@ -156,10 +166,10 @@ const Product = () => {
         <div className="product_review">
           <div className="review_top">
             <p className="review-header">상품문의</p>
-            <button className="handle-review" onClick={openModal}>
+            <button className="handle-review" onClick={openModal2}>
               상품문의등록
             </button>
-            <Modal2 open={modal} close={closeModal} header="상품문의 등록" />
+            <Modal2 open={modal2} close={closeModal2} header="상품문의 등록" />
           </div>
           <div className="review_wrap">
             <p>상품문의가 없습니다.</p>

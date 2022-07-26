@@ -37,7 +37,7 @@ const Accordion = () => {
 
         <ul>
           {data.map((item, i) => (
-            <Link to={item.link}>
+            <Link key={i} to={item.link}>
               <li>{item.category}</li>
             </Link>
           ))}

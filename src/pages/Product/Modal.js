@@ -27,7 +27,6 @@ const Modal = props => {
                 타인 글 도용 및 비방, 욕설, 취지에 맞지 않는 내용은 사전 통보
                 없이 삭제 처리될 수 있습니다.
               </p>
-              {props.children}
               <div className="input_title">
                 <p>상품명</p>
                 <select />

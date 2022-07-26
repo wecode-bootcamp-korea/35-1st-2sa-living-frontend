@@ -190,14 +190,14 @@ a {
   }
 }
 
-.Amount {
+.amount {
   width: 20%;
   display: flex;
   justify-content: center;
   align-items: center;
   border-right: none;
   color: #333;
-  .ammount_arrow {
+  .amount_arrow {
     width: 15px;
     height: 15px;
     border: solid;
@@ -344,7 +344,7 @@ a {
 .announcement {
   position: relative;
   max-width: 1600px;
-  margin: 100px 75px 20px;
+  margin: 100px 180px 20px;
   font-size: x-large;
 }
 
