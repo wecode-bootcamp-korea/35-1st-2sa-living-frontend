@@ -8,7 +8,7 @@ function CardsBox() {
   const [cards, setCards] = useState([]);
   const [userInput, setUserInput] = useState('');
   const navigate = useNavigate();
-  const location = useLocation();
+  // const location = useLocation();
   const [limitValue, setLimitValue] = useState('');
 
   useEffect(() => {
@@ -32,8 +32,8 @@ function CardsBox() {
   };
 
   const selectedPage = ({ target }) => {
-    const limitValue = target.value;
-    setLimitValue(limitValue);
+    // const limitValue = target.value;
+    setLimitValue(target.value);
     const string = `?limit=${limitValue}&offset=0`;
     navigate(string);
   };

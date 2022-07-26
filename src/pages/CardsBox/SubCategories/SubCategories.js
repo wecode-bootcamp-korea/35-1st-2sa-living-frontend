@@ -2,7 +2,7 @@ import React from 'react';
 
 const SUBTITLES = ['라운지체어', '바체어', '스툴/벤치', '키즈체어'];
 
-function SubCategories({}) {
+function SubCategories() {
   return (
     <div className="sub-categories">
       <ul>
