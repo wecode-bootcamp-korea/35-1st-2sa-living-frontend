@@ -7,37 +7,17 @@ import './Main.scss';
 
 const Main = () => {
   let [itemList, setItemList] = useState([]);
-  let [clickBtn, setClickBtn] = useState(0);
+  let [clickBtn, setClickBtn] = useState('new');
   useEffect(() => {
     fetch('/data/mainTestData.json')
       .then(response => response.json())
       .then(data => setItemList(data));
   }, []);
 
-  const changeList = num => {
-    if (num === 0) {
-      return itemList.filter(els => {
-        return els.category.includes('sofa');
-      });
-    } else if (num === 1) {
-      return itemList.filter(els => {
-        return els.category.includes('chair');
-      });
-    } else if (num === 2) {
-      return itemList.filter(els => {
-        return els.category.includes('bed');
-      });
-    } else if (num === 3) {
-      return itemList.filter(els => {
-        return els.category.includes('table');
-      });
-    } else if (num === 4) {
-      return itemList.filter(els => {
-        return els.category.includes('closet');
-      });
-    }
-  };
-  let forYouItem = changeList(clickBtn);
+  let newMenu = itemList.filter(els => {
+    return els.category.includes(clickBtn);
+  });
+  let newMenu1 = itemList.filter(els => els.is_new && els);
 
   return (
     <main>
@@ -84,54 +64,33 @@ const Main = () => {
       <section>
         <div className="main-03">
           <ul className="main-03-list">
-            <li
-              className={clickBtn === 0 ? 'on' : ''}
-              onClick={() => {
-                setClickBtn(0);
-              }}
-            >
-              소파
-            </li>
-            <li
-              className={clickBtn === 1 ? 'on' : ''}
-              onClick={() => {
-                setClickBtn(1);
-              }}
-            >
-              체어
-            </li>
-            <li
-              className={clickBtn === 2 ? 'on' : ''}
-              onClick={() => {
-                setClickBtn(2);
-              }}
-            >
-              침대
-            </li>
-            <li
-              className={clickBtn === 3 ? 'on' : ''}
-              onClick={() => {
-                setClickBtn(3);
-              }}
-            >
-              테이블
-            </li>
-            <li
-              className={clickBtn === 4 ? 'on' : ''}
-              onClick={() => {
-                setClickBtn(4);
-              }}
-            >
-              수납
-            </li>
+            {MAINLISTDATA.map((els, idx) => {
+              return (
+                <li
+                  key={idx}
+                  className={clickBtn.toUpperCase() === els ? 'on' : ''}
+                  onClick={() => {
+                    setClickBtn(els.toLowerCase());
+                  }}
+                >
+                  {els}
+                </li>
+              );
+            })}
           </ul>
           <div className="main-03-box">
-            <Card cardList={forYouItem} />
+            {clickBtn === 'new' ? (
+              <Card cardList={newMenu1} />
+            ) : (
+              <Card cardList={newMenu} />
+            )}
           </div>
         </div>
       </section>
     </main>
   );
 };
+
+const MAINLISTDATA = ['NEW', 'SOFA', 'BED', 'TABLE'];
 
 export default Main;

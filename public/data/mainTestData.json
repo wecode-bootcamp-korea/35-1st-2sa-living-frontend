@@ -11,7 +11,8 @@
     "price": 120000,
     "thumbnail_image_url": "/images/productimg/s001.png",
     "main_image_url": "/images/productimg/001.png",
-    "detail_image_url": "/images/productimg/001.png"
+    "detail_image_url": "/images/productimg/001.png",
+    "is_new": false
   },
   {
     "id": 2,
@@ -25,7 +26,8 @@
     "price": 68000,
     "thumbnail_image_url": "/images/productimg/s002.png",
     "main_image_url": "/images/productimg/002.png",
-    "detail_image_url": "/images/productimg/002.png"
+    "detail_image_url": "/images/productimg/002.png",
+    "is_new": true
   },
   {
     "id": 3,
@@ -39,7 +41,8 @@
     "price": 75000,
     "thumbnail_image_url": "/images/productimg/s003.png",
     "main_image_url": "/images/productimg/003.png",
-    "detail_image_url": "/images/productimg/003.png"
+    "detail_image_url": "/images/productimg/003.png",
+    "is_new": true
   },
   {
     "id": 4,
@@ -53,7 +56,8 @@
     "price": 82000,
     "thumbnail_image_url": "/images/productimg/s004.png",
     "main_image_url": "/images/productimg/004.png",
-    "detail_image_url": "/images/productimg/004.png"
+    "detail_image_url": "/images/productimg/004.png",
+    "is_new": false
   },
   {
     "id": 5,
@@ -67,7 +71,8 @@
     "price": 55000,
     "thumbnail_image_url": "/images/productimg/s005.png",
     "main_image_url": "/images/productimg/005.png",
-    "detail_image_url": "/images/productimg/005.png"
+    "detail_image_url": "/images/productimg/005.png",
+    "is_new": false
   },
   {
     "id": 6,
@@ -81,7 +86,8 @@
     "price": 59000,
     "thumbnail_image_url": "/images/productimg/s006.png",
     "main_image_url": "/images/productimg/006.png",
-    "detail_image_url": "/images/productimg/006.png"
+    "detail_image_url": "/images/productimg/006.png",
+    "is_new": false
   },
   {
     "id": 7,
@@ -95,7 +101,8 @@
     "price": 300000,
     "thumbnail_image_url": "/images/productimg/s007.png",
     "main_image_url": "/images/productimg/007.png",
-    "detail_image_url": "/images/productimg/007.png"
+    "detail_image_url": "/images/productimg/007.png",
+    "is_new": false
   },
   {
     "id": 8,
@@ -109,7 +116,8 @@
     "price": 670000,
     "thumbnail_image_url": "/images/productimg/s008.png",
     "main_image_url": "/images/productimg/008.png",
-    "detail_image_url": "/images/productimg/008.png"
+    "detail_image_url": "/images/productimg/008.png",
+    "is_new": true
   },
   {
     "id": 9,
@@ -123,7 +131,8 @@
     "price": 1200000,
     "thumbnail_image_url": "/images/productimg/s009.png",
     "main_image_url": "/images/productimg/009.png",
-    "detail_image_url": "/images/productimg/009.png"
+    "detail_image_url": "/images/productimg/009.png",
+    "is_new": true
   },
   {
     "id": 10,
@@ -137,7 +146,8 @@
     "price": 450000,
     "thumbnail_image_url": "/images/productimg/s010.png",
     "main_image_url": "/images/productimg/010.png",
-    "detail_image_url": "/images/productimg/010.png"
+    "detail_image_url": "/images/productimg/010.png",
+    "is_new": false
   },
   {
     "id": 11,
@@ -151,7 +161,8 @@
     "price": 420000,
     "thumbnail_image_url": "/images/productimg/s011.png",
     "main_image_url": "/images/productimg/011.png",
-    "detail_image_url": "/images/productimg/011.png"
+    "detail_image_url": "/images/productimg/011.png",
+    "is_new": false
   },
   {
     "id": 12,
@@ -165,7 +176,8 @@
     "price": 1700000,
     "thumbnail_image_url": "/images/productimg/s012.png",
     "main_image_url": "/images/productimg/012.png",
-    "detail_image_url": "/images/productimg/012.png"
+    "detail_image_url": "/images/productimg/012.png",
+    "is_new": false
   },
   {
     "id": 13,
@@ -179,7 +191,8 @@
     "price": 240000,
     "thumbnail_image_url": "/images/productimg/s013.png",
     "main_image_url": "/images/productimg/013.png",
-    "detail_image_url": "/images/productimg/013.png"
+    "detail_image_url": "/images/productimg/013.png",
+    "is_new": true
   },
   {
     "id": 14,
@@ -193,7 +206,8 @@
     "price": 2450000,
     "thumbnail_image_url": "/images/productimg/s014.png",
     "main_image_url": "/images/productimg/014.png",
-    "detail_image_url": "/images/productimg/014.png"
+    "detail_image_url": "/images/productimg/014.png",
+    "is_new": false
   },
   {
     "id": 15,
@@ -207,7 +221,8 @@
     "price": 920000,
     "thumbnail_image_url": "/images/productimg/s015.png",
     "main_image_url": "/images/productimg/015.png",
-    "detail_image_url": "/images/productimg/015.png"
+    "detail_image_url": "/images/productimg/015.png",
+    "is_new": false
   },
   {
     "id": 16,
@@ -221,7 +236,8 @@
     "price": 410000,
     "thumbnail_image_url": "/images/productimg/s016.png",
     "main_image_url": "/images/productimg/016.png",
-    "detail_image_url": "/images/productimg/016.png"
+    "detail_image_url": "/images/productimg/016.png",
+    "is_new": false
   },
   {
     "id": 17,
@@ -235,7 +251,8 @@
     "price": 2700000,
     "thumbnail_image_url": "/images/productimg/s017.png",
     "main_image_url": "/images/productimg/017.png",
-    "detail_image_url": "/images/productimg/017.png"
+    "detail_image_url": "/images/productimg/017.png",
+    "is_new": false
   },
   {
     "id": 18,
@@ -249,6 +266,7 @@
     "price": 230000,
     "thumbnail_image_url": "/images/productimg/s018.png",
     "main_image_url": "/images/productimg/018.png",
-    "detail_image_url": "/images/productimg/018.png"
+    "detail_image_url": "/images/productimg/018.png",
+    "is_new": true
   }
 ]
