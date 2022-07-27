@@ -68,7 +68,7 @@ const SignUp = () => {
       must: '[필수]',
       viewAll: (
         <a href="https://www.casa.co.kr/member/terms.aspx">
-          <img src="\images\SignUp\btn_arrow.png" />
+          <img src="\images\SignUp\btn_arrow.png" alt="arrow.png" />
           전체 보기
         </a>
       ),
@@ -79,7 +79,7 @@ const SignUp = () => {
       must: '[필수]',
       viewAll: (
         <a href="https://www.casa.co.kr/member/terms.aspx">
-          <img src="\images\SignUp\btn_arrow.png" />
+          <img src="\images\SignUp\btn_arrow.png" alt="arrow.png" />
           전체 보기
         </a>
       ),
