@@ -50,9 +50,17 @@ const Card = ({ cardList }) => {
                     addCart(id);
                   }}
                 />
-                {likes.map((els, idx) => {
-                  return <Heart id={id} setLikes={setLikes} />;
-                })}
+                {likes.length === 0 ? (
+                  <Heart id={id} a={false} setLikes={setLikes} />
+                ) : (
+                  likes.map(els => {
+                    return els === id ? (
+                      <Heart id={id} a={true} setLikes={setLikes} />
+                    ) : (
+                      <Heart id={id} a={false} setLikes={setLikes} />
+                    );
+                  })
+                )}
               </div>
             </div>
           </div>

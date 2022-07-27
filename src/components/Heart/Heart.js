@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Heart({ id, isON, setLikes }) {
+function Heart({ id, a, setLikes }) {
   const fillHeart = e =>
     e.target.style.color === ''
       ? ((e.target.style.color = 'red'), (e.target.className = 'fas fa-heart'))
@@ -19,7 +19,7 @@ function Heart({ id, isON, setLikes }) {
       .then(response => response.json())
       .then(data => setLikes(data.product_ids));
   };
-
+  console.log('s', a);
   return (
     <div
       class="Heart"
@@ -27,7 +27,11 @@ function Heart({ id, isON, setLikes }) {
         addLikes(id);
       }}
     >
-      <i onClick={fillHeart} className="far fa-heart" />
+      <i
+        onClick={fillHeart}
+        className={a ? 'fas fa-heart' : 'far fa-heart'}
+        style={{ color: a ? 'red' : '' }}
+      />
     </div>
   );
 }
