@@ -31,11 +31,7 @@ const BuyWrap = ({ amount, setAmount, colors, list, brand }) => {
 
       <div className="ColorWrap">
         <div className="ColorInfo">
-          <select
-            className="SelectOption"
-            value={select}
-            onChange={selectColor}
-          >
+          <select className="SelectOption" onChange={selectColor}>
             <option disabled selected>
               색상 선택
             </option>
