@@ -47,14 +47,19 @@
         padding: 10px;
         font-size: 20px;
         color: white;
-        transition: ease-in-out;
       }
 
-      .hover-items .fa-shopping-cart {
-        position: absolute;
-        bottom: 30%;
-        left: 35%;
-        padding: 10px;
+      .card-icons {
+        .fa-shopping-cart {
+          position: absolute;
+          bottom: 30%;
+          left: 35%;
+          padding: 10px;
+        }
+
+        .fa-shopping-cart:hover {
+          cursor: pointer;
+        }
       }
     }
 
@@ -71,11 +76,6 @@
     opacity: 0.3;
   }
 
-  .img-container:hover .hover-items i .fa-shopping-cart {
-    bottom: 40%;
-    transition: 0.5s;
-  }
-
   .img-container:hover .img-hover {
     background-color: rgba(0, 0, 0, 0.6);
     transition: background-color ease-in 0.9s;
@@ -83,7 +83,7 @@
   }
 
   .img-container:hover .fa-shopping-cart {
-    bottom: 40% !important;
+    bottom: 41.5% !important;
     transition: 0.5s;
   }
 

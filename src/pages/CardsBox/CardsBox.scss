@@ -1,39 +1,10 @@
 @import '../../styles/variables.scss';
+@import './SubCategories/SubCategories.scss';
 
 .CardsBox {
   max-width: 1600px;
   padding: 50px 30px 0;
-
-  .cards-container {
-    display: flex;
-    justify-content: space-between;
-    font-size: 14px;
-    color: #333;
-    line-height: 20px;
-    font-weight: 300;
-
-    .sub-categories {
-      width: 200px;
-      text-align: left;
-    }
-
-    .sub-categories li {
-      font-size: 20px;
-      padding: 15px;
-      cursor: pointer;
-    }
-
-    .sub-categories li:hover {
-      font-weight: 500;
-      border: 1px solid #333;
-    }
-
-    .cards {
-      width: 1100px;
-      border-top: solid 1px #333;
-      padding-top: 20px;
-    }
-  }
+  margin: 0 auto;
 
   .category-name {
     font-size: 80px;
@@ -45,19 +16,94 @@
     letter-spacing: 4px;
   }
 
-  .category-amount {
-    font-size: 18px;
-    color: #333;
-    font-weight: 700;
-    margin-bottom: 30px;
-  }
-
-  .cards-sort {
+  .cards-container {
     display: flex;
     justify-content: space-between;
+    font-size: 14px;
+    color: #333;
+    line-height: 20px;
+    font-weight: 300;
 
-    .cards-search input {
-      margin-right: 10px;
+    .products-container {
+      .cards-new-product {
+        width: 1100px;
+        .product-category-amount {
+          font-size: 18px;
+          color: #333;
+          font-weight: 700;
+          margin-bottom: 30px;
+        }
+      }
+      .cards {
+        width: 1100px;
+        border-top: solid 1px #333;
+        padding-top: 20px;
+
+        .cards-sort {
+          display: flex;
+          justify-content: space-between;
+
+          .category-amount {
+            font-size: 18px;
+            color: #333;
+            font-weight: 700;
+            margin-bottom: 30px;
+          }
+
+          .cards-search {
+            display: flex;
+            justify-content: space-between;
+            width: 290px;
+
+            input {
+              padding: 5px 0;
+              text-align: center;
+              color: red($color: #000000);
+              margin-right: 10px;
+              height: 15px;
+              border: none;
+              // border: 0.3px solid #333;
+              border-radius: 5px;
+              background-color: rgb(253, 250, 250);
+            }
+
+            .page-size {
+              display: inline-block;
+              border: 1px solid #333;
+              border-radius: 5px;
+              width: 60px;
+              border: none;
+
+              padding: 5px 0;
+            }
+
+            .page-size:first-child {
+              margin-right: 5px;
+            }
+          }
+        }
+
+        .paging-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .paging-list {
+            display: flex;
+
+            .paging-list-item {
+              padding: 20px;
+              font-size: 20px;
+              border: none;
+            }
+
+            .paging-list-item:hover {
+              transform: scale(1.5);
+              font-weight: 400;
+            }
+          }
+        }
+      }
     }
   }
 }
