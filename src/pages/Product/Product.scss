@@ -70,8 +70,10 @@ a {
 .Detail {
   position: relative;
   justify-content: center;
+
   .share_icon {
     text-align: center;
+
     img {
       width: 30%;
     }
@@ -98,6 +100,7 @@ a {
     font-size: x-large;
     font-weight: bold;
   }
+
   .ProductNameKo {
     float: right;
     padding: 10px;
@@ -127,6 +130,7 @@ a {
   display: flex;
   margin-top: 30px;
   height: 70px;
+
   div {
     border: 1px solid black;
     select {
@@ -135,6 +139,7 @@ a {
       background-color: transparent;
     }
   }
+
   .BrandInfo {
     display: flex;
     justify-content: center;
@@ -144,29 +149,35 @@ a {
     border-right: none;
     text-align: left;
   }
+
   .BrandName {
     font-weight: bold;
     font-size: x-large;
   }
+
   .BrandText {
     font-size: smaller;
     color: #333;
     margin-top: 5px;
   }
+
   .ColorWrap {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 35%;
     border-right: none;
+
     .ColorInfo {
       position: relative;
       border-radius: 4px;
       width: 180px;
       border: 0px solid;
+
       select::-ms-expand {
         display: none;
       } //선택버튼 삭제, 보더 삭제
+
       .SelectOption {
         -o-appearance: none;
         -webkit-appearance: none;
@@ -182,6 +193,7 @@ a {
         padding: 0 5px;
         position: relative;
         z-index: 3;
+
         option {
           padding: 3px 0;
           font-size: 16px;
@@ -198,6 +210,7 @@ a {
   width: 20%;
   border-right: none;
   color: #333;
+
   .amount_arrow {
     width: 15px;
     height: 15px;
@@ -205,10 +218,12 @@ a {
     border-width: thin;
     color: #333;
   }
+
   p {
     padding: 0 10px 0 10px;
   }
 }
+
 .buyWrap {
   display: flex;
   justify-content: center;
@@ -233,6 +248,7 @@ a {
   align-items: center;
   width: 23%;
   background-color: black;
+
   a {
     color: white;
   }
@@ -242,9 +258,11 @@ a {
   display: flex;
   justify-content: end;
   padding-top: 30px;
+
   .benefit_child {
     padding-left: 26px;
     display: flex;
+
     div {
       color: #333;
     }
@@ -268,6 +286,7 @@ a {
   justify-content: center;
   padding-top: 100px;
   padding-bottom: 160px;
+
   div {
     padding-left: 26px;
     color: #333;
@@ -322,6 +341,7 @@ a {
     color: #333;
     cursor: pointer;
   }
+
   .more-review {
     background-color: black;
     color: white;

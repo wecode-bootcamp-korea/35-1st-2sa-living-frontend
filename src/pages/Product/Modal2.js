@@ -1,5 +1,5 @@
 import React from 'react';
-import './Modal2.scss';
+import './Modal.scss';
 
 const Modal2 = props => {
   const { open, close, header } = props;
@@ -22,7 +22,11 @@ const Modal2 = props => {
               </p>
               <div className="input_title">
                 <p>상품명</p>
-                <select />
+                <select>
+                  <option disabled selected>
+                    상품을 선택하세요
+                  </option>
+                </select>
                 <div className="input_title">
                   <p>문의내용</p>
                   <textarea className="review_in_modal" />
