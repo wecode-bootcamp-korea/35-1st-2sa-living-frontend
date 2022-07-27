@@ -7,7 +7,7 @@ const Mypage = () => {
   let [buying, setBuying] = useState([]);
   let [orderList, setOrderList] = useState([]);
   useEffect(() => {
-    fetch('http://10.58.1.126:8000/orders/order', {
+    fetch('http://10.58.7.204:8000/orders/order_id', {
       method: 'GET',
       headers: { Authorization: localStorage.getItem('jwt') },
     })
