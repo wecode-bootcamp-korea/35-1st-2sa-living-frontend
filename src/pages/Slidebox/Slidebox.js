@@ -3,7 +3,7 @@ import Slideitem from '../Slideitem/Slideitem';
 
 const Slidebox = () => {
   useEffect(() => {
-    fetch('http://localhost:3000/data/mainMockData.json')
+    fetch('/data/mainMockData.json')
       .then(response => response.json())
       .then(data => setItem(data));
   }, []);

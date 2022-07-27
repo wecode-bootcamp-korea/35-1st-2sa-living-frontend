@@ -28,7 +28,7 @@ const Main = () => {
             <div
               className="modal-call"
               onClick={() => {
-                setModalOn(!modalOn > modalOn);
+                setModalOn(prev => !prev);
               }}
             >
               <img src="/images/main/shopping_01.png" alt="" />
@@ -46,7 +46,7 @@ const Main = () => {
                 src="/images/MyInfo/close.png"
                 alt="닫기이콘"
                 onClick={() => {
-                  setModalOn(!modalOn > modalOn);
+                  setModalOn(prev => !prev);
                 }}
               />
               <h3>BEST PRODUCT</h3>
