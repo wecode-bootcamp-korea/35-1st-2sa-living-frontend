@@ -129,8 +129,8 @@ const SignUp = () => {
     const isValid = checkItems.filter(data => data === 1 || data === 2);
     if (isValid.length === 0) {
       alert('필수사항을 확인해주세요');
-    } else {
-      alert('통과');
+    } else if (isValid.length === 1) {
+      alert('필수사항을 확인해주세요');
     }
   };
 
