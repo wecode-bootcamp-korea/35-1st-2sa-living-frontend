@@ -4,7 +4,7 @@ import './MyInfo.scss';
 
 const MyInfo = ({ slideOn, setSlideOn, item, setItem }) => {
   const removeSide = () => {
-    setSlideOn(!slideOn > slideOn);
+    setSlideOn(prev => !prev);
   };
 
   const letOrder = () => {

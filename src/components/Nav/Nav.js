@@ -7,7 +7,7 @@ function Nav() {
   let [slideOn, setSlideOn] = useState(false);
   let [item, setItem] = useState([]);
   const moveSide = () => {
-    setSlideOn(!slideOn > slideOn);
+    setSlideOn(prev => !prev);
 
     fetch('http://10.58.1.126:8000/carts/cart', {
       headers: {
