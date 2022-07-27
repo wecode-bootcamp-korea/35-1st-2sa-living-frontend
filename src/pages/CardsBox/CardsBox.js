@@ -10,7 +10,7 @@ function CardsBox() {
 
   useEffect(() => {
     fetch(
-      'http://10.58.1.126:8000/products?category_id=1&sub_category_id=1&page=1'
+      'http://10.58.7.204:8000/products?category_id=1&sub_category_id=1&page=1'
     )
       .then(res => res.json())
       .then(res => setCards(res.product_list));

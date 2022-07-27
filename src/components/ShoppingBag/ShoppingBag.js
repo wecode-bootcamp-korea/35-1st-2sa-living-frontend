@@ -4,7 +4,7 @@ import './ShoppingBag.scss';
 
 const ShoppingBag = ({ itemBag, setItem }) => {
   const removeBag = id => {
-    fetch(`http://10.58.1.126:8000/carts/cart/${cart_id}`, {
+    fetch(`http://10.58.7.204:8000/carts/${id}`, {
       method: 'DELETE',
       headers: { Authorization: localStorage.getItem('jwt') },
     })

@@ -8,7 +8,7 @@ const MyInfo = ({ slideOn, setSlideOn, item, setItem }) => {
   };
 
   const letOrder = () => {
-    fetch(`http://10.58.1.126:8000/orders/order`, {
+    fetch(`http://10.58.7.204:8000/orders/order`, {
       method: 'POST',
       headers: { Authorization: localStorage.getItem('jwt') },
     })

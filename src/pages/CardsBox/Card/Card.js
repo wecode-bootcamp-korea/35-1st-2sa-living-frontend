@@ -8,7 +8,7 @@ import Heart from '../../../components/Heart/Heart';
 const Card = ({ cardList }) => {
   const navigate = useNavigate();
   const addCart = product => {
-    fetch('http://10.58.1.126:8000/carts', {
+    fetch('http://10.58.7.204:8000/carts', {
       method: 'POST',
       headers: {
         Authorization: localStorage.getItem('jwt'),

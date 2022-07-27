@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import MypageComponents from '../../components/MypageComponents/MypageComponents';
+import { useNavigate } from 'react-router-dom';
 import './Mypage.scss';
 
 const Mypage = () => {
   let [clickBtn, setClickBtn] = useState(0);
   let [buying, setBuying] = useState([]);
   let [orderList, setOrderList] = useState([]);
+
+  const navigate = useNavigate();
   useEffect(() => {
-    fetch('http://10.58.7.204:8000/orders/order_id', {
-      method: 'GET',
+    fetch('http://10.58.7.204:8000/orders/list', {
       headers: { Authorization: localStorage.getItem('jwt') },
     })
       .then(response => response.json())
       .then(data => setOrderList(data.result));
   }, []);
-
+  console.log(orderList);
   const changeList = num => {
     if (num === 0) {
       return buying.filter(els => {
@@ -30,11 +32,18 @@ const Mypage = () => {
       });
     }
   };
+  const goTo = id => {
+    navigate(`/order/${id}`);
+  };
 
   let Orders = ({ orders }) => {
-    let { order_number, order_status, total_price } = orders;
+    let { order_id, order_number, order_status, total_price } = orders;
     return (
-      <tr>
+      <tr
+        onClick={() => {
+          goTo(order_id);
+        }}
+      >
         <td>주문번호 : {order_number}</td>
         <td>총 : {total_price}</td>
         <td>진행 상태 : {order_status}</td>
@@ -82,7 +91,7 @@ const Mypage = () => {
         <div className="order-list">
           <table>
             {orderList.map((els, idx) => {
-              return <Orders orders={els} />;
+              return <Orders key={idx} orders={els} />;
             })}
           </table>
         </div>

@@ -11,11 +11,11 @@ const Login = () => {
   const navigate = useNavigate();
 
   const goToMain = () => {
-    fetch('http://10.58.1.126:8000/users/login', {
+    fetch('http://10.58.7.204:8000/users/login', {
       method: 'post',
       body: JSON.stringify({
-        email: 'jhlee7069@naver.com',
-        password: 'Abcd1234!',
+        email: 'ukhwa1@hotmail.com',
+        password: '!Asdf1234',
       }),
     })
       .then(res => res.json())

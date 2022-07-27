@@ -11,20 +11,19 @@ const SignUp = () => {
   };
 
   const goToLogin = () => {
-    fetch('http://10.58.1.126:8000/users/signup', {
+    fetch('http://10.58.7.204:8000/users/signup', {
       method: 'post',
       body: JSON.stringify({
-        first_name: '혜진',
-        last_name: '이',
-        email: 'jhlee7069@naver.com',
-        password: 'Abcd1234!',
-        phone_number: '010-1234-1234',
-        birthdate: '2011-02-22',
+        first_name: '억화',
+        last_name: '정',
+        email: 'ukhwa1@hotmail.com',
+        password: '!Asdf1234',
+        phone_number: '010-1111-1111',
+        birthdate: '2010-02-22',
       }),
     })
       .then(res => res.json())
       .then(res => {
-        console.log(res);
         navigate('/login');
       });
   };
