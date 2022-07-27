@@ -294,8 +294,9 @@ main {
           border-top: 1px solid transparent;
         }
         .on {
+          color: #ff5000;
           font-weight: 800;
-          border-top: 2px solid #333;
+          border-top: 3px solid #ff5000;
           transition: 0.2s;
         }
       }

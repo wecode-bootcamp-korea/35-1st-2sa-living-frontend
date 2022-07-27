@@ -28,25 +28,18 @@ const Card = ({ cardList }) => {
   return (
     <>
       {cardList.map(({ id, image, brandName, productName, price }) => (
-        <div
-          className="card"
-          key={id}
-          onClick={() => {
-            goTo(id);
-          }}
-        >
+        <div className="card" key={id}>
           <div className="img-container">
             <img className="card-img" src={image} alt="product" />
             <div className="img-hover">
-              <div className="hover-items">
-                <i
-                  className="fas fa-shopping-cart"
-                  onClick={() => {
-                    addCart(id);
-                  }}
-                />
-                <Heart />
-              </div>
+              <div className="hover-items" onClick={goTo(id)} />
+              <i
+                className="fas fa-shopping-cart"
+                onClick={() => {
+                  addCart(id);
+                }}
+              />
+              <Heart />
             </div>
           </div>
           <span className="brand-name">{brandName}</span>

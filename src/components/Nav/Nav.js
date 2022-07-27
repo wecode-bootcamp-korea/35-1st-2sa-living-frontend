@@ -35,9 +35,16 @@ function Nav() {
             })}
           </ul>
           <div className="icon-box">
-            <i className="fa-solid fa-magnifying-glass" />
-            <i className="fa-solid fa-user" />
-            <i className="fa-solid fa-basket-shopping" onClick={moveSide} />
+            <img
+              src="/images/main/user.png"
+              alt="내정보아이콘"
+              className="icons"
+            />
+            <img
+              src="/images/main/bag.png"
+              alt="장바구니아이콘"
+              className="icons"
+            />
           </div>
         </div>
       </nav>
