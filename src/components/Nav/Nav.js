@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import MyInfo from '../MyInfo/MyInfo';
 import './Nav.scss';
-
 function Nav() {
   let [slideOn, setSlideOn] = useState(false);
   let [item, setItem] = useState([]);
+
+  let navigate = useNavigate();
+
+  let goToCardList = id => {
+    navigate(`/cardsbox/${id}`);
+  };
   const moveSide = () => {
     setSlideOn(!slideOn > slideOn);
 
@@ -22,14 +27,22 @@ function Nav() {
     <>
       <nav>
         <div className="inner">
-          <div className="logo">
-            <img src="/images/main/logo.png" alt="logo" width="99" />
-          </div>
+          <Link to="/">
+            <div className="logo">
+              <img src="/images/main/logo.png" alt="logo" width="99" />
+            </div>
+          </Link>
           <ul className="menu">
             {LISTDATA.map((els, idx) => {
               return (
-                <li key={idx}>
-                  <Link to="/">{els}</Link>
+                <li
+                  key={idx}
+                  onClick={() => {
+                    goToCardList(idx + 1);
+                  }}
+                  style={{ cursor: 'pointer' }}
+                >
+                  {els}
                 </li>
               );
             })}
@@ -59,6 +72,6 @@ function Nav() {
   );
 }
 
-const LISTDATA = ['SOFA', 'CHAIR', 'BED', 'TABLE', 'DRAWER'];
+const LISTDATA = ['CHAIR', 'SOFA', 'TABLE', 'BED', 'CLOSET'];
 
 export default Nav;

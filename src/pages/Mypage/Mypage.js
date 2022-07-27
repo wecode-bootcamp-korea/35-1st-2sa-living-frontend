@@ -16,7 +16,7 @@ const Mypage = () => {
       .then(response => response.json())
       .then(data => setOrderList(data.result));
   }, []);
-  console.log(orderList);
+
   const changeList = num => {
     if (num === 0) {
       return buying.filter(els => {

@@ -4,6 +4,7 @@ import './Orders.scss';
 const Orders = () => {
   const [orders, setOrders] = useState([]);
   const params = useParams();
+  console.log(params);
   console.log(orders);
 
   useEffect(() => {
