@@ -32,7 +32,12 @@ const Card = ({ cardList }) => {
           <div className="img-container">
             <img className="card-img" src={image} alt="product" />
             <div className="img-hover">
-              <div className="hover-items" onClick={goTo(id)} />
+              <div
+                className="hover-items"
+                onClick={() => {
+                  goTo(id);
+                }}
+              />
               <i
                 className="fas fa-shopping-cart"
                 onClick={() => {
