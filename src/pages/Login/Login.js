@@ -13,22 +13,6 @@ const Login = () => {
   const goToSignUp = () => {
     navigate('/signup');
   };
-  /*const goToMain = () => {
-    fetch('http://10.58.0.190:8000/users/login', {
-      method: 'post',
-      body: JSON.stringify({
-        email: 'jhlee7069@naver.com',
-        password: 'Abcd1234!',
-      }),
-    })
-      .then(res => res.json())
-      .then(res => {
-        if(res.USER_NAME){
-          localStorage.setItem('jwt', res.TOKEN);
-          navigate('/');
-        }
-      });
-  };*/
 
   const [loiginInputValue, setLoginInputValue] = useState({
     email: '',

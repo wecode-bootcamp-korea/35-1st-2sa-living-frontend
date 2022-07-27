@@ -4,17 +4,20 @@
   max-width: 1280px;
   margin: 0 auto;
   padding-top: 75px;
+
   .login-title {
     font-size: 60px;
     font-weight: 700;
     text-align: center;
     color: #333;
   }
+
   .login-input {
     max-width: 382px;
     margin: 0 auto;
     padding-top: 45px;
     text-align: center;
+
     .id-input {
       width: 100%;
       height: 60px;
@@ -24,6 +27,7 @@
       background-color: #efefef;
       border: none;
     }
+
     .pwd-input {
       width: 100%;
       height: 60px;
@@ -33,6 +37,7 @@
       background-color: #efefef;
       border: none;
     }
+
     .login-btn {
       width: 100%;
       height: 60px;
@@ -42,23 +47,28 @@
       background-color: #333;
       cursor: pointer;
     }
+
     .bottom-check {
       margin-top: 30px;
       text-align: center;
       font-size: 16px;
+
       #save {
         margin-right: 9px;
       }
+
       .email-save {
         margin-right: 5px;
         cursor: pointer;
       }
+
       .find-account-link {
         position: relative;
         margin-right: 5px;
         margin-left: 4px;
         cursor: pointer;
       }
+
       .register-link {
         position: relative;
         cursor: pointer;
@@ -68,24 +78,30 @@
   .sns-login {
     margin-top: 75px;
     text-align: center;
+
     h3 {
       font-size: 24px;
       font-weight: 400;
     }
+
     ul {
       margin-top: 29px;
+
       li {
         display: inline;
+
         .facebook {
           width: 55px;
           margin: 0 15px;
           cursor: pointer;
         }
+
         .kakao {
           width: 55px;
           margin: 0 15px;
           cursor: pointer;
         }
+
         .naver {
           width: 50px;
           margin: 0 15px;
@@ -95,6 +111,7 @@
     }
     .non-members {
       margin-top: 50px;
+
       span {
         text-decoration: none;
         color: grey;
