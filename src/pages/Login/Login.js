@@ -1,9 +1,7 @@
 import { useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
-import facebookIcon from '..//../asset/images/facebook.png';
-import kakaoIcon from '..//../asset/images/kakao.png';
-import naverIcon from '..//../asset/images/naver.png';
+
 import './Login.scss';
 import '../../styles/common.scss';
 
@@ -61,11 +59,6 @@ const Login = () => {
     }
   };
 
-  const logout = () => {
-    localStorage.removeItem('jwt');
-    alert('로그아웃 되었습니다!');
-    navigate('/');
-  };
   return (
     <div>
       <form className="login-container">
@@ -105,16 +98,27 @@ const Login = () => {
             <ul>
               <li>
                 <div className="icon">
-                  <img className="facebook" src={facebookIcon} alt="facebook" />
+                  <img
+                    className="facebook"
+                    src="\images\SignUp\facebook.png"
+                    alt="facebook"
+                  />
 
-                  <img className="kakao" src={kakaoIcon} alt="kakao" />
+                  <img
+                    className="kakao"
+                    src="\images\SignUp\kakao.png"
+                    alt="kakao"
+                  />
 
-                  <img className="naver" src={naverIcon} alt="naver" />
+                  <img
+                    className="naver"
+                    src="\images\SignUp\naver.png"
+                    alt="naver"
+                  />
                 </div>
               </li>
             </ul>
             <p className="non-members">비회원 주문배송 조회</p>
-            <span onClick={logout}>로그아웃</span>
           </div>
         </div>
       </form>

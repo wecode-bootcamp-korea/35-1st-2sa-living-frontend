@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './SignUp.scss';
 import '../../styles/common.scss';
-import arrow from '..//../asset/images/btn_arrow.png';
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -69,7 +68,7 @@ const SignUp = () => {
       must: '[필수]',
       viewAll: (
         <a href="https://www.casa.co.kr/member/terms.aspx">
-          <img src={arrow} alt="arrow" />
+          <img src="\images\SignUp\btn_arrow.png" />
           전체 보기
         </a>
       ),
@@ -80,7 +79,7 @@ const SignUp = () => {
       must: '[필수]',
       viewAll: (
         <a href="https://www.casa.co.kr/member/terms.aspx">
-          <img src={arrow} alt="arrow" />
+          <img src="\images\SignUp\btn_arrow.png" />
           전체 보기
         </a>
       ),
@@ -128,9 +127,9 @@ const SignUp = () => {
   const agreement = () => {
     const isValid = checkItems.filter(data => data === 1 || data === 2);
     if (isValid.length === 0) {
-      alert('필수사항을 확인해주세요');
+      alert('필수 약관에 동의해주세요');
     } else if (isValid.length === 1) {
-      alert('필수사항을 확인해주세요');
+      alert('필수 약관에 동의해주세요');
     }
   };
 
