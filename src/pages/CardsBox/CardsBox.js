@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import CardList from './CardList/CardList';
 import SubCategories from './SubCategories/SubCategories';
 import './CardsBox.scss';
@@ -12,9 +13,11 @@ function CardsBox() {
 
   useEffect(() => {
     fetch('/data/fakeData.json')
+      //fetch(`http://loccalhost:8000/user${location.search || `limit={limit}&offset=0`} `)
       .then(res => res.json())
       .then(res => setCards(res));
   }, []);
+  //location.search
 
   const filterCards = cards.filter(card => {
     return card.category === 'chair';
@@ -31,7 +34,7 @@ function CardsBox() {
   };
 
   const selectedPage = ({ target }) => {
-    // const limitValue = target.value;
+    const limitValue = target.value;
     setLimitValue(target.value);
     const string = `?limit=${limitValue}&offset=0`;
     navigate(string);
@@ -70,6 +73,8 @@ function CardsBox() {
                   </select>
                   <select className="page-size" onChange={selectedPage}>
                     <option value="4">신상품</option>
+                    <option value="8">높은가격순</option>
+                    <option value="8">낮은가격순</option>
                     <option value="8">판매순</option>
                   </select>
                 </div>
