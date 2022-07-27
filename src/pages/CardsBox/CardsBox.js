@@ -77,10 +77,10 @@ function CardsBox(props) {
                     <option value="8">8개</option>
                   </select>
                   <select className="page-size" onChange={selectedPage}>
-                    <option value="4">신상품</option>
-                    <option value="8">높은가격순</option>
-                    <option value="8">낮은가격순</option>
-                    <option value="8">판매순</option>
+                    <option>신상품</option>
+                    <option>높은가격순</option>
+                    <option>낮은가격순</option>
+                    <option>판매순</option>
                   </select>
                 </div>
               </div>
