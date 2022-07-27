@@ -44,6 +44,7 @@ function Nav() {
               src="/images/main/bag.png"
               alt="장바구니아이콘"
               className="icons"
+              onClick={moveSide}
             />
           </div>
         </div>
