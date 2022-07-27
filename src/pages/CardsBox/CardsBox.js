@@ -6,7 +6,6 @@ import './CardsBox.scss';
 
 function CardsBox(props) {
   const [cards, setCards] = useState([]);
-  const [likes, setLikes] = useState([]);
   const [userInput, setUserInput] = useState('');
   const navigate = useNavigate();
   // const location = useLocation();
@@ -19,17 +18,6 @@ function CardsBox(props) {
       .then(res => setCards(res));
   }, []);
   //location.search
-
-  useEffect(() => {
-    fetch('http://10.58.1.126:8000/users/likes', {
-      method: 'GET',
-      headers: {
-        Authorization: localStorage.getItem('jwt'),
-      },
-    })
-      .then(response => response.json())
-      .then(result => setLikes(result));
-  }, []);
 
   const filterCards = cards.filter(card => {
     return card.category === 'chair';
@@ -46,11 +34,16 @@ function CardsBox(props) {
   };
 
   const selectedPage = ({ target }) => {
-    const limitValue = target.value;
-    setLimitValue(target.value);
+    const test = target.value;
+    setLimitValue(test);
     const string = `?limit=${limitValue}&offset=0`;
     navigate(string);
   };
+
+  useEffect(() => {
+    const string = `?limit=${limitValue}&offset=0`;
+    navigate(string);
+  }, [limitValue]);
 
   const changePage = ({ target }) => {
     const limit = 4;

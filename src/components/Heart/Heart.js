@@ -1,10 +1,7 @@
 import React from 'react';
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Heart({ id }) {
-  const navigate = useNavigate();
-
   const fillHeart = e =>
     e.target.style.color === ''
       ? ((e.target.style.color = 'red'), (e.target.className = 'fas fa-heart'))
@@ -23,7 +20,7 @@ function Heart({ id }) {
   };
 
   return (
-    <div class="Heart" onClick={addLikes(id)}>
+    <div class="Heart" onClick={addLikes({ id })}>
       <i onClick={fillHeart} className="far fa-heart" />
     </div>
   );
