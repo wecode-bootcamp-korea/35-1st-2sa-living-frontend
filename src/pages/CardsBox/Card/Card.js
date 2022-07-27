@@ -17,9 +17,7 @@ const Card = ({ cardList }) => {
         product_id: product,
         quantity: 1,
       }),
-    })
-      .then(response => response.json())
-      .then(result => console.log('결과: ', result));
+    }).then(response => response.json());
   };
 
   let goTo = id => {

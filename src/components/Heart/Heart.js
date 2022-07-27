@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Heart({ id }) {
@@ -18,9 +19,7 @@ function Heart({ id }) {
       body: JSON.stringify({
         product_id: product,
       }),
-    })
-      .then(response => response.json())
-      .then(result => console.log('결과: ', result));
+    }).then(response => response.json());
   };
 
   return (

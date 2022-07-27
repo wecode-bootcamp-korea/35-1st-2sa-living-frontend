@@ -4,8 +4,9 @@ import CardList from './CardList/CardList';
 import SubCategories from './SubCategories/SubCategories';
 import './CardsBox.scss';
 
-function CardsBox() {
+function CardsBox(props) {
   const [cards, setCards] = useState([]);
+  const [likes, setLikes] = useState([]);
   const [userInput, setUserInput] = useState('');
   const navigate = useNavigate();
   // const location = useLocation();
@@ -18,6 +19,17 @@ function CardsBox() {
       .then(res => setCards(res));
   }, []);
   //location.search
+
+  useEffect(() => {
+    fetch('http://10.58.1.126:8000/users/likes', {
+      method: 'GET',
+      headers: {
+        Authorization: localStorage.getItem('jwt'),
+      },
+    })
+      .then(response => response.json())
+      .then(result => setLikes(result));
+  }, []);
 
   const filterCards = cards.filter(card => {
     return card.category === 'chair';
