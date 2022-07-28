@@ -42,7 +42,7 @@ const Login = () => {
     } else if (regEx !== true) {
       window.alert('비밀번호 양식이 맞지 않습니다.');
     } else {
-      fetch('http://10.58.0.163:8000/users/login', {
+      fetch('http://10.58.7.204:8000/users/login', {
         method: 'post',
         body: JSON.stringify({
           email: email,
@@ -51,7 +51,6 @@ const Login = () => {
       })
         .then(res => res.json())
         .then(res => {
-          console.log(res);
           if (res.USER_NAME) {
             localStorage.setItem('jwt', res.TOKEN);
             navigate('/');

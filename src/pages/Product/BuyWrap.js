@@ -1,9 +1,11 @@
+import { getMouseEventOptions } from '@testing-library/user-event/dist/utils';
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 const BuyWrap = ({ amount, setAmount, colors, list, brand }) => {
   const [select, setSelect] = useState('');
   const [likeIt, setLikeIt] = useState(0);
-
+  const navigate = useNavigate();
   const selectColor = e => {
     setSelect(e.target.value);
   };
@@ -22,7 +24,9 @@ const BuyWrap = ({ amount, setAmount, colors, list, brand }) => {
     setLikeIt(e.target.value);
     setLikeIt(likeIt + 1);
   };
-
+  const goToColor = id => {
+    console.log(id);
+  };
   return (
     <div className="BuyDataWrap">
       <div className="BrandInfo">

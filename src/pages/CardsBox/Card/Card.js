@@ -34,7 +34,6 @@ const Card = ({ cardList }) => {
   let goTo = id => {
     navigate(`/products/${id}`);
   };
-
   return (
     <>
       {cardList.map(({ id, image, brandName, productName, price }) => (
@@ -42,7 +41,12 @@ const Card = ({ cardList }) => {
           <div className="img-container">
             <img className="card-img" src={image} alt="product" />
             <div className="img-hover">
-              <div onClick={goTo} className="hover-items" />
+              <div
+                onClick={() => {
+                  goTo(id);
+                }}
+                className="hover-items"
+              />
               <div className="card-icons">
                 <i
                   className="fas fa-shopping-cart"
@@ -66,7 +70,7 @@ const Card = ({ cardList }) => {
           </div>
           <span className="brand-name">{brandName}</span>
           <p className="card-name">{productName}</p>
-          <p className="card-price">{price}</p>
+          <p className="card-price">{price.toLocaleString('ko-KR')} 원</p>
         </div>
       ))}
     </>

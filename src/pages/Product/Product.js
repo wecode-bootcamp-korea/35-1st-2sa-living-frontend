@@ -19,21 +19,25 @@ const Product = () => {
   const section1 = useRef(null);
   const section2 = useRef(null);
   const section3 = useRef(null);
+  console.log(params.id);
 
   useEffect(() => {
-    fetch(`http://10.58.0.163:8000/products/${params.id}`)
+    fetch(`http://10.58.7.204:8000/products/${params.id}`)
       .then(response => response.json())
-      .then(data => setReviewList(data.result));
+      .then(data => setReviewList(data.result[0]));
 
-    fetch(`http://10.58.0.163:8000/products/review/${params.id}`, {
+    fetch(`http://10.58.7.204:8000/products/review/${params.id}`, {
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.TbUpMPmn-RdsST-uVWs8gGmIGv9rT0-jycK1rwVYY3s',
+        Authorization: localStorage.getItem('jwt'),
       },
     })
       .then(response => response.json())
-      .then(data => setCommentList(data.result));
-  }, [input, params.id]);
+      .then(data => {
+        setCommentList(data.result);
+      });
+  }, [params.id, input]);
+
+  console.log(commentList);
 
   const {
     korean_name,
@@ -152,11 +156,7 @@ const Product = () => {
         </div>
       </div>
       <div className="img_section" ref={section1}>
-        <img
-          className="ProductImage"
-          src="/images/Product/green_chair.jpg"
-          alt="icon"
-        />
+        <img className="ProductImage" src={main_image} alt="icon" />
         <img
           className="ProductImage"
           src="/images/Product/detail.png"
@@ -187,12 +187,15 @@ const Product = () => {
           </div>
           <div className="review_wrap">
             {commentList.map((els, idx) => {
-              let { user_first_name, content } = els;
+              let { user_first_name, user_last_name, content } = els;
               return (
-                <p key="id">
-                  <h2 className="user-name">{user_first_name}</h2>
-                  {content}
-                </p>
+                <div className="comment" key="id">
+                  <span className="comment-txt"> {content}</span>
+                  <span className="comment-name">
+                    {user_last_name}
+                    {user_first_name}
+                  </span>
+                </div>
               );
             })}
           </div>

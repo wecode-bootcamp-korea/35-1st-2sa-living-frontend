@@ -4,11 +4,10 @@ const Modal = props => {
   const { open, close, header, addReview, addText, input, id } = props;
 
   const addReviews = () => {
-    fetch(`http://10.58.0.163:8000/products/review/${id}`, {
+    fetch(`http://10.58.7.204:8000/products/review/${id}`, {
       method: 'POST',
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.TbUpMPmn-RdsST-uVWs8gGmIGv9rT0-jycK1rwVYY3s',
+        Authorization: localStorage.getItem('jwt'),
       },
       body: JSON.stringify({
         content: input,

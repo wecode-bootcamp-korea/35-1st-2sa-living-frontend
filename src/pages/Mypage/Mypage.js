@@ -4,12 +4,15 @@ import { useNavigate } from 'react-router-dom';
 import './Mypage.scss';
 
 const Mypage = () => {
-  let [clickBtn, setClickBtn] = useState(0);
+  let [clickBtn, setClickBtn] = useState('sofa');
   let [buying, setBuying] = useState([]);
   let [orderList, setOrderList] = useState([]);
-
   const navigate = useNavigate();
+
   useEffect(() => {
+    fetch('/data/mainTestData.json')
+      .then(response => response.json())
+      .then(data => setBuying(data));
     fetch('http://10.58.7.204:8000/orders/list', {
       headers: { Authorization: localStorage.getItem('jwt') },
     })
@@ -17,21 +20,6 @@ const Mypage = () => {
       .then(data => setOrderList(data.result));
   }, []);
 
-  const changeList = num => {
-    if (num === 0) {
-      return buying.filter(els => {
-        return els.category.includes('sofa');
-      });
-    } else if (num === 1) {
-      return buying.filter(els => {
-        return els.category.includes('bed');
-      });
-    } else if (num === 2) {
-      return buying.filter(els => {
-        return els.category.includes('table');
-      });
-    }
-  };
   const goTo = id => {
     navigate(`/order/${id}`);
   };
@@ -45,12 +33,15 @@ const Mypage = () => {
         }}
       >
         <td>주문번호 : {order_number}</td>
-        <td>총 : {total_price}</td>
+        <td>총 : {Math.floor(total_price).toLocaleString('ko-KR')} 원</td>
         <td>진행 상태 : {order_status}</td>
       </tr>
     );
   };
-  let forYouItem = changeList(clickBtn);
+  let newMenu = buying.filter(els => {
+    return els.category.includes(clickBtn);
+  });
+
   return (
     <div className="mypage">
       <h1 className="title"> MYPAGE</h1>
@@ -107,34 +98,25 @@ const Mypage = () => {
         <div className="foryou-list">
           <div className="foryou-menu">
             <ul>
-              <li
-                className={`foryou-menu-list ${clickBtn === 0 ? 'on' : ''}`}
-                onClick={() => {
-                  setClickBtn(0);
-                }}
-              >
-                SOFA
-              </li>
-              <li
-                className={`foryou-menu-list ${clickBtn === 1 ? 'on' : ''}`}
-                onClick={() => {
-                  setClickBtn(1);
-                }}
-              >
-                BED
-              </li>
-              <li
-                className={`foryou-menu-list ${clickBtn === 2 ? 'on' : ''}`}
-                onClick={() => {
-                  setClickBtn(2);
-                }}
-              >
-                TABlE
-              </li>
+              {LISTDATA.map((els, idx) => {
+                return (
+                  <li
+                    key={idx}
+                    className={`foryou-menu-list ${
+                      clickBtn.toUpperCase() === els ? 'on' : ''
+                    }`}
+                    onClick={() => {
+                      setClickBtn(els.toLowerCase());
+                    }}
+                  >
+                    {els}
+                  </li>
+                );
+              })}
             </ul>
           </div>
           <div className="foryou-list-items">
-            {forYouItem.map(els => {
+            {newMenu.map(els => {
               return <MypageComponents items={els} key={els.id} />;
             })}
           </div>
@@ -143,5 +125,6 @@ const Mypage = () => {
     </div>
   );
 };
+const LISTDATA = ['SOFA', 'BED', 'TABLE'];
 
 export default Mypage;

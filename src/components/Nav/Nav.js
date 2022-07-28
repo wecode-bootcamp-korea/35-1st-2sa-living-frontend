@@ -17,7 +17,7 @@ function Nav() {
   const moveSide = () => {
     setSlideOn(!slideOn > slideOn);
 
-    fetch('http://10.58.0.163:8000/carts', {
+    fetch('http://10.58.7.204:8000/carts', {
       headers: {
         Authorization: localStorage.getItem('jwt'),
       },
@@ -25,7 +25,7 @@ function Nav() {
       .then(response => response.json())
       .then(data => setItem(data.carts));
 
-    fetch('http://10.58.0.163:8000/users/likes', {
+    fetch('http://10.58.7.204:8000/users/likes', {
       headers: {
         Authorization: localStorage.getItem('jwt'),
       },

@@ -1,5 +1,6 @@
 import { React, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Orders.scss';
 const Orders = () => {
   const [orders, setOrders] = useState([]);
@@ -40,7 +41,7 @@ const Orders = () => {
           <p>{quantity}</p>
         </td>
         <td className="price">
-          <p>{price}</p>
+          <p>{price.toLocaleString('ko-KR')} 원</p>
         </td>
       </tr>
     );
@@ -116,7 +117,9 @@ const Orders = () => {
           </form> */}
 
           <p className="btn-box">
-            <button>마이페이지로 돌아가기</button>
+            <Link to="/mypage">
+              <button>마이페이지로 돌아가기</button>
+            </Link>
           </p>
         </div>
       </div>

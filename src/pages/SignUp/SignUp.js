@@ -13,7 +13,7 @@ const SignUp = () => {
   };*/
 
   const goToLogin = () => {
-    fetch('http://10.58.0.163:8000/users/signup', {
+    fetch('http://10.58.7.204:8000/users/signup', {
       method: 'post',
       body: JSON.stringify({
         first_name: firstName,
