@@ -107,7 +107,13 @@ function Nav() {
               src="/images/main/bag.png"
               alt="장바구니아이콘"
               className="icons"
-              onClick={moveSide}
+              onClick={
+                tokenValid
+                  ? moveSide
+                  : () => {
+                      navigate('/login');
+                    }
+              }
             />
           </div>
         </div>

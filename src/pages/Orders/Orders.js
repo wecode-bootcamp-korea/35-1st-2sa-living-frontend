@@ -15,6 +15,7 @@ const Orders = () => {
       .then(response => response.json())
       .then(data => setOrders(data.order_list));
   }, []);
+  console.log(orders);
 
   let Items = ({ items }) => {
     let {
@@ -49,7 +50,7 @@ const Orders = () => {
 
   return (
     <>
-      <h2 className="title">CARTS</h2>
+      <h2 className="title">ORDERS</h2>
       <div className="orders-wrap">
         <div className="orders-detail-left">
           <table>

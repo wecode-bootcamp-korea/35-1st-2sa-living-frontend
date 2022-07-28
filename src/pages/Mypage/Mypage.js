@@ -7,7 +7,7 @@ const Mypage = () => {
   let [clickBtn, setClickBtn] = useState('sofa');
   let [buying, setBuying] = useState([]);
   let [orderList, setOrderList] = useState([]);
-  let [total, setTotal] = useState(0);
+  let [likes, setLikes] = useState(0);
   const navigate = useNavigate();
   const tokenValid = localStorage.getItem('jwt');
 
@@ -17,12 +17,34 @@ const Mypage = () => {
     fetch('/data/mainTestData.json')
       .then(response => response.json())
       .then(data => setBuying(data));
+
     fetch('http://10.58.7.204:8000/orders/list', {
       headers: { Authorization: localStorage.getItem('jwt') },
     })
       .then(response => response.json())
       .then(data => setOrderList(data.result));
+
+    fetch('http://10.58.7.204:8000/users/likes', {
+      headers: {
+        Authorization: localStorage.getItem('jwt'),
+      },
+    })
+      .then(response => response.json())
+      .then(data => setLikes(data.results));
   }, []);
+
+  let LikesList = ({ props }) => {
+    let { product_image, furniture_korean_name, furniture_brand } = props;
+    return (
+      <div className="lises-box">
+        <img src={product_image} alt="상품이미지" />
+        <div className="txt-box">
+          <p className="brand">{furniture_brand}</p>
+          <p className="name">{furniture_korean_name}</p>
+        </div>
+      </div>
+    );
+  };
 
   const goTo = id => {
     navigate(`/order/${id}`);
@@ -123,7 +145,15 @@ const Mypage = () => {
 
       <div className="likeits">
         <h1 className="likeits-title"> 라이크 잇</h1>
-        <div className="likeits-list" />
+        <div className="likeits-list">
+          {likes.length ? (
+            likes.map((els, idx) => {
+              return <LikesList key={idx} props={els} />;
+            })
+          ) : (
+            <p> 구매하고 싶은 상품을 라이크잇 하세요</p>
+          )}
+        </div>
       </div>
       <div className="foryou">
         <h1 className="foryou-title"> 나를 위한 추천 상품</h1>
