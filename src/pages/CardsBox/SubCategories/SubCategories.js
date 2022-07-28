@@ -23,17 +23,25 @@ const title = [
   },
 ];
 
-function SubCategories({ categoryId }) {
+function SubCategories({ categoryId, setSubCate, subCate }) {
   const titleIdx = title.findIndex(el => el.id === categoryId);
 
   return (
     <div className="sub-categories">
       <ul>
         {title[titleIdx].subtitles.map((subtitle, idx) => {
+          let result = idx + 1;
           //카테고리아이디 배열을 가져온댜 -> map으로 하나씩 가져와서 그안의 id값으로 카테고리 타이틀을 입력한다
           return (
             // <li onClick={resetPage} key={idx}>
-            <li key={idx}>{subtitle}</li>
+            <li
+              key={idx}
+              onClick={() => {
+                setSubCate(result.toString());
+              }}
+            >
+              {subtitle}
+            </li>
           );
         })}
       </ul>

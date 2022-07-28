@@ -9,6 +9,7 @@ function CardsBox(id) {
   const [cards, setCards] = useState([]);
   const [userInput, setUserInput] = useState('');
   const [limitValue, setLimitValue] = useState('');
+  let [subCate, setSubCate] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -16,6 +17,7 @@ function CardsBox(id) {
 
   // const categoryId = '머시기'
   let categoryId = params.id;
+
   // fetch(
   //   `http://10.58.0.163:8000/products?category_id=2&page=1${
   //     location.search || `limit=4&offset=0`
@@ -25,7 +27,7 @@ function CardsBox(id) {
   //'http://10.58.0.163:8000/products?category_id=2&limit=4&offset=0'
   useEffect(() => {
     fetch(
-      `http://10.58.7.204:8000/products?category_id=${categoryId}&${location.search}`
+      `http://10.58.7.204:8000/products?category_id=${categoryId}&sub_category_id=${subCate}&${location.search}`
     ) //limit=4&offset=0
       .then(res => res.json())
       .then(res => setCards(res.product_list));
@@ -33,6 +35,9 @@ function CardsBox(id) {
   // const filterCards = cards.filter(card => {
   //   return card.category === 'chair';
   // });
+  console.log(
+    `http://10.58.7.204:8000/products?category_id=${categoryId}&sub_category_id=${subCate}&${location.search}`
+  );
 
   const cardList = cards.filter(card => {
     const lowerCase = card.brandName.toLowerCase();
@@ -67,13 +72,17 @@ function CardsBox(id) {
     <div className="CardsBox">
       <h1 className="category-name">{LISTDATA[categoryId - 1]}</h1>
       <div className="cards-container">
-        <SubCategories categoryId={categoryId} />
+        <SubCategories
+          categoryId={categoryId}
+          setSubCate={setSubCate}
+          subCate={subCate}
+        />
 
         <div class="products-container">
-          <div className="cards-new-product">
+          {/* <div className="cards-new-product">
             <p className="product-category-amount">NEW PRODUCT</p>
             <CardList cardList={cardList} />
-          </div>
+          </div> */}
           <div className="cards">
             <div className="cards-sort">
               <p className="category-amount">체어 762</p>

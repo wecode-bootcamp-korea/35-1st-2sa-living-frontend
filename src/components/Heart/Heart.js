@@ -19,7 +19,7 @@ function Heart({ id, a, setLikes }) {
       .then(response => response.json())
       .then(data => setLikes(data.product_ids));
   };
-  console.log('s', a);
+
   return (
     <div
       class="Heart"
