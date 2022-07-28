@@ -11,7 +11,7 @@ const Modal = props => {
           'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.TbUpMPmn-RdsST-uVWs8gGmIGv9rT0-jycK1rwVYY3s',
       },
       body: JSON.stringify({
-        content: input, //틀리면 안됨. BE에서 지정한 내용
+        content: input,
       }),
     })
       .then(response => response.json())

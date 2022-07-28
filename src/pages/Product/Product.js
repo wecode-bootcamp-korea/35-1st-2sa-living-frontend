@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 
 import Modal from './Modal';
 import Modal2 from './Modal2';
-/* import Accordion from './Accordion'; 추가구현 카테고리 아코디언화 */
 import BuyWrap from './BuyWrap';
 import ProductFooter from './ProductFooter';
 import './Product.scss';
@@ -12,31 +11,29 @@ const Product = () => {
   const [amount, setAmount] = useState(1);
   const [modal, setModal] = useState(false);
   const [modal2, setModal2] = useState(false);
-  const [reviewlist, setReviewlist] = useState([]);
+  const [reviewList, setReviewList] = useState([]);
   const [review, setReview] = useState([]);
   const [input, setInput] = useState('');
   const [commentList, setCommentList] = useState([]);
   const params = useParams();
-
-  /*   1. 통신 상세페이지
-  2. 리뷰 페이지 List 정보 가져오기 */
+  const section1 = useRef(null);
+  const section2 = useRef(null);
+  const section3 = useRef(null);
 
   useEffect(() => {
     fetch(`http://10.58.0.163:8000/products/${params.id}`)
       .then(response => response.json())
-      .then(data => setReviewlist(data.result));
+      .then(data => setReviewList(data.result));
 
     fetch(`http://10.58.0.163:8000/products/review/${params.id}`, {
       headers: {
         Authorization:
           'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.TbUpMPmn-RdsST-uVWs8gGmIGv9rT0-jycK1rwVYY3s',
-      }, //헤더에 로컬스토리지에 있는 토큰 삽입
+      },
     })
       .then(response => response.json())
-      .then(data => setCommentList(data.result)); //data를 setCommentList에 저장
-  }, [input]); //[]intput이 변경 될 때마다 렌더
-
-  console.log(reviewlist);
+      .then(data => setCommentList(data.result));
+  }, [input]);
 
   const {
     korean_name,
@@ -45,11 +42,22 @@ const Product = () => {
     price,
     related_products_list,
     brand,
-    detail_image,
-  } = reviewlist;
+  } = reviewList;
 
   const moveTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const scrollToElement = () => {
+    section1.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const scrollToElement2 = () => {
+    section2.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const scrollToElement3 = () => {
+    section3.current.scrollIntoView({ behavior: 'smooth' });
   };
 
   const openModal = () => {
@@ -89,21 +97,6 @@ const Product = () => {
       />
       <div className="inner">
         <div className="ProductDetail">
-          {/*<div className="SubMenu">  추가구현 카테고리 아코디언화
-            <div className="category">
-              <li>review_wrap
-
-                <Accordion />
-              </li>
-            </div>
-            <div className="share_icon">
-              <img
-                className="ShareIcon"
-                src="/images/Product/icon_share.png"
-                alt="icon"
-              />
-            </div>
-          </div>*/}
           <div className="Detail">
             <div className="share_icon">
               <img src={main_image} alt="icon" />
@@ -128,7 +121,7 @@ const Product = () => {
           amount={amount}
           setAmount={setAmount}
           colors={related_products_list}
-          list={reviewlist}
+          list={reviewList}
           brand={brand}
         />
         <div className="benefitWrap">
@@ -147,36 +140,35 @@ const Product = () => {
         </div>
       </div>
       <div className="detail_tab">
-        <a href="#target">
-          <div className="introduce">상품설명</div>
-        </a>
+        <div className="introduce" onClick={scrollToElement}>
+          상품설명
+        </div>
         <div>관련상품</div>
-        <a href="#review">
-          <div className="review_question">리뷰/상품문의</div>
-        </a>
-        <a href="#delivery">
-          <div className="delivery_return">배송/반품/AS안내</div>
-        </a>
+        <div className="review_question" onClick={scrollToElement2}>
+          리뷰/상품문의
+        </div>
+        <div className="delivery_return" onClick={scrollToElement3}>
+          배송/반품/AS안내
+        </div>
       </div>
-      <div className="img_section">
-        <a name="target">
-          <img
-            className="ProductImage"
-            src="/images/Product/green_chair.jpg"
-            alt="icon"
-          />
-        </a>
+      <div className="img_section" ref={section1}>
+        <img
+          className="ProductImage"
+          src="/images/Product/green_chair.jpg"
+          alt="icon"
+        />
         <img
           className="ProductImage"
           src="/images/Product/detail.png"
           alt="icon"
         />
       </div>
-      <a name="review" />
       <div className="review">
         <div className="product_review">
           <div className="review_top">
-            <p className="review-header">리뷰</p>
+            <p className="review-header" ref={section2}>
+              리뷰
+            </p>
             <div className="button-wrap">
               <button className="handle-review" onClick={openModal}>
                 리뷰등록
@@ -197,7 +189,7 @@ const Product = () => {
             {commentList.map((els, idx) => {
               let { user_first_name, content } = els;
               return (
-                <p>
+                <p key="id">
                   <h2 className="user-name">{user_first_name}</h2>
                   {content}
                 </p>
@@ -218,8 +210,9 @@ const Product = () => {
           </div>
         </div>
       </div>
-      <a name="delivery" />
-      <div className="announcement">배송/반품/AS안내</div>
+      <div className="announcement" ref={section3}>
+        배송/반품/AS안내
+      </div>
       <ProductFooter />
     </section>
   );

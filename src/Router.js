@@ -6,6 +6,7 @@ import Main from './pages/Main/Main';
 import Product from './pages/Product/Product';
 import MyInfo from './components/MyInfo/MyInfo';
 import CardsBox from './pages/CardsBox/CardsBox';
+
 function Router() {
   return (
     <BrowserRouter>
