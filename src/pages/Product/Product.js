@@ -33,7 +33,7 @@ const Product = () => {
     })
       .then(response => response.json())
       .then(data => setCommentList(data.result));
-  }, [input]);
+  }, [input, params.id]);
 
   const {
     korean_name,
