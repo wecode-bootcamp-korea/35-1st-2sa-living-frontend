@@ -6,7 +6,7 @@ function Nav() {
   const navigate = useNavigate;
 
   const tokenValid = localStorage.getItem('jwt');
-  const a = !tokenValid;
+
   const [login, setLogin] = useState(false);
 
   const moveSide = () => {
@@ -29,7 +29,7 @@ function Nav() {
       return;
     }
     setLogin(true);
-  }, []);
+  }, [tokenValid]);
 
   return (
     <nav>
