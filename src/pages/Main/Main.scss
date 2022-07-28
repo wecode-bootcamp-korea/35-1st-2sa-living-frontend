@@ -15,6 +15,26 @@ main {
         height: 600px;
         background-image: url('https://www.casa.co.kr/UploadFiles/Banner/7/18/16581057109770.jpg');
         background-size: cover;
+        overflow: hidden;
+        overflow-y: scroll;
+
+        .modal-call {
+          position: absolute;
+          top: 30px;
+          right: 30px;
+          display: block;
+          width: 50px;
+          height: 50px;
+          background-color: #fff;
+          border: 1px solid #cacaca;
+          border-radius: 50%;
+          z-index: 11;
+          padding: 12px;
+
+          img {
+            width: 100%;
+          }
+        }
 
         .main-left-txt {
           position: absolute;
@@ -51,6 +71,96 @@ main {
           height: 0;
           background: #b3b3b3;
           transition: height 0.65s ease-out;
+        }
+
+        .main-left-modal {
+          position: absolute;
+          top: 0;
+
+          z-index: 12;
+          width: 424px;
+          height: 100%;
+          box-sizing: border-box;
+          padding: 33px 30px;
+          background: #fff;
+          border: 1px solid #c9c9c9;
+          transition: all 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+
+          .close-icon {
+            position: absolute;
+            right: 30px;
+            top: 30px;
+          }
+          .modal-scroll {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: auto;
+            height: auto;
+            margin: 77px auto auto auto;
+            padding: 0 30px;
+            overflow-y: auto;
+
+            .list {
+              overflow-y: auto;
+              .item {
+                position: relative;
+                padding-left: 145px;
+                min-height: 125px;
+                width: 100%;
+                height: 100px;
+                margin-top: 20px;
+                color: white;
+
+                img {
+                  position: absolute;
+                  top: 0px;
+                  left: 0;
+                  width: 125px;
+                }
+                .item-txt {
+                  position: absolute;
+                  right: 0;
+                  width: calc(100% - 140px);
+
+                  p {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                  }
+                  .brand-txt {
+                    margin-top: 20px;
+                    display: inline-block;
+                    font-size: 12px;
+                    color: #666;
+                    font-weight: 400;
+                    line-height: 35px;
+                    padding: 0 10px;
+                    background: #fff;
+                    border: 1px solid #d0d0d0;
+                    box-sizing: border-box;
+                    transition: all 0.45s ease;
+                  }
+                  .product-name {
+                    line-height: 35px;
+                    font-size: 15px;
+                    color: #888;
+                    line-height: 20px;
+                    font-weight: 300;
+                  }
+                  .price {
+                    font-size: 18px;
+                    color: #333;
+                    line-height: 20px;
+                    font-weight: 400;
+                    margin-top: 2px;
+                  }
+                }
+              }
+            }
+          }
         }
       }
       .main-01-left:hover {
@@ -288,14 +398,36 @@ main {
         margin-bottom: 25px;
         li {
           float: left;
-          margin: 0 20px;
+          margin: 20px;
+          cursor: pointer;
+          line-height: 25px;
+          border-top: 1px solid transparent;
+        }
+        .on {
+          color: #ff5000;
+          font-weight: 800;
+          border-top: 3px solid #ff5000;
+          transition: 0.2s;
         }
       }
 
       .main-03-box {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: flex-start;
         width: 100%;
-        height: 500px;
-        background-color: red;
+        padding: 0 40px;
+
+        .card {
+          transition: 1s;
+          width: 22.5%;
+          margin: 10px 14px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
       }
     }
   }
