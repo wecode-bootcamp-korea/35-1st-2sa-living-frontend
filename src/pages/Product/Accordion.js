@@ -29,11 +29,15 @@ const Accordion = () => {
   return (
     <div>
       <div className="wrapper">
-        <img alt="icon" className="arrow_icon" src="images/Product/right.png" />
+        <img
+          alt="icon"
+          className="arrow_icon"
+          src="/images/Product/right.png"
+        />
 
         <ul>
           {data.map((item, i) => (
-            <Link to={item.link}>
+            <Link key={i} to={item.link}>
               <li>{item.category}</li>
             </Link>
           ))}

@@ -37,7 +37,9 @@ function SubCategories({ categoryId, setSubCate, subCate }) {
             <li
               key={idx}
               onClick={() => {
-                setSubCate(result.toString());
+                setSubCate(() => {
+                  return result;
+                });
               }}
             >
               {subtitle}

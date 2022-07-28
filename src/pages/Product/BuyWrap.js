@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-const BuyWrap = ({ items, a }) => {
-  const [amount, setAmount] = useState(1);
+const BuyWrap = ({ amount, setAmount, colors, list, brand }) => {
   const [select, setSelect] = useState('');
   const [likeIt, setLikeIt] = useState(0);
 
@@ -14,7 +13,9 @@ const BuyWrap = ({ items, a }) => {
   };
 
   const handleAmountMinus = () => {
-    setAmount(amount - 1);
+    amount <= 1
+      ? alert('수량은 1개 이상이어야 합니다.')
+      : setAmount(amount - 1);
   };
 
   const clickLikeIt = e => {
@@ -23,80 +24,55 @@ const BuyWrap = ({ items, a }) => {
   };
 
   return (
-    <div>
-      <div className="BuyDataWrap">
-        <div className="BrandInfo">
-          <span className="BrandName">HAY</span>
-        </div>
+    <div className="BuyDataWrap">
+      <div className="BrandInfo">
+        <span className="BrandName">{brand}</span>
+      </div>
 
-        <div className="ColorWrap">
-          <div className="ColorInfo">
-            <select
-              className="SelectOption"
-              value={select}
-              onChange={selectColor}
-            >
-              <option disabled selected>
-                색상 선택
-              </option>
-              {a.length === 0 ? (
-                <option>1</option>
-              ) : (
-                items.map(els => {
-                  return <option>{els.color}</option>;
-                })
-              )}
-            </select>
-          </div>
+      <div className="ColorWrap">
+        <div className="ColorInfo">
+          <select className="SelectOption" onChange={selectColor}>
+            <option disabled selected>
+              색상 선택
+            </option>
+            {list.length === 0 ? (
+              <option>0</option>
+            ) : (
+              colors.map((ele, idx) => {
+                return <option key={idx}>{ele.color}</option>;
+              })
+            )}
+          </select>
         </div>
-        <div className="Amount">
-          <img
-            alt="icon"
-            className="ammount_arrow"
-            src="/images/Product/left-arrow.png"
-            onClick={handleAmountMinus}
-          />
-          <p>{amount}</p>
-          <img
-            alt="icon"
-            className="ammount_arrow"
-            src="/images/Product/right-arrow.png"
-            onClick={handleAmountPlus}
-          />
-        </div>
-        <div className="buyWrap">
-          <a
-            target="_blank"
-            href="https://www.casa.co.kr/member/login.aspx?returnUrl=https%3a%2f%2fwww.casa.co.kr%2fproduct%2fview.aspx%3fpkid%3d912%26returnUrl%3dhttps%253a%252f%252fwww.casa.co.kr%252fproduct%252flist.aspx%253fpage%253d2%2526c1%253d1%2526c2%253d7%2526c3%253d0%2526c4%253d0%2526pagesize%253d20%2526ordertype%253d0"
-            rel="noreferrer"
-          >
-            <img
-              className="LikeIt"
-              src="images/Product/emptyheart.png"
-              onClick={clickLikeIt}
-              alt="icon"
-            />
-          </a>
-          {likeIt}
-        </div>
-        <div className="cart">
-          <a
-            target="_blank"
-            href="https://www.casa.co.kr/member/login.aspx?returnUrl=https%3a%2f%2fwww.casa.co.kr%2fproduct%2fview.aspx%3fpkid%3d912%26returnUrl%3dhttps%253a%252f%252fwww.casa.co.kr%252fproduct%252flist.aspx%253fpage%253d2%2526c1%253d1%2526c2%253d7%2526c3%253d0%2526c4%253d0%2526pagesize%253d20%2526ordertype%253d0"
-            rel="noreferrer"
-          >
-            CART
-          </a>
-        </div>
-        <div className="buy">
-          <a
-            target="_blank"
-            href="https://www.casa.co.kr/member/login.aspx?returnUrl=https%3a%2f%2fwww.casa.co.kr%2fproduct%2fview.aspx%3fpkid%3d912%26returnUrl%3dhttps%253a%252f%252fwww.casa.co.kr%252fproduct%252flist.aspx%253fpage%253d2%2526c1%253d1%2526c2%253d7%2526c3%253d0%2526c4%253d0%2526pagesize%253d20%2526ordertype%253d0"
-            rel="noreferrer"
-          >
-            BUY NOW
-          </a>
-        </div>
+      </div>
+      <div className="amount">
+        <img
+          alt="icon"
+          className="amount_arrow"
+          src="/images/Product/left-arrow.png"
+          onClick={handleAmountMinus}
+        />
+        <p>{amount}</p>
+        <img
+          alt="icon"
+          className="amount_arrow"
+          src="/images/Product/right-arrow.png"
+          onClick={handleAmountPlus}
+        />
+      </div>
+      <div className="buyWrap">
+        <img
+          className="LikeIt"
+          src="/images/Product/emptyheart.png"
+          onClick={clickLikeIt}
+          alt="icon"
+        />
+      </div>
+      <div className="cart" target="_blank">
+        CART
+      </div>
+      <div className="cart" target="_blank">
+        BUY NOW
       </div>
     </div>
   );

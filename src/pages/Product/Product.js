@@ -1,29 +1,63 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 
 import Modal from './Modal';
 import Modal2 from './Modal2';
-import Accordion from './Accordion';
 import BuyWrap from './BuyWrap';
-
+import ProductFooter from './ProductFooter';
 import './Product.scss';
 
 const Product = () => {
   const [amount, setAmount] = useState(1);
   const [modal, setModal] = useState(false);
+  const [modal2, setModal2] = useState(false);
+  const [reviewList, setReviewList] = useState([]);
+  const [review, setReview] = useState([]);
+  const [input, setInput] = useState('');
+  const [commentList, setCommentList] = useState([]);
   const params = useParams();
-  const [reviewlist, setReviewlist] = useState([]);
+  const section1 = useRef(null);
+  const section2 = useRef(null);
+  const section3 = useRef(null);
 
   useEffect(() => {
-    fetch(`http://10.58.1.126:8000/products/${params.id}`)
+    fetch(`http://10.58.0.163:8000/products/${params.id}`)
       .then(response => response.json())
-      .then(data => setReviewlist(data.result[0]));
-  }, []);
+      .then(data => setReviewList(data.result));
 
-  let { english_name, korean_name, main_image, related_products_list } =
-    reviewlist;
+    fetch(`http://10.58.0.163:8000/products/review/${params.id}`, {
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.TbUpMPmn-RdsST-uVWs8gGmIGv9rT0-jycK1rwVYY3s',
+      },
+    })
+      .then(response => response.json())
+      .then(data => setCommentList(data.result));
+  }, [input, params.id]);
+
+  const {
+    korean_name,
+    english_name,
+    main_image,
+    price,
+    related_products_list,
+    brand,
+  } = reviewList;
+
   const moveTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const scrollToElement = () => {
+    section1.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const scrollToElement2 = () => {
+    section2.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const scrollToElement3 = () => {
+    section3.current.scrollIntoView({ behavior: 'smooth' });
   };
 
   const openModal = () => {
@@ -33,7 +67,25 @@ const Product = () => {
   const closeModal = () => {
     setModal(false);
   };
-  console.log('das', reviewlist);
+
+  const openModal2 = () => {
+    setModal2(true);
+  };
+
+  const closeModal2 = () => {
+    setModal2(false);
+  };
+
+  const inputReview = (e, a) => {
+    e.preventDefault();
+    setReview([...review, input]);
+    setInput('');
+  };
+
+  const inputVal = e => {
+    setInput(e.target.value);
+  };
+
   return (
     <section className="container">
       <div className="drop" />
@@ -45,21 +97,6 @@ const Product = () => {
       />
       <div className="inner">
         <div className="ProductDetail">
-          <div className="SubMenu">
-            <div className="category">
-              <li>
-                <Accordion />
-              </li>
-            </div>
-            <div>
-              <img
-                className="ShareIcon"
-                src="/images/Product/icon_share.png"
-                alt="icon"
-              />
-            </div>
-          </div>
-
           <div className="Detail">
             <div className="share_icon">
               <img src={main_image} alt="icon" />
@@ -74,42 +111,47 @@ const Product = () => {
               </p>
               <div className="ProductPrice">
                 <p>
-                  <span>{241 * amount}</span>
+                  <span>{price * amount} </span>
                 </p>
               </div>
             </div>
           </div>
         </div>
-        <BuyWrap items={related_products_list} a={reviewlist} />
+        <BuyWrap
+          amount={amount}
+          setAmount={setAmount}
+          colors={related_products_list}
+          list={reviewList}
+          brand={brand}
+        />
         <div className="benefitWrap">
           <div className="benefit_child">
             착불배송
-            <img alt="icon" className="icon" src="images/Product/down.png" />
+            <img alt="icon" className="icon" src="/images/Product/down.png" />
           </div>
           <div className="benefit_child">
             쿠폰혜택안내
-            <img alt="icon" className="icon" src="images/Product/down.png" />
+            <img alt="icon" className="icon" src="/images/Product/down.png" />
           </div>
           <div className="benefit_child">
             카트혜택안내
-            <img alt="icon" className="icon" src="images/Product/down.png" />
+            <img alt="icon" className="icon" src="/images/Product/down.png" />
           </div>
         </div>
       </div>
       <div className="detail_tab">
-        <a href="#target">
-          <div className="introduce">상품설명</div>
-        </a>
+        <div className="introduce" onClick={scrollToElement}>
+          상품설명
+        </div>
         <div>관련상품</div>
-        <a href="#review">
-          <div className="review_question">리뷰/상품문의</div>
-        </a>
-        <a href="#delivery">
-          <div className="delivery_return">배송/반품/AS안내</div>
-        </a>
+        <div className="review_question" onClick={scrollToElement2}>
+          리뷰/상품문의
+        </div>
+        <div className="delivery_return" onClick={scrollToElement3}>
+          배송/반품/AS안내
+        </div>
       </div>
-      <div className="img_section">
-        <a name="target" />
+      <div className="img_section" ref={section1}>
         <img
           className="ProductImage"
           src="/images/Product/green_chair.jpg"
@@ -121,39 +163,57 @@ const Product = () => {
           alt="icon"
         />
       </div>
-      <a name="review" />
       <div className="review">
         <div className="product_review">
           <div className="review_top">
-            <span>리뷰</span>
-            <button onClick={openModal}>리뷰등록</button>
-            <Modal open={modal} close={closeModal} header="리뷰" />
-            <button>리뷰 더보기</button>
+            <p className="review-header" ref={section2}>
+              리뷰
+            </p>
+            <div className="button-wrap">
+              <button className="handle-review" onClick={openModal}>
+                리뷰등록
+              </button>
+              <button className="more-review">리뷰 더보기</button>
+            </div>
+            <Modal
+              open={modal}
+              close={closeModal}
+              header="리뷰"
+              addReview={inputReview}
+              addText={inputVal}
+              input={input}
+              id={params.id}
+            />
           </div>
           <div className="review_wrap">
-            {/* {reviewlist.map(els => {
-              return <Review review={els} />;
-            })} */}
+            {commentList.map((els, idx) => {
+              let { user_first_name, content } = els;
+              return (
+                <p key="id">
+                  <h2 className="user-name">{user_first_name}</h2>
+                  {content}
+                </p>
+              );
+            })}
           </div>
         </div>
         <div className="product_review">
           <div className="review_top">
-            <span>상품문의</span>
-            <button onClick={openModal}>상품문의등록</button>
-            <Modal2 open={modal} close={closeModal} header="상품문의 등록" />
+            <p className="review-header">상품문의</p>
+            <button className="handle-review" onClick={openModal2}>
+              상품문의등록
+            </button>
+            <Modal2 open={modal2} close={closeModal2} header="상품문의 등록" />
           </div>
           <div className="review_wrap">
-            <p>상품문의가 없습니다.</p>
+            <p className="question">상품문의가 없습니다.</p>
           </div>
         </div>
       </div>
-      <a name="delivery" />
-      <div className="announcement">
-        <h3>배송/반품/AS안내</h3>
+      <div className="announcement" ref={section3}>
+        배송/반품/AS안내
       </div>
-      <div className="img_section">
-        <img src="/images/Product/delivery2.png" alt="icon" />
-      </div>
+      <ProductFooter />
     </section>
   );
 };

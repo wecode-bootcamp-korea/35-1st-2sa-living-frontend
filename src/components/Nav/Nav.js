@@ -21,6 +21,14 @@ function Nav() {
     })
       .then(response => response.json())
       .then(data => setItem(data.carts));
+
+    fetch('http://10.58.7.204:8000/users/likes', {
+      headers: {
+        Authorization: localStorage.getItem('jwt'),
+      },
+    })
+      .then(response => response.json())
+      .then(data => console.log(data));
   };
 
   return (

@@ -4,11 +4,9 @@ import './Orders.scss';
 const Orders = () => {
   const [orders, setOrders] = useState([]);
   const params = useParams();
-  console.log(params);
-  console.log(orders);
 
   useEffect(() => {
-    fetch(`http://10.58.7.204:8000/orders/order?order_id=${params.id}`, {
+    fetch(`http://10.58.7.204:8000/orders/${params.id}`, {
       headers: {
         Authorization: localStorage.getItem('jwt'),
       },

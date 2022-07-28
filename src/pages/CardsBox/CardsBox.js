@@ -17,7 +17,6 @@ function CardsBox(id) {
 
   // const categoryId = '머시기'
   let categoryId = params.id;
-
   // fetch(
   //   `http://10.58.0.163:8000/products?category_id=2&page=1${
   //     location.search || `limit=4&offset=0`
@@ -25,19 +24,26 @@ function CardsBox(id) {
   // )
 
   //'http://10.58.0.163:8000/products?category_id=2&limit=4&offset=0'
+
   useEffect(() => {
     fetch(
-      `http://10.58.7.204:8000/products?category_id=${categoryId}&sub_category_id=${subCate}&${location.search}`
+      `http://10.58.7.204:8000/products?category_id=${categoryId}&sub_category_id=${subCate}&${location.search.substring(
+        1
+      )}`
     ) //limit=4&offset=0
       .then(res => res.json())
-      .then(res => setCards(res.product_list));
-  }, [categoryId, location.search]);
+      .then(res => {
+        setCards(res.product_list);
+      });
+  }, [subCate, categoryId, location.search]);
+
+  useEffect(() => {
+    setSubCate('');
+  }, [params.id, location.search]);
+
   // const filterCards = cards.filter(card => {
   //   return card.category === 'chair';
   // });
-  console.log(
-    `http://10.58.7.204:8000/products?category_id=${categoryId}&sub_category_id=${subCate}&${location.search}`
-  );
 
   const cardList = cards.filter(card => {
     const lowerCase = card.brandName.toLowerCase();
@@ -59,7 +65,7 @@ function CardsBox(id) {
   useEffect(() => {
     const string = `?limit=${limitValue}&offset=0`;
     navigate(string);
-  }, [limitValue]);
+  }, [limitValue, navigate]);
 
   const changePage = ({ target }) => {
     const limit = 4;
