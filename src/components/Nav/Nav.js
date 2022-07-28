@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Nav.scss';
 
 function Nav() {
   const navigate = useNavigate;
-  const location = useLocation;
 
   const tokenValid = localStorage.getItem('jwt');
   const a = !tokenValid;
@@ -30,7 +29,7 @@ function Nav() {
       return;
     }
     setLogin(true);
-  }, [a, location]);
+  }, []);
 
   return (
     <nav>
