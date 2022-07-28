@@ -1,53 +1,71 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import MyInfo from '../MyInfo/MyInfo';
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Nav.scss';
 
 function Nav() {
-  let [slideOn, setSlideOn] = useState(false);
-  let [item, setItem] = useState([]);
-  const moveSide = () => {
-    setSlideOn(prev => !prev);
+  const navigate = useNavigate;
+  const location = useLocation();
 
-    fetch('http://10.58.1.126:8000/carts/cart', {
-      headers: {
-        Authorization: localStorage.getItem('jwt'),
-      },
-    })
-      .then(response => response.json())
-      .then(data => setItem(data.carts));
+  const tokenValid = localStorage.getItem('jwt');
+
+  const [login, setLogin] = useState(false);
+
+  const moveSide = () => {
+    let bg = document.querySelector('.background');
+    let side = document.querySelector('.quick');
+    bg.style.display = 'block';
+    side.style.right = '0';
   };
 
+  const logoutFunction = () => {
+    setLogin(false);
+    localStorage.removeItem('jwt');
+    alert('로그아웃 되었습니다!');
+    navigate('/');
+  };
+
+  useEffect(() => {
+    if (!tokenValid) {
+      setLogin(false);
+      return;
+    }
+    setLogin(true);
+  }, [location.pathname, tokenValid]);
+
   return (
-    <>
-      <nav>
-        <div className="inner">
-          <div className="logo">
-            <img src="/images/main/logo.png" alt="logo" width="99" />
-          </div>
-          <ul className="menu">
-            {LISTDATA.map((els, idx) => {
-              return (
-                <li key={idx}>
-                  <Link to="/">{els}</Link>
-                </li>
-              );
-            })}
-          </ul>
-          <div className="icon-box">
-            <i className="fa-solid fa-magnifying-glass" />
-            <i className="fa-solid fa-user" />
-            <i className="fa-solid fa-basket-shopping" onClick={moveSide} />
-          </div>
+    <nav>
+      <div className="inner">
+        <div className="logo">
+          <img src="/images/main/logo.png" alt="logo" width="99" />
         </div>
-      </nav>
-      <MyInfo
-        slideOn={slideOn}
-        setSlideOn={setSlideOn}
-        item={item}
-        setItem={setItem}
-      />
-    </>
+        <ul className="menu">
+          {LISTDATA.map((els, idx) => {
+            return (
+              <li key={idx}>
+                <Link to="/">{els}</Link>
+              </li>
+            );
+          })}
+        </ul>
+        <div className="icon-box">
+          <i className="fa-solid fa-magnifying-glass" />
+
+          {login ? (
+            <>
+              <i className="fa-solid fa-user" />
+              <i
+                className="fa-solid fa-arrow-right-from-bracket"
+                onClick={logoutFunction}
+              />
+            </>
+          ) : (
+            <i className="fa-solid fa-user" />
+          )}
+
+          <i className="fa-solid fa-basket-shopping" onClick={moveSide} />
+        </div>
+      </div>
+    </nav>
   );
 }
 
