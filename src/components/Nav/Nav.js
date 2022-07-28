@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Nav.scss';
 
 function Nav() {
   const navigate = useNavigate;
+  const location = useLocation();
 
   const tokenValid = localStorage.getItem('jwt');
 
+  console.log(location);
   const [login, setLogin] = useState(false);
 
   const moveSide = () => {
@@ -29,7 +31,7 @@ function Nav() {
       return;
     }
     setLogin(true);
-  }, [tokenValid]);
+  }, [location]);
 
   return (
     <nav>
