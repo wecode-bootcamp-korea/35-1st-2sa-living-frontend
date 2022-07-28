@@ -17,6 +17,7 @@ const Main = () => {
   let newMenu = itemList.filter(els => {
     return els.category.includes(clickBtn);
   });
+
   let newMenu1 = itemList.filter(els => els.is_new && els);
 
   return (
@@ -79,11 +80,11 @@ const Main = () => {
             })}
           </ul>
           <div className="main-03-box">
-            {/* {clickBtn === 'new' ? (
+            {clickBtn === 'new' ? (
               <Card cardList={newMenu1} />
             ) : (
               <Card cardList={newMenu} />
-            )} */}
+            )}
           </div>
         </div>
       </section>
