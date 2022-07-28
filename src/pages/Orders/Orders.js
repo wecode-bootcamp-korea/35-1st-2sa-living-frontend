@@ -1,29 +1,37 @@
 import { React, useState, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
 import './Orders.scss';
 const Orders = () => {
   const [orders, setOrders] = useState([]);
+  const params = useParams();
 
   useEffect(() => {
-    fetch('/data/orderTestData.json')
+    fetch(`http://10.58.7.204:8000/orders/order?order_id=${params.id}`, {
+      headers: {
+        Authorization: localStorage.getItem('jwt'),
+      },
+    })
       .then(response => response.json())
-      .then(data => setOrders(data[0].order_items));
+      .then(data => setOrders(data.order_list));
   }, []);
 
   let Items = ({ items }) => {
     let {
-      product_image,
-      furniture_korean_name,
       quantity,
-      furniture_english_name,
+      furniture_korean_name,
+      product_image,
+      price,
+      furniture_brand,
     } = items;
 
     return (
       <tr className="items">
         <td>
           <div className="item">
-            <div className="img" src={product_image} alt="상품이미지" />
+            <img className="img" src={product_image} alt="상품이미지" />
+
             <div className="item-txt">
-              <p className="brand">{furniture_english_name}</p>
+              <p className="brand">{furniture_brand}</p>
               <p className="item-name">{furniture_korean_name}</p>
             </div>
           </div>
@@ -32,7 +40,7 @@ const Orders = () => {
           <p>{quantity}</p>
         </td>
         <td className="price">
-          <p>333,000원</p>
+          <p>{price}</p>
         </td>
       </tr>
     );
@@ -40,7 +48,7 @@ const Orders = () => {
 
   return (
     <>
-      <h2 className="title">ORDERS</h2>
+      <h2 className="title">CARTS</h2>
       <div className="orders-wrap">
         <div className="orders-detail-left">
           <table>
@@ -54,16 +62,19 @@ const Orders = () => {
               <th>수량</th>
               <th>주문금액</th>
             </tr>
-            {orders.map((els, idx) => {
-              return <Items items={els} key={idx} />;
-            })}
+            {orders[0] &&
+              orders[0].order_items.map((els, idx) => {
+                return <Items items={els} key={idx} />;
+              })}
           </table>
         </div>
         <div className="orders-detail-right">
           <table>
             <tr>
               <th>총 상품금액</th>
-              <th className="total">24,000,000원</th>
+              <th className="total">
+                {orders[0] && orders[0].total_price.toLocaleString('ko-KR')}원
+              </th>
             </tr>
             <tr className="pee">
               <td>배송비</td>
@@ -74,10 +85,12 @@ const Orders = () => {
 
             <tr className="">
               <td>최종 결제 금액</td>
-              <td className="total-price">200,000,000 원</td>
+              <td className="total-price">
+                {orders[0] && orders[0].total_price.toLocaleString('ko-KR')}원
+              </td>
             </tr>
           </table>
-          <form className="agree">
+          {/* <form className="agree">
             <p class="agree-top">
               <input type="checkbox" />
               <label>전체 동의합니다.</label>
@@ -100,10 +113,12 @@ const Orders = () => {
                 상품 배송 및 결제대행 서비스 이용을 위하여 고객정보를 수집함
               </label>
             </p>
-          </form>
+          </form> */}
 
           <p className="btn-box">
-            <button>결제하기</button>
+            <Link to="/mypage">
+              <button>마이페이지로 돌아가기</button>
+            </Link>
           </p>
         </div>
       </div>
