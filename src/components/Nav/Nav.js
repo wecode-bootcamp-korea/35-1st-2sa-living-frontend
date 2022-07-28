@@ -1,14 +1,37 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import './Nav.scss';
 
 function Nav() {
+  const navigate = useNavigate;
+  const location = useLocation;
+
+  const tokenValid = localStorage.getItem('jwt');
+  const a = !tokenValid;
+  const [login, setLogin] = useState(false);
+
   const moveSide = () => {
     let bg = document.querySelector('.background');
     let side = document.querySelector('.quick');
     bg.style.display = 'block';
     side.style.right = '0';
   };
+
+  const logoutFunction = () => {
+    setLogin(false);
+    localStorage.removeItem('jwt');
+    alert('로그아웃 되었습니다!');
+    navigate('/');
+  };
+
+  useEffect(() => {
+    if (!tokenValid) {
+      setLogin(false);
+      return;
+    }
+    setLogin(true);
+  }, [location]);
+
   return (
     <nav>
       <div className="inner">
@@ -26,7 +49,19 @@ function Nav() {
         </ul>
         <div className="icon-box">
           <i className="fa-solid fa-magnifying-glass" />
-          <i className="fa-solid fa-user" />
+
+          {login ? (
+            <>
+              <i className="fa-solid fa-user" />
+              <i
+                className="fa-solid fa-arrow-right-from-bracket"
+                onClick={logoutFunction}
+              />
+            </>
+          ) : (
+            <i className="fa-solid fa-user" />
+          )}
+
           <i className="fa-solid fa-basket-shopping" onClick={moveSide} />
         </div>
       </div>
