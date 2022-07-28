@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import MyInfo from '../MyInfo/MyInfo';
 import './Nav.scss';
 function Nav() {
+  let navigate = useNavigate();
+  const location = useLocation();
   let [slideOn, setSlideOn] = useState(false);
   let [item, setItem] = useState([]);
+  const tokenValid = localStorage.getItem('jwt');
 
-  let navigate = useNavigate();
+  const [login, setLogin] = useState(false);
 
   let goToCardList = id => {
     navigate(`/cardsbox/${id}`);
@@ -14,7 +17,7 @@ function Nav() {
   const moveSide = () => {
     setSlideOn(!slideOn > slideOn);
 
-    fetch('http://10.58.7.204:8000/carts', {
+    fetch('http://10.58.0.163:8000/carts', {
       headers: {
         Authorization: localStorage.getItem('jwt'),
       },
@@ -22,7 +25,7 @@ function Nav() {
       .then(response => response.json())
       .then(data => setItem(data.carts));
 
-    fetch('http://10.58.7.204:8000/users/likes', {
+    fetch('http://10.58.0.163:8000/users/likes', {
       headers: {
         Authorization: localStorage.getItem('jwt'),
       },
@@ -30,6 +33,21 @@ function Nav() {
       .then(response => response.json())
       .then(data => console.log(data));
   };
+
+  const logoutFunction = () => {
+    setLogin(false);
+    localStorage.removeItem('jwt');
+    alert('로그아웃 되었습니다!');
+    navigate('/');
+  };
+
+  useEffect(() => {
+    if (!tokenValid) {
+      setLogin(false);
+      return;
+    }
+    setLogin(true);
+  }, [location.pathname, tokenValid]);
 
   return (
     <>
@@ -55,12 +73,32 @@ function Nav() {
               );
             })}
           </ul>
+
           <div className="icon-box">
-            <img
-              src="/images/main/user.png"
-              alt="내정보아이콘"
-              className="icons"
-            />
+            {login ? (
+              <>
+                <Link to="/mypage">
+                  <img
+                    src="/images/main/user.png"
+                    alt="내정보아이콘"
+                    className="icons"
+                  />
+                </Link>
+                <i
+                  className="fa-solid fa-arrow-right-from-bracket"
+                  onClick={logoutFunction}
+                />
+              </>
+            ) : (
+              <Link to="/login">
+                <img
+                  src="/images/main/user.png"
+                  alt="내정보아이콘"
+                  className="icons"
+                />
+              </Link>
+            )}
+
             <img
               src="/images/main/bag.png"
               alt="장바구니아이콘"

@@ -1,30 +1,15 @@
 import { useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
-import facebookIcon from '..//../asset/images/facebook.png';
-import kakaoIcon from '..//../asset/images/kakao.png';
-import naverIcon from '..//../asset/images/naver.png';
+
 import './Login.scss';
 import '../../styles/common.scss';
 
 const Login = () => {
   const navigate = useNavigate();
 
-  const goToMain = () => {
-    fetch('http://10.58.7.204:8000/users/login', {
-      method: 'post',
-      body: JSON.stringify({
-        email: 'ukhwa1@hotmail.com',
-        password: '!Asdf1234',
-      }),
-    })
-      .then(res => res.json())
-      .then(res => {
-        if (res.USER_NAME) {
-          localStorage.setItem('jwt', res.TOKEN);
-          navigate('/');
-        }
-      });
+  const goToSignUp = () => {
+    navigate('/signup');
   };
 
   const [loiginInputValue, setLoginInputValue] = useState({
@@ -45,7 +30,7 @@ const Login = () => {
 
   const regEx = pwdRegEx.test(password);
 
-  const loginConfirm = e => {
+  const loginFunction = e => {
     e.preventDefault();
 
     if (email.length === 0) {
@@ -57,13 +42,27 @@ const Login = () => {
     } else if (regEx !== true) {
       window.alert('비밀번호 양식이 맞지 않습니다.');
     } else {
-      navigate('/');
+      fetch('http://10.58.0.163:8000/users/login', {
+        method: 'post',
+        body: JSON.stringify({
+          email: email,
+          password: password,
+        }),
+      })
+        .then(res => res.json())
+        .then(res => {
+          console.log(res);
+          if (res.USER_NAME) {
+            localStorage.setItem('jwt', res.TOKEN);
+            navigate('/');
+          }
+        });
     }
   };
 
   return (
     <div>
-      <div className="login-container">
+      <form className="login-container">
         <h2 className="login-title">LOGIN</h2>
         <div className="login-input">
           <input
@@ -82,7 +81,7 @@ const Login = () => {
             name="password"
             value={password}
           />
-          <button className="login-btn" onClick={goToMain}>
+          <button className="login-btn" onClick={loginFunction} type="button">
             LOGIN
           </button>
           <p className="bottom-check">
@@ -91,27 +90,39 @@ const Login = () => {
               <span className="email-save">이메일 저장</span>
             </span>
             <span className="find-account-link">| 이메일 / 비밀번호 찾기 </span>
-            <span className="register-link">| 회원가입</span>
+            <span className="register-link" onClick={goToSignUp}>
+              | 회원가입
+            </span>
           </p>
           <div className="sns-login">
             <h3>SNS 로그인</h3>
             <ul>
               <li>
-                <div className="icon">
-                  <img className="facebook" src={facebookIcon} alt="facebook" />
+                <div className="icons">
+                  <img
+                    className="facebook"
+                    src="\images\Login\facebook.png"
+                    alt="facebook"
+                  />
 
-                  <img className="kakao" src={kakaoIcon} alt="kakao" />
+                  <img
+                    className="kakao"
+                    src="\images\Login\kakao.png"
+                    alt="kakao"
+                  />
 
-                  <img className="naver" src={naverIcon} alt="naver" />
+                  <img
+                    className="naver"
+                    src="\images\Login\naver.png"
+                    alt="naver"
+                  />
                 </div>
               </li>
             </ul>
-            <p className="non-members">
-              <a href="">비회원 주문배송 조회</a>
-            </p>
+            <p className="non-members">비회원 주문배송 조회</p>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   );
 };
