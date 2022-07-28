@@ -13,7 +13,7 @@ const Orders = () => {
     })
       .then(response => response.json())
       .then(data => setOrders(data.order_list));
-  }, []);
+  }, [params.id]);
 
   let Items = ({ items }) => {
     let {
