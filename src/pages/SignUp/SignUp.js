@@ -8,12 +8,12 @@ const SignUp = () => {
   const goToMain = () => {
     navigate('/');
   };
-  const goToLogin = () => {
-    navigate('/login');
-  };
-
   /*const goToLogin = () => {
-    fetch('http://10.58.1.126:8000/users/signup', {
+    navigate('/login');
+  };*/
+
+  const goToLogin = () => {
+    fetch('http://10.58.0.163:8000/users/signup', {
       method: 'post',
       body: JSON.stringify({
         first_name: '혜진',
@@ -29,7 +29,7 @@ const SignUp = () => {
         console.log(res);
         navigate('/login');
       });
-  };*/
+  };
 
   const [inputValues, setInputValues] = useState({
     firstName: '',
@@ -52,7 +52,7 @@ const SignUp = () => {
   const lastNameRegEx = /^[가-힣]{1,6}$/;
   const emailRegEx = /^[a-zA-Z0-9+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
   const passwordRegEx =
-    /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,12}$/;
+    /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,20}$/;
   const phoneNumberRegEx = /^\d{3}-\d{3,4}-\d{4}$/;
 
   const isInputFirstnameValid = firstNameRegEx.test(firstName);

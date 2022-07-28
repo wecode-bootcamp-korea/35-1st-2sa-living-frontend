@@ -30,7 +30,7 @@ function Nav() {
       return;
     }
     setLogin(true);
-  }, [location]);
+  }, [a, location]);
 
   return (
     <nav>
