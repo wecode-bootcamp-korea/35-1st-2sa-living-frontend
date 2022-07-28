@@ -2,8 +2,9 @@ import { getMouseEventOptions } from '@testing-library/user-event/dist/utils';
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-const BuyWrap = ({ amount, setAmount, colors, list, brand }) => {
+const BuyWrap = ({ amount, setAmount, colors, list, brand, id }) => {
   const [select, setSelect] = useState('');
+
   const [likeIt, setLikeIt] = useState(0);
   const navigate = useNavigate();
   const selectColor = e => {
@@ -27,6 +28,24 @@ const BuyWrap = ({ amount, setAmount, colors, list, brand }) => {
   const goToColor = id => {
     console.log(id);
   };
+
+  const addCart = (product, amount) => {
+    fetch('http://10.58.7.204:8000/carts', {
+      method: 'POST',
+      headers: {
+        Authorization: localStorage.getItem('jwt'),
+      },
+      body: JSON.stringify({
+        product_id: product,
+        quantity: amount,
+      }),
+    }).then(response => response.json());
+  };
+  const fillHeart = e =>
+    e.target.style.color === ''
+      ? ((e.target.style.color = 'red'), (e.target.className = 'fas fa-heart'))
+      : ((e.target.style.color = ''), (e.target.className = 'far fa-heart'));
+
   return (
     <div className="BuyDataWrap">
       <div className="BrandInfo">
@@ -65,14 +84,15 @@ const BuyWrap = ({ amount, setAmount, colors, list, brand }) => {
         />
       </div>
       <div className="buyWrap">
-        <img
-          className="LikeIt"
-          src="/images/Product/emptyheart.png"
-          onClick={clickLikeIt}
-          alt="icon"
-        />
+        <i class="far fa-heart" onClick={fillHeart} />
       </div>
-      <div className="cart" target="_blank">
+      <div
+        className="cart"
+        target="_blank"
+        onClick={() => {
+          addCart(id, amount);
+        }}
+      >
         CART
       </div>
       <div className="cart" target="_blank">

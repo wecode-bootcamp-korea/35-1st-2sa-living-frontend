@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import ShoppingBag from '../ShoppingBag/ShoppingBag';
 import './MyInfo.scss';
 
-const MyInfo = ({ slideOn, setSlideOn, item, setItem }) => {
+const MyInfo = ({ slideOn, setSlideOn, item, setItem, likes, setLikes }) => {
   const removeSide = () => {
     setSlideOn(!slideOn > slideOn);
   };
@@ -23,6 +23,18 @@ const MyInfo = ({ slideOn, setSlideOn, item, setItem }) => {
     removeSide();
   };
 
+  let LikesList = ({ props }) => {
+    let { product_image, furniture_korean_name, furniture_brand } = props;
+    return (
+      <div className="lises-box">
+        <img src={product_image} alt="상품이미지" />
+        <div className="txt-box">
+          <p className="brand">{furniture_brand}</p>
+          <p className="name">{furniture_korean_name}</p>
+        </div>
+      </div>
+    );
+  };
   return (
     <>
       <div
@@ -66,7 +78,13 @@ const MyInfo = ({ slideOn, setSlideOn, item, setItem }) => {
         <div className="my-likeit">
           <h3>라이크잇 상품</h3>
           <div className="my-likeit-list">
-            <p> 구매하고 싶은 상품을 라이크잇 하세요</p>
+            {likes.length ? (
+              likes.map((els, idx) => {
+                return <LikesList key={idx} props={els} />;
+              })
+            ) : (
+              <p> 구매하고 싶은 상품을 라이크잇 하세요</p>
+            )}
           </div>
         </div>
       </aside>

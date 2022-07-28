@@ -36,9 +36,6 @@ const Product = () => {
         setCommentList(data.result);
       });
   }, [params.id, input]);
-
-  console.log(commentList);
-
   const {
     korean_name,
     english_name,
@@ -89,6 +86,10 @@ const Product = () => {
   const inputVal = e => {
     setInput(e.target.value);
   };
+  const fillHeart = e =>
+    e.target.style.color === ''
+      ? ((e.target.style.color = 'red'), (e.target.className = 'fas fa-heart'))
+      : ((e.target.style.color = ''), (e.target.className = 'far fa-heart'));
 
   return (
     <section className="container product-wrap">
@@ -115,7 +116,7 @@ const Product = () => {
               </p>
               <div className="ProductPrice">
                 <p>
-                  <span>{price * amount} </span>
+                  <span>{(price * amount).toLocaleString('ko-KR')} 원</span>
                 </p>
               </div>
             </div>
@@ -127,6 +128,7 @@ const Product = () => {
           colors={related_products_list}
           list={reviewList}
           brand={brand}
+          id={params.id}
         />
         <div className="benefitWrap">
           <div className="benefit_child">

@@ -8,6 +8,7 @@ import Heart from '../../../components/Heart/Heart';
 const Card = ({ cardList }) => {
   const navigate = useNavigate();
   let [likes, setLikes] = useState([]);
+  const tokenValid = localStorage.getItem('jwt');
 
   useEffect(() => {
     fetch('http://10.58.7.204:8000/users/likes', {
@@ -54,7 +55,9 @@ const Card = ({ cardList }) => {
                     addCart(id);
                   }}
                 />
-                {likes.length === 0 ? (
+                {!tokenValid ? (
+                  <Heart />
+                ) : likes.length === 0 ? (
                   <Heart id={id} a={false} setLikes={setLikes} />
                 ) : (
                   likes.map(els => {
@@ -70,7 +73,9 @@ const Card = ({ cardList }) => {
           </div>
           <span className="brand-name">{brandName}</span>
           <p className="card-name">{productName}</p>
-          <p className="card-price">{price.toLocaleString('ko-KR')} 원</p>
+          <p className="card-price">
+            {Math.floor(price).toLocaleString('ko-KR')} 원
+          </p>
         </div>
       ))}
     </>

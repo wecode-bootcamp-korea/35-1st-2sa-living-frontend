@@ -1,5 +1,5 @@
 import { React, useEffect, useState } from 'react';
-
+import { Link } from 'react-router-dom';
 import Slidebox from '../Slidebox/Slidebox';
 import Card from '../CardsBox/Card/Card';
 
@@ -135,22 +135,26 @@ const Main = () => {
           </div>
 
           <div className="main-01-right">
-            <div className="right-top">
-              <div className="right-top-child" />
+            <Link to="/products/26">
+              <div className="right-top">
+                <div className="right-top-child" />
 
-              <p className="right-top-top">
-                미니멀 라이프 <br />
-                DOTTUS
-              </p>
-            </div>
-
-            <div className="right-bottom">
-              <div className="right-bottom-child">
                 <p className="right-top-top">
-                  GUBI Obello Lamp <br />
-                  유리와 빛의 만남
+                  미니멀 라이프 <br />
+                  DOTTUS
                 </p>
               </div>
+            </Link>
+
+            <div className="right-bottom">
+              <Link to="/products/25">
+                <div className="right-bottom-child">
+                  <p className="right-top-top">
+                    GUBI Obello Lamp <br />
+                    유리와 빛의 만남
+                  </p>
+                </div>
+              </Link>
             </div>
           </div>
         </div>

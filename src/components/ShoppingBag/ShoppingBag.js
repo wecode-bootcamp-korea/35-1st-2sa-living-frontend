@@ -40,7 +40,8 @@ const ShoppingBag = ({ itemBag, setItem }) => {
         </p>
         <p className="txt-name">{furniture_korean_name}</p>
         <p className="txt-price">
-          <em>{price}</em>원<span>수량 {quantity}개</span>
+          <em>{(price * quantity).toLocaleString('ko-KR')}</em> 원
+          <span>수량 {quantity}개</span>
         </p>
       </div>
     </div>

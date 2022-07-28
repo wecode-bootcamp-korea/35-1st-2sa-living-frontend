@@ -7,7 +7,11 @@ const Mypage = () => {
   let [clickBtn, setClickBtn] = useState('sofa');
   let [buying, setBuying] = useState([]);
   let [orderList, setOrderList] = useState([]);
+  let [total, setTotal] = useState(0);
   const navigate = useNavigate();
+  const tokenValid = localStorage.getItem('jwt');
+
+  const [login, setLogin] = useState(false);
 
   useEffect(() => {
     fetch('/data/mainTestData.json')
@@ -23,9 +27,9 @@ const Mypage = () => {
   const goTo = id => {
     navigate(`/order/${id}`);
   };
-
   let Orders = ({ orders }) => {
     let { order_id, order_number, order_status, total_price } = orders;
+
     return (
       <tr
         onClick={() => {
@@ -42,6 +46,29 @@ const Mypage = () => {
     return els.category.includes(clickBtn);
   });
 
+  function sum() {
+    let result = 0;
+    for (let i = 0; i < orderList.length; i++) {
+      result = result + Number(orderList[i].total_price);
+    }
+    return result;
+  }
+  let totalPrice = sum();
+  const logoutFunction = () => {
+    setLogin(false);
+    localStorage.removeItem('jwt');
+    alert('로그아웃 되었습니다!');
+    navigate('/');
+  };
+
+  useEffect(() => {
+    if (!tokenValid) {
+      setLogin(false);
+      return;
+    }
+    setLogin(true);
+  }, [tokenValid]);
+
   return (
     <div className="mypage">
       <h1 className="title"> MYPAGE</h1>
@@ -53,7 +80,14 @@ const Mypage = () => {
           <div className="txt-box">
             <p>정억화 님</p>
             <div className="btn-box">
-              <p className="logout">로그아웃</p>
+              <p
+                className="logout"
+                onClick={() => {
+                  logoutFunction();
+                }}
+              >
+                로그아웃
+              </p>
             </div>
           </div>
         </div>
@@ -71,7 +105,7 @@ const Mypage = () => {
             </li>
             <li>
               <p className="ptitle">총결제금액</p>
-              <p className="point">12,000,000 원</p>
+              <p className="point">{totalPrice.toLocaleString('ko-KR')} 원 </p>
             </li>
           </ul>
         </div>

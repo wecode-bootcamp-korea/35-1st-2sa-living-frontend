@@ -7,6 +7,7 @@ function Nav() {
   const location = useLocation();
   let [slideOn, setSlideOn] = useState(false);
   let [item, setItem] = useState([]);
+  let [likes, setLikes] = useState([]);
   const tokenValid = localStorage.getItem('jwt');
 
   const [login, setLogin] = useState(false);
@@ -31,7 +32,7 @@ function Nav() {
       },
     })
       .then(response => response.json())
-      .then(data => console.log(data));
+      .then(data => setLikes(data.results));
   };
 
   const logoutFunction = () => {
@@ -112,6 +113,8 @@ function Nav() {
         </div>
       </nav>
       <MyInfo
+        likes={likes}
+        setLikes={setLikes}
         slideOn={slideOn}
         setSlideOn={setSlideOn}
         item={item}

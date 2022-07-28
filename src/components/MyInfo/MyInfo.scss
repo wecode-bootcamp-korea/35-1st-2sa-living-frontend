@@ -17,6 +17,7 @@ aside.quick {
   background: #fff;
   z-index: 125;
   transition: all 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  overflow-y: auto;
 
   .my-name {
     width: 100%;
@@ -136,6 +137,52 @@ aside.quick {
         font-weight: 400;
         line-height: 150px;
       }
+
+      .lises-box {
+        display: flex;
+        align-items: center;
+        padding: 10px 10px;
+        img {
+          width: 100px;
+          height: 100%;
+        }
+        .txt-box {
+          margin-left: 10px;
+          .brand {
+            font-weight: 300;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: inline-block;
+            font-size: 12px;
+            color: #666;
+            font-weight: 400;
+            line-height: 30px;
+            padding: 0 10px;
+            background: #fff;
+            border: 1px solid #d0d0d0;
+            box-sizing: border-box;
+            transition: all 0.45s ease;
+          }
+          .brand:hover {
+            color: #fff;
+            background: #666;
+            border: 1px solid #666;
+          }
+          .name {
+            font-size: 14px;
+            color: #333;
+            line-height: 30px;
+            margin-top: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+      }
     }
   }
+}
+aside.quick::-webkit-scrollbar {
+  display: none;
 }
