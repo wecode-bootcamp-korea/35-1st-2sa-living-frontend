@@ -63,7 +63,15 @@ const MyInfo = ({ slideOn, setSlideOn, item, setItem, likes, setLikes }) => {
             })}
           </div>
           <div className="my-shopping-btn">
-            <div className="viewbtn">장바구니보기</div>
+            <div
+              className="viewbtn"
+              onClick={() => {
+                navigate('/mypage');
+                removeSide();
+              }}
+            >
+              주문목록 보기
+            </div>
             <div
               className="buybtn"
               onClick={() => {

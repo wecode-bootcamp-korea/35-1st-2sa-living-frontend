@@ -19,7 +19,19 @@ const Main = () => {
     return els.category.includes(clickBtn);
   });
   let newMenu1 = itemList.filter(els => els.is_new && els);
-
+  let ModalList = ({ props }) => {
+    let { brandName, thumbnail_image_url, price, productName } = props;
+    return (
+      <li className="item">
+        <img src={thumbnail_image_url} alt="" />
+        <div className="item-txt">
+          <p className="brand-txt">{brandName}</p>
+          <p className="product-name">{productName}</p>
+          <p className="price">{price.toLocaleString('ko-KR')} 원</p>
+        </div>
+      </li>
+    );
+  };
   return (
     <main>
       <section>
@@ -52,83 +64,10 @@ const Main = () => {
               <h3>BEST PRODUCT</h3>
               <div className="modal-scroll">
                 <ul className="list">
-                  <li className="item">
-                    <img
-                      src="https://www.casa.co.kr/UploadFiles/Production/7/13/16576779381360.jpg"
-                      alt=""
-                    />
-                    <div className="item-txt">
-                      <p className="brand-txt">asda</p>
-                      <p className="product-name">safsafa</p>
-                      <p className="price">12312</p>
-                    </div>
-                  </li>
-                  <li className="item">
-                    <img
-                      src="https://www.casa.co.kr/UploadFiles/Production/7/13/16576779381360.jpg"
-                      alt=""
-                    />
-                    <div className="item-txt">
-                      <p className="brand-txt">asda</p>
-                      <p className="product-name">safsafa</p>
-                      <p className="price">12312</p>
-                    </div>
-                  </li>{' '}
-                  <li className="item">
-                    <img
-                      src="https://www.casa.co.kr/UploadFiles/Production/7/13/16576779381360.jpg"
-                      alt=""
-                    />
-                    <div className="item-txt">
-                      <p className="brand-txt">asda</p>
-                      <p className="product-name">safsafa</p>
-                      <p className="price">12312</p>
-                    </div>
-                  </li>{' '}
-                  <li className="item">
-                    <img
-                      src="https://www.casa.co.kr/UploadFiles/Production/7/13/16576779381360.jpg"
-                      alt=""
-                    />
-                    <div className="item-txt">
-                      <p className="brand-txt">asda</p>
-                      <p className="product-name">safsafa</p>
-                      <p className="price">12312</p>
-                    </div>
-                  </li>{' '}
-                  <li className="item">
-                    <img
-                      src="https://www.casa.co.kr/UploadFiles/Production/7/13/16576779381360.jpg"
-                      alt=""
-                    />
-                    <div className="item-txt">
-                      <p className="brand-txt">asda</p>
-                      <p className="product-name">safsafa</p>
-                      <p className="price">12312</p>
-                    </div>
-                  </li>{' '}
-                  <li className="item">
-                    <img
-                      src="https://www.casa.co.kr/UploadFiles/Production/7/13/16576779381360.jpg"
-                      alt=""
-                    />
-                    <div className="item-txt">
-                      <p className="brand-txt">asda</p>
-                      <p className="product-name">safsafa</p>
-                      <p className="price">12312</p>
-                    </div>
-                  </li>{' '}
-                  <li className="item">
-                    <img
-                      src="https://www.casa.co.kr/UploadFiles/Production/7/13/16576779381360.jpg"
-                      alt=""
-                    />
-                    <div className="item-txt">
-                      <p className="brand-txt">asda</p>
-                      <p className="product-name">safsafa</p>
-                      <p className="price">12312</p>
-                    </div>
-                  </li>
+                  {newMenu1.length &&
+                    newMenu1.map((els, idx) => {
+                      return <ModalList props={els} key={idx} />;
+                    })}
                 </ul>
               </div>
             </div>
