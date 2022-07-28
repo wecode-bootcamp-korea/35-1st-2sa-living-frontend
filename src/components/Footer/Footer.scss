@@ -1,11 +1,9 @@
 footer {
   position: relative;
-
   padding: 60px 0 30px 0 !important;
   font-weight: 400;
   width: 100%;
   background-color: white;
-
   .inner {
     max-width: 1600px;
     margin: 0 auto;
@@ -25,7 +23,6 @@ footer {
         ul {
           width: 295px;
           z-index: 10;
-
           li {
             position: relative;
             margin-top: 5px;
@@ -64,7 +61,6 @@ footer {
           text-align: left;
           font-size: 15px;
           line-height: 18px;
-
           em {
             color: #333;
             font-weight: bold;
@@ -110,20 +106,17 @@ footer {
           color: #c3c3c3;
         }
       }
-
       address {
         font-size: 13px;
         line-height: 20px;
         color: #888;
         line-height: 24px;
       }
-
       .footer-bottom-icon {
         position: absolute;
         right: 0;
         top: 20px;
         text-align: right;
-
         i {
           float: left;
           font-size: 28px;

@@ -1,0 +1,49 @@
+.wrapper {
+  flex-direction: column;
+
+  ul {
+    display: none;
+    border: 1px solid #c9c9c9;
+    background: #fff;
+    text-align: left;
+    padding: 15x 8px;
+    overflow: hidden;
+    font-size: 14px;
+    color: black;
+    padding: 10px;
+    animation: modal-show 0.5s ease-in-out;
+
+    li {
+      margin: 10px;
+    }
+  }
+}
+
+.wrapper img:hover + ul {
+  display: block;
+}
+
+.arrow_icon {
+  width: 18px;
+  height: 18px;
+  margin-left: 5px;
+  align-items: center;
+  border: solid;
+  border-width: thin;
+  border-radius: 50px;
+  opacity: 0.3;
+
+  &:hover {
+    transition: 0.3s;
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes modal-show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

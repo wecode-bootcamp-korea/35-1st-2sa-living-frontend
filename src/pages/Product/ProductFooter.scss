@@ -1,0 +1,31 @@
+.map-wrap {
+  font-size: 15px;
+  min-height: 850px;
+  padding: 25px 0 40px 0;
+  text-align: left;
+  position: relative;
+  max-width: 1600px;
+  padding: 0 30px;
+  margin: 0 auto;
+  height: 105px;
+
+  .br {
+    border-top: solid;
+    padding: 10px;
+  }
+
+  .map-title {
+    color: #cdac72 !important;
+    font-weight: bold;
+  }
+
+  .map-content {
+    margin-top: 12px;
+    margin-bottom: 20px;
+    list-style: none;
+
+    div {
+      padding: 5px 0;
+    }
+  }
+}

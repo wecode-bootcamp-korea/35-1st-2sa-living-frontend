@@ -1,0 +1,169 @@
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal button {
+  outline: none;
+  cursor: pointer;
+  border: 1px solid black;
+}
+
+.modal > section {
+  width: 770px;
+  height: 580px;
+  margin: 0 auto;
+  padding: 20px 20px 20px 20px;
+  background-color: #fff;
+  animation: modal-show 0.3s;
+  overflow: hidden;
+}
+
+.modal > section > header {
+  position: relative;
+  margin: 10px;
+  padding-bottom: 20px;
+  font-weight: 700;
+  border-bottom: solid;
+}
+
+.modal > section > header button {
+  position: absolute;
+  top: -20px;
+  right: -26px;
+  width: 30px;
+  font-size: 21px;
+  font-weight: 700;
+  text-align: center;
+  color: #999;
+  background-color: transparent;
+}
+
+.modal > section > main {
+  padding: 10px;
+}
+
+.modal.openModal {
+  display: flex;
+  align-items: center;
+  /* 팝업이 열릴때 스르륵 열리는 효과 */
+  animation: modal-bg-show 0.3s;
+}
+
+.input-row {
+  display: table;
+  width: 100%;
+}
+.input-title {
+  display: flex;
+  p {
+    display: flex;
+    width: 115px;
+    padding: 10px 0 10px 20px;
+    font-size: 14px;
+    line-height: 40px;
+    color: #888;
+    text-align: left;
+  }
+  .review-content {
+    vertical-align: top;
+  }
+  select {
+    display: table-cell;
+    padding: 10px 20px 10px 0;
+    font-size: 14px;
+    text-align: left;
+    line-height: 40px;
+  }
+}
+
+.review-in-modal {
+  display: inline-block;
+  width: 500px;
+  height: 160px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #333;
+  padding: 20px;
+  background-color: #efefef;
+  border: none;
+  border-radius: 0;
+  box-sizing: border-box;
+  resize: none;
+  margin-bottom: 40px;
+  word-break: normal;
+}
+
+.initial-modal {
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  padding-bottom: 20px;
+  display: block;
+  width: auto !important;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+  line-height: 1;
+  padding: 10px 0 0 0;
+  border-left: none;
+  background: none;
+  margin-bottom: 30px;
+  word-wrap: normal;
+}
+p {
+  font-weight: 400;
+  padding: 10px;
+  span {
+    font-weight: 500;
+    color: #ff7e00 !important;
+  }
+}
+
+.button-page-up {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.input-modal-button {
+  height: 50px;
+  width: 157px;
+  color: #fff;
+  border: solid;
+  background-color: #333;
+}
+
+.close-modal-button {
+  height: 50px;
+  width: 157px;
+  color: #333;
+  border: solid;
+  background-color: #fff;
+}
+
+@keyframes modal-show {
+  from {
+    opacity: 0;
+    margin-top: -50px;
+  }
+
+  to {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+
+@keyframes modal-bg-show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
