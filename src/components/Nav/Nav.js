@@ -68,7 +68,7 @@ function Nav() {
                   }}
                   style={{ cursor: 'pointer' }}
                 >
-                  {els}
+                  <Link to="/">{els}</Link>
                 </li>
               );
             })}
@@ -84,8 +84,11 @@ function Nav() {
                     className="icons"
                   />
                 </Link>
-                <i
-                  className="fa-solid fa-arrow-right-from-bracket"
+
+                <img
+                  src="/images/main/logout.png"
+                  alt="내정보아이콘"
+                  className="icons"
                   onClick={logoutFunction}
                 />
               </>

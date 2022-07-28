@@ -48,12 +48,11 @@ const Mypage = () => {
       <div className="mypage-infobox">
         <div className="infobox-mymenu">
           <div className="photo">
-            <img src="/images/mypage/user.png" alt="회원사진" />
+            <img src="/images/mypage/profile.jpg" alt="회원사진" />
           </div>
           <div className="txt-box">
-            <p>홍길동 님</p>
+            <p>정억화 님</p>
             <div className="btn-box">
-              <p className="fix">정보수정</p>
               <p className="logout">로그아웃</p>
             </div>
           </div>

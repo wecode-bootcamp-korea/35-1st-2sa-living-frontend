@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import ShoppingBag from '../ShoppingBag/ShoppingBag';
 import './MyInfo.scss';
 
@@ -6,6 +7,7 @@ const MyInfo = ({ slideOn, setSlideOn, item, setItem }) => {
   const removeSide = () => {
     setSlideOn(!slideOn > slideOn);
   };
+  const navigate = useNavigate();
 
   const letOrder = () => {
     fetch(`http://10.58.7.204:8000/orders`, {
@@ -16,6 +18,9 @@ const MyInfo = ({ slideOn, setSlideOn, item, setItem }) => {
       .then(() => {
         setItem([]);
       });
+
+    navigate('/mypage');
+    removeSide();
   };
 
   return (
@@ -28,7 +33,7 @@ const MyInfo = ({ slideOn, setSlideOn, item, setItem }) => {
         <div className="my-name">
           <p className="name">
             <img src="/images/MyInfo/profile-user.png" alt="회원정보" />
-            환영합니다 <span>홍길동 고객님</span>
+            환영합니다 <span> 정 억화 고객님</span>
           </p>
           <div className="close" onClick={removeSide}>
             <img src="/images/MyInfo/close.png" alt="close" />

@@ -91,7 +91,7 @@ const Product = () => {
   };
 
   return (
-    <section className="container">
+    <section className="container product-wrap">
       <div className="drop" />
       <img
         className="test"
