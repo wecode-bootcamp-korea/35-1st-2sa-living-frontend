@@ -8,7 +8,6 @@ function Nav() {
 
   const tokenValid = localStorage.getItem('jwt');
 
-  console.log(location);
   const [login, setLogin] = useState(false);
 
   const moveSide = () => {
@@ -31,7 +30,7 @@ function Nav() {
       return;
     }
     setLogin(true);
-  }, [location]);
+  }, [location.pathname, tokenValid]);
 
   return (
     <nav>
