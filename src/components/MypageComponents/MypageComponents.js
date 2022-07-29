@@ -5,7 +5,7 @@ const MypageComponents = ({ items }) => {
   let { brandName, thumbnail_image_url, productName, price } = items;
 
   return (
-    <div className="item">
+    <div className="mypage-item">
       <div className="img-box">
         <img src={thumbnail_image_url} alt="제품이미지" />
       </div>

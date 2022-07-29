@@ -27,10 +27,9 @@ function CardsBox(id) {
 
   useEffect(() => {
     fetch(
-      `http://10.58.7.204:8000/products?category_id=${categoryId}&sub_category_id=${subCate}&${location.search.substring(
-        1
-      )}`
-    ) //limit=4&offset=0
+      `http://10.58.7.204:8000/products?category_id=${categoryId}&sub_category_id=${subCate}&limit=8&offset=0`
+    )
+      //limit=4&offset=0
       .then(res => res.json())
       .then(res => {
         setCards(res.product_list);

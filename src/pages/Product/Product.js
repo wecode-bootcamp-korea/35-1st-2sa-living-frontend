@@ -19,7 +19,6 @@ const Product = () => {
   const section1 = useRef(null);
   const section2 = useRef(null);
   const section3 = useRef(null);
-  console.log(params.id);
 
   useEffect(() => {
     fetch(`http://10.58.7.204:8000/products/${params.id}`)

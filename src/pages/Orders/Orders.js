@@ -18,13 +18,8 @@ const Orders = () => {
   console.log(orders);
 
   let Items = ({ items }) => {
-    let {
-      quantity,
-      furniture_korean_name,
-      product_image,
-      price,
-      furniture_brand,
-    } = items;
+    let { quantity, furniture_korean_name, product_image, price, brand } =
+      items;
 
     return (
       <tr className="items">
@@ -33,7 +28,7 @@ const Orders = () => {
             <img className="img" src={product_image} alt="상품이미지" />
 
             <div className="item-txt">
-              <p className="brand">{furniture_brand}</p>
+              <p className="brand">{brand}</p>
               <p className="item-name">{furniture_korean_name}</p>
             </div>
           </div>
