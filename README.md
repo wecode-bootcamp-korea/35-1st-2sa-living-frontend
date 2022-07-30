@@ -17,17 +17,32 @@
 
 ### 필수구현 기능
 1. Nav
-REST-API를 사용한 소셜 로그인
+- ㅇ
 </br>
+
 2. Main-page
-React-Slick을 이용한 Carousel 구현
-kakao map api로 kakao map 구현
+- ㅇ
+- ㅇ
 </br>
+
 3. List-page
-사용자의 현재 GPS 가져오기 구현
-숙박지 필터링 기능 구현
+- ㅇ
+- ㅇ
 </br>
+
 4. Detail-page
+#### 책갈피 기능
+- useRef를 활용하여 상품상세정보, 리뷰&상품문의 클릭 시 해당내용 섹션으로 이동되는 기능
+- useEffect를 활용하여 페이지 상단으로 이동되는 버튼 구현 
+#### 수량변경 및 색상 변경 가능 tab
+- 컴포넌트로하여 구매 tab을 생성
+- 브랜드와 색상, 제품 명 등 통신으로 받아와 상세정보 변경
+#### 제품리뷰달기
+- 컴포넌트로하여 제품상세페이지 내에서 리뷰 작성이 가능하도록 구현
+- form 태그 내 props 받아와 모달창이 떠 있을때에도 댓글이 페이지 내에 input 됨
+- 모달창 버튼 클릭 시 'POST' 하여 댓글들이 창에 그대로 남아있도록 DB 저장
+
+![](https://velog.velcdn.com/images/koooky35_b/post/430bf78a-485d-4c88-8034-ae6043c9cc7d/image.gif)
 </br>
 5. Cart
 </br>
@@ -35,6 +50,6 @@ kakao map api로 kakao map 구현
 </br>
 
 ![](https://velog.velcdn.com/images/koooky35_b/post/f44bac40-b91f-4900-86b0-76895b06c724/image.gif)
-![](https://velog.velcdn.com/images/koooky35_b/post/430bf78a-485d-4c88-8034-ae6043c9cc7d/image.gif)
+
 ![](https://velog.velcdn.com/images/koooky35_b/post/6dd37e7b-2024-4490-8f23-c98a788a9985/image.gif)
 ![](https://velog.velcdn.com/images/koooky35_b/post/9b4938fb-34cd-4429-a759-e7ebd1c98465/image.gif)
