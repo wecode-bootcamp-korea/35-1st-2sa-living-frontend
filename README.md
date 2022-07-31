@@ -11,6 +11,8 @@
 + 협업 툴: Slack, Notion, Trello
 + 회의 방식: daily standup 미팅을 통해 각자 진행상황 공유와 업무 분담
 
+<hr/>
+
 ### 사용기술 스택
 + Front-end: <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"><img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black"><img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"><img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"><img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"><img src="https://img.shields.io/badge/Scss-CC6699?style=for-the-badge&logo=Sass&logoColor=white">
 
@@ -19,7 +21,7 @@
 #### Slack은 3일 이전 내용은 사라져서 Notion을 활용해서 좋았음
 <img width="1045" alt="image" src="https://user-images.githubusercontent.com/99310802/181910552-0de5c892-4f8b-4151-b1b0-fa749d0f103a.png">
 
-
+<hr/>
 
 # 필수구현 기능
 ## 1. Nav
@@ -78,7 +80,7 @@
 
 
 
-
+<hr/>
 
 
 
@@ -124,10 +126,12 @@
  ##### 느낀점</br>
  첫 프로젝트였지만 팀원과 함께 시작과 마무리를 하는 과정을 통해 실제 현업에서 느낄수 있는 납품일에 대한 스트레스 , 협업을 통한 소속감, 마지막 성취감까지 정말 기억에 남는 좋은 시간 이었습니다.
  
- 
  #### 🧡혜진: </br>
 ##### 잘했다고 느낀 점, </br>
 시도해보고 싶었던 기능을 계획했던대로 잘 수행했고, 이번 기회를 통해 팀원 분들과 어떻게 소통해야하는지, 어떤 소통 방법을 지향해야하는지 알 수 있어 좋은 기회였습니다 </br>
 ##### 협업하며 힘들거나 아쉬웠던 점,</br> 
 기능 구현 중 막히는 부분이 생겼을 때 시간을 정해놓지 않고 문제를 해결하려고 했던 점이 아쉬웠습니다.
 이번 프로젝트를 통해 시간을 잘 분배하는 것이 중요하고, 유저의 사용성을 고려해서 디테일을 생각하는 것도 좋지만, 때론 타협해야 할 때도 있다는 것을 깨달았습니다. 
+ ##### 느낀점</br>
+ 진행 중 해결한 오류사항이나 공부한 내용을 노션에 간단히라도 정리한 날과 그렇지 않은 날이 있었는데, 
+ 정리한 날 기억에 남는 것이 훨씬 많았습니다. 앞으로는 아무리 바쁘더라도 간단히 정리 후, 하루 일과를 마치기 전 TIL을 남기는 시간을 꼭 가져야겠다고 느꼈습니다.
