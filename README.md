@@ -11,7 +11,7 @@
 + 협업 툴: Slack, Notion, Trello
 + 회의 방식: daily standup 미팅을 통해 각자 진행상황 공유와 업무 분담
 
-<hr/>
+
 
 ### 사용기술 스택
 + Front-end: <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"><img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black"><img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"><img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"><img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"><img src="https://img.shields.io/badge/Scss-CC6699?style=for-the-badge&logo=Sass&logoColor=white">
@@ -21,7 +21,7 @@
 #### Slack은 3일 이전 내용은 사라져서 Notion을 활용해서 좋았음
 <img width="1045" alt="image" src="https://user-images.githubusercontent.com/99310802/181910552-0de5c892-4f8b-4151-b1b0-fa749d0f103a.png">
 
-<hr/>
+
 
 # 필수구현 기능
 ## 1. Nav
@@ -80,7 +80,7 @@
 
 
 
-<hr/>
+
 
 
 
