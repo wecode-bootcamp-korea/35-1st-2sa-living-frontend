@@ -42,6 +42,7 @@
 ### 검색기능
 - 검색창에 알파벳을 검색 했을때 알파벳이 브랜드 이름에 포함될 경우 페이지에 뜰 수 있도록 구현
 </br>
+![](https://velog.velcdn.com/images/koooky35_b/post/9b4938fb-34cd-4429-a759-e7ebd1c98465/image.gif)
 
 4. Detail-page
 #### 책갈피 기능
