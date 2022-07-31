@@ -45,6 +45,8 @@
 
 ![](https://velog.velcdn.com/images/koooky35_b/post/9b4938fb-34cd-4429-a759-e7ebd1c98465/image.gif)
 
+</br>
+
 ## 4. Detail-page
 #### 책갈피 기능
 - useRef를 활용하여 상품상세정보, 리뷰&상품문의 클릭 시 해당내용 섹션으로 이동되는 기능
