@@ -22,16 +22,16 @@
 
 
 # 필수구현 기능
-##1. Nav
+## 1. Nav
 - ㅇ
 </br>
 
-##2. Main-page
+## 2. Main-page
 - 
 - ㅇ
 </br>
 
-##3. List-page
+## 3. List-page
 ### 하트 기능
 - 토큰이 있는지 없는지를 먼저 확인하고 로그인하여 하트의 정보를 가져온다
 - 로그인후 하트를 누른 이력이 있으면 색이 채워진 정보를 받아오고 아닐 경우는 빈 하트의 정보를 가져 오도록 구현
@@ -45,7 +45,7 @@
 
 ![](https://velog.velcdn.com/images/koooky35_b/post/9b4938fb-34cd-4429-a759-e7ebd1c98465/image.gif)
 
-##4. Detail-page
+## 4. Detail-page
 #### 책갈피 기능
 - useRef를 활용하여 상품상세정보, 리뷰&상품문의 클릭 시 해당내용 섹션으로 이동되는 기능
 - useEffect를 활용하여 페이지 상단으로 이동되는 버튼 구현 
@@ -58,9 +58,9 @@
 - 모달창 버튼 클릭 시 'POST' 하여 댓글들이 창에 그대로 남아있도록 DB 저장
 ![](https://velog.velcdn.com/images/koooky35_b/post/430bf78a-485d-4c88-8034-ae6043c9cc7d/image.gif)
 </br>
-##5. Cart
+## 5. Cart
 </br>
-##6. My-Info
+## 6. My-Info
 </br>
 
 ![](https://velog.velcdn.com/images/koooky35_b/post/f44bac40-b91f-4900-86b0-76895b06c724/image.gif)
