@@ -65,7 +65,7 @@
 ![](https://velog.velcdn.com/images/koooky35_b/post/f44bac40-b91f-4900-86b0-76895b06c724/image.gif)
 
 ![](https://velog.velcdn.com/images/koooky35_b/post/6dd37e7b-2024-4490-8f23-c98a788a9985/image.gif)
-![](https://velog.velcdn.com/images/koooky35_b/post/9b4938fb-34cd-4429-a759-e7ebd1c98465/image.gif)
+
 
 
 ### 프로젝트를 끝내고나서,
