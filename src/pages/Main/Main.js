@@ -1,18 +1,29 @@
 import { React, useEffect, useState } from 'react';
-
-import Slidebox from '../Slidebox/Slidebox';
+import Slidebox from './components/Slidebox';
 import Card from '../CardsBox/Card/Card';
+import styled from 'styled-components';
+import { getMainList } from '../../api/api';
 
 import './Main.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { getList } from '../../store/reducer';
+import Main01Compo from './components/Main01Compo';
+import Main02Compo from './components/Main02Compo';
 
 const Main = () => {
-  let [itemList, setItemList] = useState([]);
+  const dispatch = useDispatch();
   let [clickBtn, setClickBtn] = useState('new');
   let [modalOn, setModalOn] = useState(false);
+
+  const itemList = useSelector(state => state.mainList.value);
+
+  const fatchData = () => {
+    getMainList('/mainList.json').then(({ data }) => {
+      dispatch(getList(data));
+    });
+  };
   useEffect(() => {
-    fetch('/data/mainTestData.json')
-      .then(response => response.json())
-      .then(data => setItemList(data));
+    fatchData();
   }, []);
 
   let newMenu = itemList.filter(els => {
@@ -22,152 +33,14 @@ const Main = () => {
 
   return (
     <main>
-      <section>
-        <div className="main-01">
-          <div className="main-01-left">
-            <div
-              className="modal-call"
-              onClick={() => {
-                setModalOn(prev => !prev);
-              }}
-            >
-              <img src="/images/main/shopping_01.png" alt="" />
-            </div>
-            <div className="main-left-txt">
-              <p className="txt-top">#스테디셀러 #미드센츄리 #이탈리아</p>
-              <p className="txt-bottom">혁신적이고 자유로운 가구, Pezzani</p>
-            </div>
-            <div
-              className="main-left-modal"
-              style={{ right: modalOn ? '0' : '-424px' }}
-            >
-              <img
-                className="close-icon"
-                src="/images/MyInfo/close.png"
-                alt="닫기이콘"
-                onClick={() => {
-                  setModalOn(prev => !prev);
-                }}
-              />
-              <h3>BEST PRODUCT</h3>
-              <div className="modal-scroll">
-                <ul className="list">
-                  <li className="item">
-                    <img
-                      src="https://www.casa.co.kr/UploadFiles/Production/7/13/16576779381360.jpg"
-                      alt=""
-                    />
-                    <div className="item-txt">
-                      <p className="brand-txt">asda</p>
-                      <p className="product-name">safsafa</p>
-                      <p className="price">12312</p>
-                    </div>
-                  </li>
-                  <li className="item">
-                    <img
-                      src="https://www.casa.co.kr/UploadFiles/Production/7/13/16576779381360.jpg"
-                      alt=""
-                    />
-                    <div className="item-txt">
-                      <p className="brand-txt">asda</p>
-                      <p className="product-name">safsafa</p>
-                      <p className="price">12312</p>
-                    </div>
-                  </li>{' '}
-                  <li className="item">
-                    <img
-                      src="https://www.casa.co.kr/UploadFiles/Production/7/13/16576779381360.jpg"
-                      alt=""
-                    />
-                    <div className="item-txt">
-                      <p className="brand-txt">asda</p>
-                      <p className="product-name">safsafa</p>
-                      <p className="price">12312</p>
-                    </div>
-                  </li>{' '}
-                  <li className="item">
-                    <img
-                      src="https://www.casa.co.kr/UploadFiles/Production/7/13/16576779381360.jpg"
-                      alt=""
-                    />
-                    <div className="item-txt">
-                      <p className="brand-txt">asda</p>
-                      <p className="product-name">safsafa</p>
-                      <p className="price">12312</p>
-                    </div>
-                  </li>{' '}
-                  <li className="item">
-                    <img
-                      src="https://www.casa.co.kr/UploadFiles/Production/7/13/16576779381360.jpg"
-                      alt=""
-                    />
-                    <div className="item-txt">
-                      <p className="brand-txt">asda</p>
-                      <p className="product-name">safsafa</p>
-                      <p className="price">12312</p>
-                    </div>
-                  </li>{' '}
-                  <li className="item">
-                    <img
-                      src="https://www.casa.co.kr/UploadFiles/Production/7/13/16576779381360.jpg"
-                      alt=""
-                    />
-                    <div className="item-txt">
-                      <p className="brand-txt">asda</p>
-                      <p className="product-name">safsafa</p>
-                      <p className="price">12312</p>
-                    </div>
-                  </li>{' '}
-                  <li className="item">
-                    <img
-                      src="https://www.casa.co.kr/UploadFiles/Production/7/13/16576779381360.jpg"
-                      alt=""
-                    />
-                    <div className="item-txt">
-                      <p className="brand-txt">asda</p>
-                      <p className="product-name">safsafa</p>
-                      <p className="price">12312</p>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div className="main-01-right">
-            <div className="right-top">
-              <div className="right-top-child" />
-
-              <p className="right-top-top">
-                미니멀 라이프 <br />
-                DOTTUS
-              </p>
-            </div>
-
-            <div className="right-bottom">
-              <div className="right-bottom-child">
-                <p className="right-top-top">
-                  GUBI Obello Lamp <br />
-                  유리와 빛의 만남
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section>
-        <div className="main-02">
-          <h3>
-            <span>CSLV 리뷰클럽</span>
-          </h3>
-          <div className="main-02-contents">
-            <Slidebox />
-          </div>
-        </div>
-      </section>
-      <section>
-        <div className="main-03">
-          <ul className="main-03-list">
+      <MainSection />
+      <Main01Compo setModalOn={setModalOn} modalOn={modalOn} />
+      <MainSection>
+        <Main02Compo />
+      </MainSection>
+      <MainSection>
+        <Main03>
+          <Main03List>
             {MAINLISTDATA.map((els, idx) => {
               return (
                 <li
@@ -181,20 +54,61 @@ const Main = () => {
                 </li>
               );
             })}
-          </ul>
-          <div className="main-03-box">
+          </Main03List>
+          <Main03Box>
             {clickBtn === 'new' ? (
               <Card cardList={newMenu1} />
             ) : (
               <Card cardList={newMenu} />
             )}
-          </div>
-        </div>
-      </section>
+          </Main03Box>
+        </Main03>
+      </MainSection>
     </main>
   );
 };
 
-const MAINLISTDATA = ['NEW', 'SOFA', 'BED', 'TABLE'];
-
 export default Main;
+
+const MainSection = styled.section`
+  position: relative;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 20px 30px 0 30px;
+`;
+
+const Main03 = styled.div`
+  max-width: none !important;
+  padding: 70px 0 80px;
+  background: #f2f2f2;
+  text-align: center;
+`;
+
+const Main03List = styled.ul`
+  display: inline-block;
+  margin-bottom: 25px;
+  li {
+    float: left;
+    margin: 20px;
+    cursor: pointer;
+    line-height: 25px;
+    border-top: 1px solid transparent;
+  }
+  .on {
+    color: #ff5000;
+    font-weight: 800;
+    border-top: 3px solid #ff5000;
+    transition: 0.2s;
+  }
+`;
+
+const Main03Box = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 0 40px;
+`;
+
+const MAINLISTDATA = ['NEW', 'SOFA', 'BED', 'TABLE'];

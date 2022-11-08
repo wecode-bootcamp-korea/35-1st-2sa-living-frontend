@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 function Heart() {
   const fillHeart = e =>
@@ -7,10 +8,17 @@ function Heart() {
       : ((e.target.style.color = ''), (e.target.className = 'far fa-heart'));
 
   return (
-    <div class="Heart">
+    <Hearts className="Heart">
       <i onClick={fillHeart} className="far fa-heart" />
-    </div>
+    </Hearts>
   );
 }
 
 export default Heart;
+
+const Hearts = styled.div`
+  position: absolute;
+  bottom: 25%;
+  left: 50%;
+  padding: 10px;
+`;
