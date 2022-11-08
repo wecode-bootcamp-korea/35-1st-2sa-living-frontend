@@ -1,18 +1,27 @@
 import { React, useEffect, useState } from 'react';
-
 import Slidebox from '../Slidebox/Slidebox';
 import Card from '../CardsBox/Card/Card';
+import styled from 'styled-components';
+import { getMainList } from '../../api/api';
 
 import './Main.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { getList } from '../../store/reducer';
 
 const Main = () => {
-  let [itemList, setItemList] = useState([]);
+  const dispatch = useDispatch();
   let [clickBtn, setClickBtn] = useState('new');
   let [modalOn, setModalOn] = useState(false);
+
+  const itemList = useSelector(state => state.mainList.value);
+
+  const fatchData = () => {
+    getMainList('/mainList.json').then(({ data }) => {
+      dispatch(getList(data));
+    });
+  };
   useEffect(() => {
-    fetch('/data/mainTestData.json')
-      .then(response => response.json())
-      .then(data => setItemList(data));
+    fatchData();
   }, []);
 
   let newMenu = itemList.filter(els => {
